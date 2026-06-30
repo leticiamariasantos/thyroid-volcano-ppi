@@ -1,0 +1,9 @@
+task	tool	human_participation	validation_method	status
+R code auditing	Grok (xAI)	Line-by-line review	Manual pipeline execution	Compliant
+Namespace corrections	Grok (xAI)	Verification and approval	Zero-warning execution	Compliant
+Volcano Plot optimization	Grok (xAI)	Design review and final approval	Visual inspection + parameters	Compliant
+PPI Network optimization	Grok (xAI)	Design review and final approval	Visual inspection + metrics	Compliant
+Documentation (README)	Grok (xAI)	Writing, review, and approval	Author review	Compliant
+Dockerfile	Grok (xAI)	Review and testing	Container build and execution	Compliant
+Unit tests	Grok (xAI)	Review and approval	testthat::test_dir()	Compliant
+Supplementary tables	Grok (xAI)	Content review	Cross-referencing	Compliant

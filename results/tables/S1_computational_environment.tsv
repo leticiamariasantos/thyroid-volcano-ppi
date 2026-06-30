@@ -1,0 +1,18 @@
+package	version	main_function	source	required
+limma	3.68.4	Differential expression analysis (DEG)	Bioconductor	Yes
+ggplot2	4.0.3	Visualization (Volcano Plot)	CRAN	Yes
+ggrepel	0.9.8	Repulsive text labels	CRAN	Yes
+igraph	2.3.2	Network construction and analysis	CRAN	Yes
+ggraph	2.2.2	Network visualization	CRAN	Yes
+dplyr	1.2.1	Data manipulation	CRAN	Yes
+tidyr	1.3.2	Data tidying	CRAN	Yes
+readr	2.2.0	TSV read/write	CRAN	Yes
+tibble	3.3.1	Data structures	CRAN	Yes
+stringr	1.6.0	String manipulation	CRAN	Yes
+purrr	1.2.2	Functional programming	CRAN	Yes
+here	1.0.2	Path portability	CRAN	Yes
+KEGGREST	1.52.2	KEGG API (signaling pathway)	Bioconductor	Yes
+org.Hs.eg.db	3.23.1	Human gene annotation	Bioconductor	Yes
+AnnotationDbi	1.74.0	Annotation interface	Bioconductor	Yes
+httr	1.4.8	HTTP requests (STRING API)	CRAN	Yes
+jsonlite	2.0.0	JSON parsing (STRING API)	CRAN	Yes

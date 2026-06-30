@@ -1,0 +1,5 @@
+gene_symbol	regulation	degree	betweenness	closeness	hub_score
+PRKCA	Down	5	0.4762	8.52e-4	1
+PLCG1	Down	4	0.2857	7.3e-4	0.7693
+PLCD4	Down	4	0.0952	7.4e-4	0.8773
+PRKCG	Down	4	0	6.94e-4	0.9305

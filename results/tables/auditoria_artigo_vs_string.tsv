@@ -1,0 +1,269 @@
+================================================================================
+   RELATÓRIO DE AUDITORIA — CRUZAMENTO ARTIGO vs. TABELA STRING
+   resumo_expandido_tireoide_freitas_2026.docx  vs.  T08_gene_functions_string.tsv
+================================================================================
+
+Data: 2026-06-22
+Arquivo auditado: resumo_expandido_tireoide_freitas_2026.docx
+Base de referência:  T08_gene_functions_string.tsv (dados STRING v12.0 + pipeline limma)
+
+================================================================================
+   SUMÁRIO EXECUTIVO
+================================================================================
+Total de genes no artigo:         14 (de 29 DEGs totais)
+Total de inconsistências:          4 (1 grave, 3 moderadas)
+Total de incongruências:           0 (todos os genes do artigo existem na tabela)
+Status geral:                      ⚠ REQUER CORREÇÕES ANTES DA SUBMISSÃO
+
+================================================================================
+   1. INCONSISTÊNCIAS ENCONTRADAS (LINHA A LINHA)
+================================================================================
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🔴 INCONSISTÊNCIA #1 — GRAVE
+   "Top 5 genes com maior significância estatística" — gene errado na lista
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+TRECHO DO ARTIGO (Resultados e Discussão, §1):
+  "após a seleção dos cinco genes com maior significância estatística,
+   suas funções biológicas foram pesquisadas no STRING. Entre os genes
+   subexpressos, destacaram-se MYH7, DIO3 e ATP2A1. [...]
+   os genes superexpressos CCND1 e RXRG [...]"
+
+GENES CITADOS COMO "TOP 5": MYH7, DIO3, ATP2A1, CCND1, RXRG
+
+DADOS REAIS — Top 10 por adj.P.Val (significância estatística):
+  #1  MYH7       adj.P = 7,26e-224  Down  ✓ (ok)
+  #2  CCND1      adj.P = 1,03e-214  Up    ✓ (ok)
+  #3  ATP2A1     adj.P = 1,27e-169  Down  ✓ (ok)
+  #4  DIO3       adj.P = 4,44e-168  Down  ✓ (ok)
+  #5  MYH6       adj.P = 1,51e-157  Down  ✗ (DEVERIA estar na lista, mas NÃO está!)
+  #6  RXRG       adj.P = 3,26e-149  Up    ⚠ (está na lista, mas é o 6º, não o 5º)
+
+PROBLEMA: RXRG (adj.P = 3,26e-149) é MENOS significativo que MYH6 (adj.P = 1,51e-157).
+MYH6 ocupa a 5ª posição por p-valor ajustado, portanto DEVERIA constar entre
+os "cinco genes com maior significância estatística".
+
+CORREÇÃO SUGERIDA (3 opções):
+
+  Opção A — Corrigir a lista, substituindo RXRG por MYH6:
+    "Entre os genes subexpressos, destacaram-se MYH7, DIO3, ATP2A1 e MYH6.
+     Em contrapartida, o gene superexpresso CCND1 [...]"
+    (Aí RXRG seria citado separadamente como o de maior fold-change)
+
+  Opção B — Alterar o critério declarado no texto:
+    "após a seleção dos cinco genes com maior magnitude de fold-change [...]"
+    (Nesse caso RXRG é o 2º em |logFC|, então faria sentido. Mas aí o critério
+     seria |logFC|, e não "significância estatística")
+
+  Opção C — Incluir MYH6 como 6º gene e reformular:
+    "após a seleção dos genes com maior significância estatística, suas funções
+     biológicas foram pesquisadas no STRING. Entre os genes subexpressos,
+     destacaram-se MYH7, DIO3, ATP2A1 e MYH6. Em contrapartida, os genes
+     superexpressos CCND1 e RXRG [...]"
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🟡 INCONSISTÊNCIA #2 — MODERADA
+   DIO3 associado à homeostase de cálcio / relaxamento miocárdico
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+TRECHO DO ARTIGO (Conclusões):
+  "Os genes suprimidos no tumor, particularmente MYH7, DIO3, ATP2A1 evidenciam
+   um comprometimento coordenado da maquinaria contrátil cardíaca, da homeostase
+   do cálcio intracelular e do relaxamento miocárdico."
+
+FUNÇÃO REAL DO DIO3 (STRING v12.0):
+  "Desiodinase tipo III. Responsável pela inativação de T4 (→rT3) e de T3 (→T2).
+   Essencial para proteger tecidos fetais da exposição precoce a hormônios
+   tireoidianos. Pode regular as concentrações de hormônios tireoidianos fetais
+   circulantes ao longo da gestação."
+
+PROBLEMA: DIO3 atua no METABOLISMO DE HORMÔNIOS TIREOIDIANOS (inativação de T3/T4).
+NÃO tem relação funcional direta com "homeostase do cálcio" nem com "relaxamento
+miocárdico". Sua inclusão nessa frase causa confusão, pois o leitor pode inferir
+que DIO3 participa desses processos cardíacos — o que não é verdade.
+
+CORREÇÃO SUGERIDA: Separar DIO3 em uma oração própria, ou adicionar uma frase
+explicando sua real contribuição ao eixo tireoide-coração:
+
+  "Os genes suprimidos no tumor, particularmente MYH7 e ATP2A1, evidenciam
+   um comprometimento coordenado da maquinaria contrátil cardíaca, da homeostase
+   do cálcio intracelular e do relaxamento miocárdico. A supressão de DIO3, por
+   sua vez, sugere uma desregulação adicional do metabolismo periférico dos
+   hormônios tireoidianos, com potencial impacto sistêmico sobre a função
+   cardiovascular."
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🟡 INCONSISTÊNCIA #3 — MODERADA
+   ATP2A1 associado ao "relaxamento miocárdico" (isoforma errada)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+TRECHO DO ARTIGO (Resultados):
+  "ATP2A1 está relacionado ao transporte de íons cálcio e à regulação da
+   homeostase intracelular de cálcio."
+
+TRECHO DO ARTIGO (Conclusões):
+  "[...] relaxamento miocárdico."
+
+DADOS REAIS DO STRING:
+  ATP2A1 = SERCA1: "Key regulator of striated muscle performance by acting as
+  the major Ca(2+) ATPase responsible for the reuptake of cytosolic Ca(2+) into
+  the sarcoplasmic reticulum."
+  Família: tipo IIA — músculo esquelético rápido (fast-twitch).
+
+  ATP2A2 = SERCA2a: isoforma cardíaca, presente na via hsa04919 também.
+
+PROBLEMA: O artigo NÃO está errado ao descrever ATP2A1 como relacionado ao
+transporte de cálcio — a descrição está correta. Porém, ATP2A1 (SERCA1) é a
+isoforma do MÚSCULO ESQUELÉTICO RÁPIDO, não a isoforma cardíaca (SERCA2a =
+ATP2A2). Associar ATP2A1 ao "relaxamento miocárdico" sem ressalvas é impreciso,
+pois a isoforma canonicamente envolvida no relaxamento cardíaco é ATP2A2.
+
+Além disso, o modulador direto do relaxamento cardíaco na via é PLN (fosfolamban,
+logFC = -2,29, adj.P = 5,94e-97), que regula a SERCA2 cardíaca e NÃO foi
+mencionado no artigo.
+
+CORREÇÃO SUGERIDA:
+  "ATP2A1 está relacionado ao transporte de íons cálcio e à regulação da
+   homeostase intracelular de cálcio no músculo esquelético, podendo refletir
+   alterações sistêmicas no manejo de cálcio com implicações cardiovasculares."
+
+  Ou, alternativamente, incluir PLN e ATP2A2 na discussão:
+  "A supressão coordenada de MYH7, PLN e ATP2A1/ATP2A2 evidencia um
+   comprometimento da maquinaria contrátil e do manejo de cálcio."
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🟡 INCONSISTÊNCIA #4 — MODERADA
+   STAT1 associado à "proliferação celular" (função canônica oposta)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+TRECHO DO ARTIGO (Conclusões):
+  "os genes superexpressos, como CCND1, PIK3R2, STAT1 e ITGAV, apontam para a
+   ativação de vias de proliferação celular, inflamação e remodelamento vascular"
+
+DADOS REAIS DO STRING:
+  STAT1: "Signal transducer and transcription activator that mediates cellular
+  responses to interferons (IFNs). [...] ISGF3 transcription factor, that enters
+  the nucleus. ISGF3 binds to the IFN stimulated response element (ISRE) to
+  activate the transcription of interferon-stimulated genes (ISG), which drive
+  the cell in an antiviral state."
+
+FUNÇÃO CANÔNICA: STAT1 é primariamente um MEDIADOR DE RESPOSTA A INTERFERONS
+(antiviral, pró-inflamatório) e SUPRESSOR TUMORAL (anti-proliferativo). Sua
+função canônica é OPOSTA à proliferação celular — STAT1 ativa genes que inibem
+o ciclo celular e promovem apoptose.
+
+PROBLEMA: Incluir STAT1 no grupo de genes que "apontam para a ativação de vias
+de proliferação celular" é impreciso. STAT1 está correto como pró-inflamatório,
+mas não como pró-proliferativo.
+
+CORREÇÃO SUGERIDA:
+  "os genes superexpressos, como CCND1 e PIK3R2, apontam para a ativação de vias
+   de proliferação celular, enquanto STAT1 sugere um ambiente pró-inflamatório,
+   e ITGAV indica remodelamento vascular e alterações na matriz extracelular."
+
+================================================================================
+   2. VERIFICAÇÕES CONFIRMADAS COMO CORRETAS ✓
+================================================================================
+
+✓ MYH7 → "associado à contração muscular e à atividade ATPase dependente de actina"
+  Bate com STRING: "Myosins are actin-based motor molecules with ATPase activity
+  essential for muscle contraction. Forms regular bipolar thick filaments..."
+
+✓ DIO3 → "participa do metabolismo dos hormônios tireoidianos por meio da
+  inativação de iodotironinas"
+  Bate com STRING: "Responsible for the deiodination of T4 into RT3 and of T3
+  into T2. RT3 and T2 are inactive metabolites."
+
+✓ CCND1 → "regulação do ciclo celular"
+  Bate com STRING: "Regulatory component of the cyclin D1-CDK4 (DC) complex that
+  phosphorylates and inhibits members of the retinoblastoma (RB) protein family
+  and regulates the cell-cycle during G(1)/S transition."
+
+✓ RXRG → "mecanismos de regulação transcricional mediados por receptores nucleares"
+  Bate com STRING: "Receptor for retinoic acid. Retinoic acid receptors bind as
+  heterodimers to their target response elements... regulate gene expression."
+
+✓ Módulo 1 da PPI: PRKCA, PRKCG, PLCG1, PLCD3, PLCD4, PIK3R2 — "transdução de
+  sinais intracelulares"
+  Correto: todos são componentes de vias de sinalização (PKC, PLC, PI3K).
+
+✓ Módulo 2 da PPI: ACTG1, ITGAV — "organização estrutural celular e interações
+  célula-matriz"
+  Correto: ACTG1 = actina do citoesqueleto, ITGAV = integrina de adesão/MEC.
+
+✓ PRKCA como principal hub: grau 5, betweenness 0,476 — confirmado nos dados.
+  "Elo funcional entre os dois módulos": PRKCA conecta-se a ACTG1 (score 918),
+  ligando Módulo 1 ao Módulo 2. CORRETO.
+
+✓ Todos os 14 genes citados no artigo constam na tabela T08 (29 DEGs totais).
+  Nenhum gene "fantasma" foi citado.
+
+✓ Dados de expressão (sentido up/down) corretos para todos os 14 genes.
+
+================================================================================
+   3. GENES OMITIDOS QUE MERECEM MENÇÃO
+================================================================================
+
+Estes genes têm alta significância estatística e relevância funcional para
+o eixo tireoide-coração mas NÃO foram citados no artigo:
+
+  Gene      logFC     adj.P.Val     Relevância para o eixo tireoide-coração
+  ─────────────────────────────────────────────────────────────────────────
+  MYH6      -4,423    1,51e-157     Cadeia pesada da miosina-6 (alfa) cardíaca.
+                                     Isoforma principal do átrio. Altíssima
+                                     significância — DEVERIA ser mencionado.
+
+  PLN       -2,290    5,94e-97      Fosfolamban. Inibidor direto da SERCA2
+                                     cardíaca. Regulador central do relaxamento
+                                     miocárdico. Essencial para a discussão
+                                     cardíaca do artigo.
+
+  PLCG1     -1,427    5,77e-141     Fosfolipase C gama-1. Hub da rede PPI (grau 4).
+                                     Sinalização tirosina-quinase → cálcio.
+
+  KAT2A     -1,799    6,10e-136     Histona acetiltransferase. Regulação
+                                     epigenética. Significância muito alta.
+
+  TBC1D4    -1,635    2,06e-94      AS160. Translocação de GLUT4 → captação de
+                                     glicose. Relevância metabólica.
+
+================================================================================
+   4. RECOMENDAÇÕES DE CORREÇÃO PRIORIZADAS
+================================================================================
+
+  PRIORIDADE 1 (obrigatório corrigir antes da submissão):
+    → Corrigir a lista dos "cinco genes com maior significância estatística"
+      (incluir MYH6 ou alterar o critério declarado).
+
+  PRIORIDADE 2 (recomendado corrigir):
+    → Separar DIO3 da frase sobre homeostase de cálcio/relaxamento miocárdico.
+    → Qualificar a menção a ATP2A1 como isoforma de músculo esquelético, ou
+      incluir ATP2A2/PLN como os genes cardíacos canônicos.
+    → Separar STAT1 do grupo de genes pró-proliferativos.
+
+  PRIORIDADE 3 (sugestão de melhoria):
+    → Mencionar MYH6 e PLN, dada sua altíssima significância e relevância
+      cardiovascular direta.
+    → Citar PLCG1 como hub da rede (grau 4, 2º maior hub depois de PRKCA).
+
+================================================================================
+   5. CONCLUSÃO DA AUDITORIA
+================================================================================
+
+A tabela T08_gene_functions_string.tsv está CORRETA e todos os dados batem
+com o STRING v12.0 e com a pipeline limma executada. NENHUMA correção é
+necessária na tabela.
+
+O artigo contém 4 inconsistências em relação aos dados:
+  1 GRAVE   — Gene errado no "top 5 por significância estatística"
+  3 MODERADAS — Associações funcionais imprecisas (DIO3, ATP2A1, STAT1)
+
+As correções sugeridas acima resolvem todas as inconsistências sem alterar
+a linha argumentativa central do artigo.
+
+================================================================================
+Arquivo gerado por: auditoria automática — pipeline thyroid-volcano-ppi
+Fonte dos dados funcionais: STRING v12.0 (string-db.org)
+Fonte dos dados de expressão:   limma + TCGA-GTEx via UCSC Xena
+================================================================================

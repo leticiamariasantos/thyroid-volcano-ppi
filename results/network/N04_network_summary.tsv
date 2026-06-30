@@ -1,0 +1,18 @@
+metric	value
+Input DEGs	29
+Mapped STRING	29
+Mapping rate	100.0%
+Edges (≥threshold)	31
+Nodes	8
+Edges	12
+Hub proteins	4
+Top hub	PRKCA
+Top hub degree	5
+Top hub betweenness	0.4762
+Communities	2
+Modularity	0.1088
+Clustering coeff	0.6562
+Density	0.428571
+STRING score	700
+STRING version	12.0
+Layout	Fruchterman-Reingold

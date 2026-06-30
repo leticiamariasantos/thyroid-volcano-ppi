@@ -1,0 +1,17 @@
+etapa	PRKCA_presente	observacao
+1. Importação Xena TSV	Sim (gene_symbol = PRKCA)	PRKCA presente desde a origem dos dados
+2. Filtro de amostras (condição definida)	Sim (783 amostras)	Nenhuma exclusão por metadata
+3. Transposição (genes × amostras)	Sim	Matriz 119 genes × 783 amostras
+4. Filtro de baixa expressão	Sim (AveExpr = 8.60, acima do limiar 0.5)	PRKCA expresso acima do limiar em >10% das amostras
+5. limma lmFit + eBayes	Sim (t = −13.69, B = 75.47)	Significativo: adj.P.Val = 5.97e−38
+6. Classificação DEG (|logFC|>1, FDR<0.05)	Sim (Down, logFC = −1.024, adj.P.Val = 5.97e−38)	|logFC|=1.024, borderline mas passa o threshold (>1.0)
+7. Anotação KEGG hsa04919	Sim (in_kegg = TRUE)	Pertence à via SHT (hsa04919)
+8. Volcano plot — ponto	Sim (ponto magenta, quadrante inferior esquerdo)	Ponto visível no volcano
+9. Volcano plot — label automático (top FDR/top LFC)	NÃO — rank #26 por FDR (top 8 não inclui); rank #20 por |logFC| (top 5 Down não inclui)	Bug v3.0.0: PRKCA rank #26 FDR, #20 |logFC| — excluído de todos os critérios de label
+10. Volcano plot — label via hubs (cent)	NÃO na v3.0.0 (cent não existia); SIM na v3.1.0 (pipeline reordenado + FORCE_LABEL)	CORRIGIDO v3.1.0: pipeline reordenado (PPI antes do volcano) + FORCE_LABEL
+11. STRING mapping	Sim (9606.ENSP00000408695)	Mapeamento 100% (29/29 DEGs)
+12. STRING edges (≥700)	Sim (5 edges: PLCG1, PRKCG, PLCD3, PLCD4, ACTG1)	31 edges totais, PRKCA participa de 5
+13. Rede PPI — giant component	Sim (grau = 5)	8 nós na rede final
+14. Centralidade (degree, betweenness, closeness, hub_score)	Sim (degree=5, betweenness=0.476, closeness=8.52e−4, hub_score=1.000)	Maior betweenness da rede (0.476)
+15. Classificação hub (betweenness≥p75 & degree≥2 | degree≥4)	Sim (is_hub = TRUE)	Hub threshold: betweenness≥p75(>0) & degree≥2 | degree≥4
+16. Volcano plot FINAL (pipeline reordenado)	Sim — rotulado com ggrepel	Volcano plot final com PRKCA rotulado
