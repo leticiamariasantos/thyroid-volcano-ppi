@@ -1,0 +1,112 @@
+
+═══════════════════════════════════════════
+thyroid-volcano-ppi v 3.1.0 
+KEGG: hsa04919 | STRING v 12.0 
+Root: C:/Users/oorie/OneDrive/Documentos/TRABALHOS/TIREOIDE 
+2026-06-24 16:41:40 
+═══════════════════════════════════════════
+NOTE: Exploratory study. No batch correction applied.
+      TCGA vs GTEx comparison requires cautious interpretation.
+      See AUDIT_REPORT.md for full limitations.
+
+renv detected. Run renv::snapshot() to update renv.lock after package changes.
+
+╔══════════════════════════════════════════════════════╗
+║  thyroid-volcano-ppi : THCA DEG + PPI Analysis      ║
+║  Output: Volcano Plot + PPI Network                  ║
+║  Standard: Nature Communications / Cell Press        ║
+╚══════════════════════════════════════════════════════╝
+
+
+── M1: Data Import & QC ──
+  Loaded: 783 × 127
+  Missing values: 0.00%
+  QC: max=18.16 | non-int=92.7%
+  NOTE: TCGA vs GTEx comparison without batch correction.
+  Differential expression may partially reflect technical variation.
+  See AUDIT_REPORT.md and docs/analysis_protocol.md
+
+  Samples:
+
+Normal   THCA 
+   279    504 
+  -> T01_sample_composition.tsv (2x4)
+  Ready: 783 samples × 121 genes
+
+── M2: Differential Expression (limma) ──
+  Filter: 119 kept / 2 removed (98.3%)
+
+  DEGs (|log2FC| >1, FDR <0.05):
+
+Down   NS   Up 
+  20   90    9 
+
+  KEGG: 121 genes | 119 in data | 29 DEGs (9↑ 20↓)
+  Missing from expression: 2 
+  -> T05_kegg_missing_genes.tsv (2x2)
+  -> T02_deg_summary.tsv (14x2)
+  -> T03_deg_full_results.tsv (119x9)
+  -> T04_top20_degs.tsv (20x7)
+
+  DEG done: ↑ 9 | ↓ 20 | Σ 29 
+
+── M3: PPI Network ──
+  DEGs: 29 (↑9 ↓20)
+  STRING mapping...
+  Mapped: 29/29
+  Fetching edges...
+  Edges: 31 (≥700)
+  Network: 8 nodes, 12 edges
+  Hubs: 4
+  Communities: 2 (modularity 0.1088)
+  Layout: Fruchterman-Reingold...
+  Intra-community edges: 11 | Inter-community: 1
+  PPI: 8 nodes | 12 edges | 2 communities | 4 hubs
+  NOTE: Hubs are exploratory centrality metrics; they do not imply
+  therapeutic targets, druggability, or causal mechanisms.
+  -> N01_string_mapping.tsv (29x3)
+  -> N02_string_interactions.tsv (31x3)
+  -> N03_centrality_metrics.tsv (8x8)
+  -> N04_network_summary.tsv (17x2)
+  -> T06_hub_proteins.tsv (4x6)
+  -> T07_kegg_degs_ppi.tsv (29x9)
+  PPI done.
+
+── M4: Volcano Plot (hubs from PPI) ──
+  Labels: 15 genes
+  Volcano: 119 genes | 29 DEGs (up 9, down 20)
+
+── S1: PCA / MDS Plot ──
+  PCA: 783 samples | PC1: 35.0% | PC2: 13.1%
+  NOTE: Clear separation by condition is expected (tumor vs normal).
+  If samples cluster by study (TCGA vs GTEx) rather than condition,
+  batch effect may dominate biological signal.
+
+── S2: Heatmap (Top DEGs) ──
+  Heatmap skipped: índice fora dos limites 
+
+Tip: run renv::snapshot() to update renv.lock with current packages.
+
+╔══════════════════════════════════════════════════════╗
+║  PIPELINE COMPLETED SUCCESSFULLY                     ║
+╚══════════════════════════════════════════════════════╝
+
+Outputs:
+  Fig1: Volcano Plot     -> results/figures/Fig1_Volcano_THCA_vs_Normal.{png,pdf}
+  Fig2: PPI Network      -> results/figures/Fig2_PPI_Network_THCA_DEGs.{png,pdf}
+  Tables (7)             -> results/tables/
+  Network metadata (4)   -> results/network/
+  Session info           -> logs/session_info.txt
+
+DISCLAIMER: This pipeline generates hypotheses based on
+transcriptomic associations. It does not establish causality,
+therapeutic targets, or clinical recommendations. PPI hub
+proteins are identified by centrality metrics (exploratory);
+they do not imply biological validation or druggability.
+
+Study type: Exploratory, hypothesis-generating.
+TCGA vs GTEx comparison without batch effect correction —
+differential expression may partially reflect technical variation.
+See AUDIT_REPORT.md for full scientific limitations.
+
+ 2026-06-24 16:42:14 

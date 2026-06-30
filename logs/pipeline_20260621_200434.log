@@ -1,0 +1,73 @@
+
+═══════════════════════════════════════════
+thyroid-volcano-ppi | KEGG: hsa04919 | STRING v 12.0 
+Raiz: C:/Users/oorie/OneDrive/Documentos/TRABALHOS/TIREOIDE 
+2026-06-21 20:04:34 
+═══════════════════════════════════════════
+
+
+── M1: Importação e QC dos Dados ──
+  Carregado: 783 × 127
+  Valores ausentes: 0.00%
+  QC: max=18.16 | não-inteiro=92.7%
+
+  Amostras:
+
+Normal   THCA 
+   279    504 
+  → T01_sample_composition.tsv (2×4)
+  Pronto: 783 amostras × 121 genes
+
+── M2: Expressão Diferencial (limma) ──
+  Filtro: 119 mantidos / 2 removidos (98.3%)
+
+  DEGs (|log2FC| >1, FDR <0.05):
+
+Down   NS   Up 
+  20   90    9 
+
+  KEGG: 121 genes | 119 nos dados | 29 DEGs (9↑ 20↓)
+  Ausentes da expressão: 2 
+  → T05_kegg_missing_genes.tsv (2×2)
+  → T02_deg_summary.tsv (14×2)
+  → T03_deg_full_results.tsv (119×9)
+  → T04_top20_degs.tsv (20×7)
+
+  DEG concluído: ↑ 9 | ↓ 20 | Σ 29 
+
+── M3: Volcano Plot ──
+  Rótulos: 12 genes
+  ✓ Volcano: 119 genes | 29 DEGs (↑9 ↓20)
+
+── M4: Rede PPI ──
+  DEGs: 29 (↑9 ↓20)
+  Mapeando STRING...
+  Mapeados: 29/29
+  Buscando arestas...
+  Arestas: 31 (≥700)
+  Rede: 8 nós, 12 arestas
+  Hubs: 5
+  Comunidades: 2 (modularidade 0.1088)
+  Layout: Fruchterman-Reingold...
+  Arestas intra-comunidade: 11 | inter-comunidade: 1
+  ✓ PPI: 8 nós | 12 arestas | 2 comunidades | 5 hubs
+  → N01_string_mapping.tsv (29×3)
+  → N02_string_interactions.tsv (31×3)
+  → N03_centrality_metrics.tsv (8×8)
+  → N04_network_summary.tsv (17×2)
+  → T06_hub_proteins.tsv (5×6)
+  → T07_kegg_degs_ppi.tsv (29×9)
+  PPI concluída.
+
+╔══════════════════════════════════════════════════════╗
+║  PIPELINE CONCLUÍDO COM SUCESSO                      ║
+╚══════════════════════════════════════════════════════╝
+
+Saídas geradas:
+  ★ Fig1: Volcano Plot     → results/figures/Fig1_Volcano_THCA_vs_Normal.png
+  ★ Fig2: Rede PPI         → results/figures/Fig2_PPI_Network_THCA_DEGs.png
+  Tabelas (7)              → results/tables/
+  Metadados da rede (4)    → results/network/
+  Session info             → logs/session_info.txt
+
+ 2026-06-21 20:04:42 

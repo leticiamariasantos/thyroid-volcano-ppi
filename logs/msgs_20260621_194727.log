@@ -1,0 +1,6 @@
+Mensagen de aviso:
+Removed 1 row containing missing values or values outside the scale range
+(`geom_hline()`). 
+Mensagen de aviso:
+`hub_score()` was deprecated in igraph 2.0.3.
+ℹ Please use `hits_scores()` instead. 

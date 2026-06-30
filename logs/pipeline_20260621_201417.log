@@ -1,0 +1,73 @@
+
+═══════════════════════════════════════════
+thyroid-volcano-ppi | KEGG: hsa04919 | STRING v 12.0 
+Root: C:/Users/oorie/OneDrive/Documentos/TRABALHOS/TIREOIDE 
+2026-06-21 20:14:17 
+═══════════════════════════════════════════
+
+
+── M1: Data Import & QC ──
+  Loaded: 783 × 127
+  Missing values: 0.00%
+  QC: max=18.16 | non-int=92.7%
+
+  Samples:
+
+Normal   THCA 
+   279    504 
+  → T01_sample_composition.tsv (2×4)
+  Ready: 783 samples × 121 genes
+
+── M2: Differential Expression (limma) ──
+  Filter: 119 kept / 2 removed (98.3%)
+
+  DEGs (|log2FC| >1, FDR <0.05):
+
+Down   NS   Up 
+  20   90    9 
+
+  KEGG: 121 genes | 119 in data | 29 DEGs (9↑ 20↓)
+  Missing from expression: 2 
+  → T05_kegg_missing_genes.tsv (2×2)
+  → T02_deg_summary.tsv (14×2)
+  → T03_deg_full_results.tsv (119×9)
+  → T04_top20_degs.tsv (20×7)
+
+  DEG done: ↑ 9 | ↓ 20 | Σ 29 
+
+── M3: Volcano Plot ──
+  Labels: 12 genes
+  ✓ Volcano: 119 genes | 29 DEGs (↑9 ↓20)
+
+── M4: PPI Network ──
+  DEGs: 29 (↑9 ↓20)
+  STRING mapping...
+  Mapped: 29/29
+  Fetching edges...
+  Edges: 31 (≥700)
+  Network: 8 nodes, 12 edges
+  Hubs: 5
+  Communities: 2 (modularity 0.1088)
+  Layout: Fruchterman-Reingold...
+  Intra-community edges: 11 | Inter-community: 1
+  ✓ PPI: 8 nodes | 12 edges | 2 communities | 5 hubs
+  → N01_string_mapping.tsv (29×3)
+  → N02_string_interactions.tsv (31×3)
+  → N03_centrality_metrics.tsv (8×8)
+  → N04_network_summary.tsv (17×2)
+  → T06_hub_proteins.tsv (5×6)
+  → T07_kegg_degs_ppi.tsv (29×9)
+  PPI done.
+
+╔══════════════════════════════════════════════════════╗
+║  PIPELINE COMPLETED SUCCESSFULLY                     ║
+╚══════════════════════════════════════════════════════╝
+
+Outputs:
+  ★ Fig1: Volcano Plot     → results/figures/Fig1_Volcano_THCA_vs_Normal.png
+  ★ Fig2: PPI Network      → results/figures/Fig2_PPI_Network_THCA_DEGs.png
+  Tables (7)               → results/tables/
+  Network metadata (4)     → results/network/
+  Session info             → logs/session_info.txt
+
+ 2026-06-21 20:14:25 

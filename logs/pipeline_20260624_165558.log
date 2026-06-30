@@ -1,0 +1,50 @@
+
+═══════════════════════════════════════════
+thyroid-volcano-ppi v 3.1.0 
+KEGG: hsa04919 | STRING v 12.0 
+Root: C:/Users/oorie/OneDrive/Documentos/TRABALHOS/TIREOIDE 
+2026-06-24 16:55:58 
+═══════════════════════════════════════════
+NOTE: Exploratory study. No batch correction applied.
+      TCGA vs GTEx comparison requires cautious interpretation.
+      See AUDIT_REPORT.md for full limitations.
+
+renv detected. Run renv::snapshot() to update renv.lock after package changes.
+
+── M1: Data Import & QC ──
+  Loaded: 783 × 127
+  Missing values: 0.00%
+  QC: max=18.16 | non-int=92.7%
+  NOTE: TCGA vs GTEx comparison without batch correction.
+  Differential expression may partially reflect technical variation.
+  See AUDIT_REPORT.md and docs/analysis_protocol.md
+
+  Samples:
+
+Normal   THCA 
+   279    504 
+  -> T01_sample_composition.tsv (2x4)
+  Ready: 783 samples × 121 genes
+
+── M2: Differential Expression (limma) ──
+  Filter: 119 kept / 2 removed (98.3%)
+
+  DEGs (|log2FC| >1, FDR <0.05):
+
+Down   NS   Up 
+  20   90    9 
+
+  KEGG: 121 genes | 119 in data | 29 DEGs (9↑ 20↓)
+  Missing from expression: 2 
+  -> T05_kegg_missing_genes.tsv (2x2)
+  -> T02_deg_summary.tsv (14x2)
+  -> T03_deg_full_results.tsv (119x9)
+  -> T04_top20_degs.tsv (20x7)
+
+  DEG done: ↑ 9 | ↓ 20 | Σ 29 
+
+── QC: UMAP ──
+  UMAP QC: condition + source plots exported.
+  NOTE: If samples cluster by source (TCGA vs GTEx) rather than
+  condition, batch effect may be significant. The PCA (FigS1) and
+  UMAP plots together allow visual batch effect assessment.

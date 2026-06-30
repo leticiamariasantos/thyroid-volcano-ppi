@@ -1,0 +1,4 @@
+Error in data.frame(sample = colnames(E), mean_expr = colMeans(E, na.rm = TRUE),  : 
+  argumentos implicam em número de linhas distintos: 0, 783
+Calls: source -> withVisible -> eval -> eval -> data.frame
+Execução interrompida
