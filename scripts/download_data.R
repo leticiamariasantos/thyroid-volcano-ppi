@@ -23,7 +23,7 @@ XENA_URL <- paste0(
   "TcgaTargetGtex_rsem_gene_tpm.gz"
 )
 
-output_path <- file.path(PROJECT_ROOT, "data", "raw", "XENA_THCA.tsv")
+output_path <- file.path(PROJECT_ROOT, "data", "global", "TcgaTargetGtex_rsem_gene_tpm.gz")
 
 cat("\n")
 cat("╔══════════════════════════════════════════════════╗\n")
@@ -43,7 +43,7 @@ cat("URL:", XENA_URL, "\n\n")
 cat("NOTE: If download fails, please download manually from:\n")
 cat("  https://xenabrowser.net/?bookmark=c486b845ee2e750c3a9d2fc5145c8426\n")
 cat("  → Click 'Download' → 'Download current visualization data'\n")
-cat("  → Save as: data/raw/XENA_THCA.tsv\n\n")
+cat("  → Save as: data/global/TcgaTargetGtex_rsem_gene_tpm.gz\n\n")
 
 tryCatch({
   options(timeout = 600)

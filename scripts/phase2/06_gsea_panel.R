@@ -38,7 +38,7 @@ gsea_one <- function(rankvec, label) {
   gs <- gs[lengths(gs) > 0]
   set.seed(SEED)
   res <- fgseaMultilevel(pathways = gs, stats = rankvec,
-                         minSize = 1, maxSize = 2000, eps = 0, nPermSimple = 10000)
+                         minSize = 5, maxSize = 2000, eps = 0, nPermSimple = 10000)
   res <- as.data.table(res)
   res$method <- label
   res

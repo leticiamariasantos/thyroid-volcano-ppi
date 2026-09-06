@@ -1,31 +1,39 @@
 # Data Directory
 
+Dados de entrada e proveniência do projeto (Fase 2 — reboot).
+
+## data/global/
+
+Matrizes globais de expressão (TCGA-THCA + GTEx tireoide) e o arquivo bruto:
+
+| Arquivo | Conteúdo |
+|---|---|
+| `TcgaTargetGtex_rsem_gene_tpm.gz` | Matriz TOIL global (60.498 genes × 19.131 amostras, todos os tecidos) |
+| `TCGA_GTEx_thyroid_tpm.tsv` | Subconjunto tireoide (58.581 genes × 783 amostras), log2(TPM+0.001) |
+| `TCGA_GTEx_thyroid_counts.tsv` | Contagens recount3 (56.937 genes × 782 amostras) |
+| `MANIFEST.tsv` / `MANIFEST_counts.tsv` | Manifestos de proveniência |
+| `gencode.v23.annotation.gene.probemap.tsv` | Mapa de sondas GENCODE v23 |
+
+## data/external/
+
+Dados externos usados na validação, single-cell e gene sets:
+
+- `GSE33630/`, `GSE60542/` — matrizes GEO (microarray GPL570)
+- `GSE224356/` — listas de DEGs pré-computadas (xlsx)
+- `GSE232237/` — single-cell de PTC (contagens e resultados marker-based)
+- `GSE182416/` — single-cell de tireoide normal
+- `reactome/ReactomePathways.gmt` — gene sets Reactome
+
 ## data/raw/
 
-Place the `XENA_THCA.tsv` file here before running the pipeline.
+`XENA_THCA.tsv` — arquivo legado da Fase 1 (via direcionada hsa04919). Não é usado
+pela Fase 2 (reboot).
 
-### Download
+## data/manifests/
 
-```bash
-Rscript scripts/download_data.R
-```
+Manifestos de proveniência da Fase 2 (`MANIFEST_TPM.tsv`, `MANIFEST_counts.tsv`).
 
-Or manually from Xena Browser:
-1. Go to: https://xenabrowser.net/?bookmark=c486b845ee2e750c3a9d2fc5145c8426
-2. Click "Download" → "Download current visualization data"
-3. Save as: `data/raw/XENA_THCA.tsv`
+## Download
 
-### Format
-
-- **Source**: UCSC Xena Browser (TCGA THCA + GTEx Thyroid)
-- **Values**: log₂(norm_count + 1)
-- **Rows**: samples
-- **Columns**: sample metadata (1-5) + gene symbols (6+)
-
-## data/processed/
-
-Intermediate files generated during pipeline execution. Not versioned.
-
-## data/string_cache/
-
-STRING database cache files. Auto-populated on first run. Not versioned.
+O arquivo bruto global pode ser obtido em:
+https://toil-xena-hub.s3.us-east-1.amazonaws.com/download/TcgaTargetGtex_rsem_gene_tpm.gz

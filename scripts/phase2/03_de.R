@@ -30,6 +30,11 @@ condition_cnt <- factor(cnt_meta$condition, levels = c("Normal", "THCA"))
 # 1. limma (análise PRINCIPAL — log2 TPM)
 # ═══════════════════════════════════════════════════════════════════════════════
 log_msg("── limma (log2 TPM) ──")
+# Justificativa: a análise principal usa lmFit/eBayes sobre log2(TPM+0.001) após
+# filtragem de baixa expressão (TPM>0.1 em >=25% das amostras), que reduz a
+# heterocedasticidade típica de contagens. A concordância com limma-voom e DESeq2
+# (que modelam a variância de contagens) é usada como triangulação, não como
+# dependência de pesos de precisão. Ver method_concordance.tsv (Spearman 0,88–0,96).
 # filtro de baixa expressão: expresso (TPM>0.1) em >=25% das amostras
 expr_thr <- log2(0.1 + 0.001)
 keep_tpm <- rowSums(tpm > expr_thr) >= (EXPR_FRAC * ncol(tpm))

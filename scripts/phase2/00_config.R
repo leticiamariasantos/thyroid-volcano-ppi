@@ -23,7 +23,7 @@ LOGFC_THRESH   <- 1.0      # |log2FC| mínimo para classificar DEG
 FDR_THRESH     <- 0.05     # FDR máximo (Benjamini-Hochberg)
 STRING_SCORE   <- 700      # escore mínimo STRING (alta confiança)
 MIN_EXPR_CPM   <- 1        # filtro de baixa expressão (voom/DESeq2): >=1 CPM em >=25% das amostras do menor grupo
-MIN_EXPR_TPM   <- 0.25     # filtro de baixa expressão (limma TPM): >=0.25 log2(TPM+0.001) i.e. TPM>=~0.19
+# filtro de baixa expressão (limma TPM): TPM > 0.1 em >=25% das amostras (aplicado em 03_de.R)
 EXPR_FRAC      <- 0.25     # fração mínima de amostras expressando acima do limiar
 
 # ── Caminhos (via here::here() → raiz do repositório) ─────────────────────────
@@ -76,3 +76,7 @@ new_checker <- function() {
 }
 
 log_msg("Configuração carregada. Raiz do repositório:", here())
+
+# captura do sessionInfo para rastreabilidade (a cada execução)
+dir.create(here("logs"), showWarnings = FALSE)
+writeLines(capture.output(sessionInfo()), here("logs", "session_info.txt"))

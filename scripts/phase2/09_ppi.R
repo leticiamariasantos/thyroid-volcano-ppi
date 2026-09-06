@@ -2,10 +2,11 @@
 # 09_ppi.R — Rede PPI (reconstruída do zero, após DE/enriquecimento)
 #
 # Genes elegíveis definidos de forma PRÉ-ESPECIFICADA (regra fixada antes da
-# consulta): DEGs da análise principal (limma) com FDR<0.05 e |logFC|>=2;
-# se >400 genes, mantém os 400 de maior |t|. Consulta STRING (taxon 9606,
-# escore>=700). Identifica hubs e comunidades (walktrap). Centralidade é
-# propriedade topológica, NÃO sinônimo de alvo terapêutico.
+# consulta): DEGs da análise principal (limma) com FDR<0.05 e |logFC|>=1,
+# excluindo os 48 marcadores de músculo estriado (artefato de composição do
+# tecido normal), equilibrados em 250 Up + 250 Down por |t|. Consulta STRING
+# (taxon 9606, escore>=700). Identifica hubs e comunidades (walktrap). Centralidade
+# é propriedade topológica, NÃO sinônimo de alvo terapêutico.
 # ═══════════════════════════════════════════════════════════════════════════════
 
 suppressPackageStartupMessages(library(here))

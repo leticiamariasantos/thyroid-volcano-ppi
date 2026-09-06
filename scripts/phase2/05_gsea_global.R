@@ -40,6 +40,10 @@ kegg_ms <- msigdbr(species = "Homo sapiens", collection = "C2", subcollection = 
 kegg_sets <- split(kegg_ms$gene_symbol, kegg_ms$gs_name)
 log_msg("  KEGG:", length(kegg_sets), "gene sets")
 saveRDS(kegg_sets, file.path(DIR_DATAOUT, "gsea_kegg_genesets.rds"))
+# mapa ID -> nome (para casamento exato na matriz de robustez)
+kegg_id_map <- setNames(kegg_ms$gs_name, kegg_ms$gs_exact_source)
+kegg_id_map <- kegg_id_map[!duplicated(names(kegg_id_map)) & !is.na(names(kegg_id_map))]
+saveRDS(kegg_id_map, file.path(DIR_DATAOUT, "gsea_kegg_id_map.rds"))
 gsea_kegg <- run_fgsea(kegg_sets, rank_t, "KEGG")
 fwrite_tsv(gsea_kegg, file.path(DIR_GSEA, "GSEA_GLOBAL_KEGG.tsv"))
 
@@ -54,6 +58,12 @@ react_sets <- lapply(gmt, function(line) {
 react_sets <- unlist(react_sets, recursive = FALSE)
 log_msg("  Reactome:", length(react_sets), "gene sets")
 saveRDS(react_sets, file.path(DIR_DATAOUT, "gsea_reactome_genesets.rds"))
+# mapa ID -> nome (para casamento exato na matriz de robustez)
+gmt_parts <- strsplit(gmt, "\t")
+react_id_map <- setNames(vapply(gmt_parts, function(p) p[1], character(1)),
+                         vapply(gmt_parts, function(p) p[2], character(1)))
+react_id_map <- react_id_map[!duplicated(names(react_id_map)) & !is.na(names(react_id_map))]
+saveRDS(react_id_map, file.path(DIR_DATAOUT, "gsea_reactome_id_map.rds"))
 gsea_react <- run_fgsea(react_sets, rank_t, "Reactome")
 fwrite_tsv(gsea_react, file.path(DIR_GSEA, "GSEA_GLOBAL_REACTOME.tsv"))
 

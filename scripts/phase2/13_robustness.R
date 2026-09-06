@@ -19,27 +19,24 @@ gsea_global_k <- fread(file.path(DIR_GSEA, "GSEA_GLOBAL_KEGG.tsv"))
 gsea_global_r <- fread(file.path(DIR_GSEA, "GSEA_GLOBAL_REACTOME.tsv"))
 comp <- fread(file.path(DIR_SENS, "gsea_composition_sensitivity.tsv"))
 
-# gene sets do painel e globais (para casamento por sobreposição de genes)
+# gene sets do painel e mapas ID -> nome (casamento EXATO por ID, não Jaccard)
 panel_sets <- readRDS(file.path(DIR_DATAOUT, "panel30_genesets.rds"))
-kegg_sets  <- readRDS(file.path(DIR_DATAOUT, "gsea_kegg_genesets.rds"))
-react_sets <- readRDS(file.path(DIR_DATAOUT, "gsea_reactome_genesets.rds"))
+kegg_id_map  <- readRDS(file.path(DIR_DATAOUT, "gsea_kegg_id_map.rds"))
+react_id_map <- readRDS(file.path(DIR_DATAOUT, "gsea_reactome_id_map.rds"))
 
 # significância no global por via (nome do pathway -> padj)
 k_global_padj <- setNames(gsea_global_k$padj, gsea_global_k$pathway)
 r_global_padj <- setNames(gsea_global_r$padj, gsea_global_r$pathway)
 
-# ── casa cada via do painel com a via global de maior Jaccard ─────────────────
-jaccard <- function(a, b) length(intersect(a, b)) / length(union(a, b))
+# ── casa cada via do painel com a via global pelo MESMO ID (hsaXXXX / R-HSA-XXXX) ─
 match_global <- function(id) {
   src <- panel$source[match(id, panel$database_id)]
-  gs_panel <- panel_sets[[id]]
-  if (is.null(gs_panel) || length(gs_panel) == 0) return(NA_character_)
   if (src == "KEGG") {
-    j <- sapply(kegg_sets, function(g) jaccard(gs_panel, g))
-    names(which.max(j))
+    # hsaXXXX -> gs_name via gs_exact_source do MSigDB
+    unname(kegg_id_map[id])
   } else {
-    j <- sapply(react_sets, function(g) jaccard(gs_panel, g))
-    names(which.max(j))
+    # R-HSA-XXXX -> nome da via via GMT
+    unname(react_id_map[id])
   }
 }
 panel[, global_match := vapply(database_id, match_global, character(1))]
@@ -57,7 +54,7 @@ rob <- merge(rob, comp[, .(pathway, status)], by.x = "database_id", by.y = "path
 
 # 1. significativa no painel (limma, método principal)
 rob[, sig_panel := !is.na(padj_limma) & padj_limma < FDR_THRESH]
-# 2. significativa no global — já calculado via casamento por Jaccard (rob$sig_global)
+# 2. significativa no global — já calculado via casamento EXATO por ID (rob$sig_global)
 # 3. consistência entre métodos (direção do NES igual nos 3 métodos)
 rob[, consistent_methods := sign(NES_limma) == sign(NES_voom) & sign(NES_limma) == sign(NES_deseq2) &
       !is.na(NES_limma) & !is.na(NES_voom) & !is.na(NES_deseq2)]

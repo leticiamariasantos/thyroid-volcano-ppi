@@ -57,7 +57,7 @@ for (nm in names(mut_list)) {
                                  mutation_type = NA_character_, top_protein_change = NA_character_)
   }
 }
-mut_freq <- rbindlist(mut_rows, idcol = "gene")
+mut_freq <- rbindlist(mut_rows)
 mut_freq[, n_samples_total := 500]  # THCA PanCan ~500 amostras; ver abaixo
 mut_freq[, frequency := n_mutated / n_samples_total]
 fwrite_tsv(mut_freq, file.path(DIR_VAL, "mutation_frequency.tsv"))

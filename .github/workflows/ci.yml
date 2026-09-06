@@ -13,25 +13,20 @@ jobs:
       - name: Check required files/dirs exist (Fase 2 — reboot)
         run: |
           set -e
-          # Raiz
           test -f README.md
           test -f Dockerfile
           test -f renv.lock
           test -f LICENSE
-          # Documentação (rastreabilidade histórica)
           test -f documentation/DISCOVERY_FREEZE.md
           test -f documentation/EXTERNAL_VALIDATION_REPORT.md
           test -f documentation/ADVANCED_VALIDATION_REPORT.md
           test -f documentation/TRACEABILITY_MATRIX.tsv
           test -f documentation/FINAL_AUDIT_REPORT.md
-          # Manifests de dados
           test -f data/manifests/MANIFEST_TPM.tsv
           test -f data/manifests/MANIFEST_counts.tsv
-          # Pipeline da nova fase
           test -f scripts/phase2/00_config.R
           test -f scripts/phase2/16_validate.R
           test -f scripts/15_validate_outputs.R
-          # Resultados da nova fase
           test -f results/phase2/audit/DATA_AUDIT.txt
           test -f results/phase2/pathways/PANEL_30_PATHWAYS.tsv
           test -f results/phase2/pathways/PANEL_SELECTION_RATIONALE.md
@@ -44,16 +39,34 @@ jobs:
           test -f results/phase2/reports/PHASE2_LANGUAGE_LOCK_AUDIT.md
           echo "structure OK"
 
-  smoke-test:
+  regression-check:
     runs-on: ubuntu-latest
-    container: rocker/r-ver:4.4.0
+    container: rocker/r-ver:4.6.1
     steps:
       - uses: actions/checkout@v4
-      - name: Smoke test (no data download)
+      - name: Regression checks (painel, DEGs, vias robustas, PPI)
         run: |
-          Rscript -e 'cat("R", as.character(getRversion()), "OK\n")'
-          test -f scripts/15_validate_outputs.R && echo "validation script present"
-          test -f scripts/phase2/00_config.R && echo "phase2 config present"
+          Rscript -e '
+          stopifnot(getRversion() >= "4.6.0")
+          # painel = 30 vias (10 + 20)
+          p <- read.delim("results/phase2/pathways/PANEL_30_PATHWAYS.tsv", check.names = FALSE)
+          stopifnot(nrow(p) == 30)
+          stopifnot(sum(p$panel_group == "ORIGINAL_10") == 10)
+          stopifnot(sum(p$panel_group == "ADDITIONAL_20") == 20)
+          # DEG summary: limma = 12.200 DEGs
+          d <- read.delim("results/phase2/differential_expression/DEG_summary.tsv", check.names = FALSE)
+          stopifnot(d[d$method == "limma", "total_deg"] == 12200)
+          # 6 vias robustas
+          r <- read.delim("results/phase2/pathways/PATHWAY_ROBUSTNESS_MATRIX.tsv", check.names = FALSE)
+          stopifnot(sum(r$robustness_class == "ROBUSTA") == 6)
+          # PPI: FN1 hub principal
+          s <- read.delim("results/phase2/ppi/PPI_summary.tsv", check.names = FALSE)
+          stopifnot(s[s$metric == "top_hub_gene", "value"] == "FN1")
+          # candidatos na convergência
+          c <- read.delim("results/phase2/validation/convergence_candidates.tsv", check.names = FALSE)
+          stopifnot(all(c("ITGA2", "FN1", "CCND1") %in% c$gene))
+          cat("regression checks OK\n")
+          '
         shell: bash
 
   lint-markdown:

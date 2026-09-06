@@ -7,7 +7,7 @@ genes_after_collapse	58581
 samples	783
 samples_missing_from_global	0
 unmapped_ensembl_kept	0
-unit	log2(TPM+1) — COMPATÍVEL (contínuo, máx≈17.5, zeros presentes); TPM vs count: A CONFIRMAR na fonte
+unit	log2(TPM+0.001) (verificado: mínimo −9,97 ≈ log2(0.001); contínuo, máx≈17,5)
 probeMap	gencode.v23.annotation.gene.probemap
 R_version	4.6.1
 data.table_version	1.18.4

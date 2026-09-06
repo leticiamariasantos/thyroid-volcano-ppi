@@ -3,7 +3,7 @@
 # Executa os scripts scripts/phase2/ em ordem. Para em erro crítico.
 # Uso: Rscript scripts/run_phase2.R
 # ═══════════════════════════════════════════════════════════════════════════════
-RS <- file.path(R.home("bin"), "Rscript.exe")
+RS <- file.path(R.home("bin"), if (.Platform$OS.type == "windows") "Rscript.exe" else "Rscript")
 steps <- c(
   "00_config.R", "01_audit_data.R", "02_qc.R", "03_de.R", "04_panel.R",
   "05_gsea_global.R", "06_gsea_panel.R", "07_redundancy.R", "08_composition.R",
