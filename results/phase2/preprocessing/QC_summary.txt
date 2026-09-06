@@ -1,0 +1,12 @@
+═══ QC — FASE 2 REBOOT ═══
+Data: 2026-09-06
+Amostras: 783 | Genes: 58581
+Genes nunca detectados: 9037
+Variância explicada PC1..PC5 (%): 21.57, 5.93, 2.55, 2.03, 1.38
+R² (PC vs condição) PC1..PC5: 0.862, 0.009, 0.001, 0.083, 0.001
+Outliers detectados (Mahalanobis p<0.001): 1
+
+CONFUNDIMENTO ESTRUTURAL: source ≡ condition.
+TCGA ≡ tumor e GTEx ≡ normal estão perfeitamente confundidos. Nenhuma
+correção de batch elimina esse problema; a limitação será tratada por
+triangulação e análises de sensibilidade.

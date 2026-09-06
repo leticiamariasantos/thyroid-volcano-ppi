@@ -1,13 +1,105 @@
 # thyroid-volcano-ppi
 
-**Análise Transcriptômica da Via de Sinalização do Hormônio Tireoidiano no Carcinoma de Tireoide e Potenciais Implicações para a Enfermagem de Precisão**
+**Análise Transcriptômica do Carcinoma de Tireoide — Painel de 30 Vias e Testes Independentes em Datasets do GEO**
 
-> **Versão:** 3.1.0 | **Data:** 2026-06-24 | **Tipo de estudo:** Exploratório, gerador de hipóteses
+> **Versão:** 4.0.0 (Fase 2 — reboot) | **Data da nova execução:** 2026-09-06 | **Tipo de estudo:** Exploratório, gerador de hipóteses
 
 [![R >= 4.1](https://img.shields.io/badge/R-%E2%89%A5%204.1-blue)](https://www.r-project.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 [![renv](https://img.shields.io/badge/renv-locked-blueviolet)](renv.lock)
 [![Docker](https://img.shields.io/badge/Docker-ready-2496ED?logo=docker)](Dockerfile)
+
+---
+
+## ⚠ NOTA PRINCIPAL — FASE ATUAL
+
+> **A fase atual constitui uma reconstrução independente do pipeline com expansão do
+> painel de vias de 10 para 30.**
+
+Esta fase reinicia a análise analiticamente do zero: o painel a priori de 10 vias KEGG foi
+preservado e **expandido** para **30 vias** (10 originais + 20 adicionais selecionadas
+*a priori*), com GSEA global (KEGG/Reactome/Hallmark), análise de redundância, sensibilidade
+de composição muscular, PPI reconstruído, validação externa (GSE33630, GSE60542, GSE224356),
+single-cell (GSE232237), RPPA e mutação/CNV.
+
+**Resultados da fase atual:** `results/phase2/` (relatórios em `results/phase2/reports/`).
+**Scripts:** `scripts/phase2/` (00–17). **Validação técnica:** `Rscript scripts/phase2/17_validate.R`
+(0 failures).
+
+> Resultados analíticos das fases anteriores foram removidos da camada analítica
+> (diretórios 02–14 e `results/` antigos). Documentação histórica preservada em
+> `documentation/` e `docs/` para rastreabilidade.
+
+### Principais achados da fase atual (resumo)
+
+- **DEGs (limma, principal):** 12.200 (2.485 Up / 9.715 Down; |log2FC|>1 & FDR<0,05);
+  voom 19.485; DESeq2 17.737. Concordância de logFC 0,88–0,96.
+- **Painel de 30 vias (GSEA):** 6 vias significativas e robustas, todas **Up no tumor** —
+  Proteasome, Antigen processing, Oxidative phosphorylation, DNA replication (adicionais) e
+  p53, Cell cycle (originais).
+- **GSEA global:** Ribosome/tradução, Proteasome, resposta imune, Cell cycle, OXPHOS e p53
+  (Up); Myogenesis **Down** (músculo do normal GTEx — composicional).
+- **Convergência do painel:** 18 genes no core enrichment de ≥2 vias robustas, dominados
+  pelo **eixo ciclo celular/p53** (TP53, **CCND1**, CDK1, CDKN1A, CDKN2A, MDM2, CHEK1) e pela
+  maquinaria de replicação (MCM2–MCM5, PCNA). **CCND1 é gene de convergência** (core
+  enrichment de Cell cycle, p53, Cellular senescence e Thyroid cancer).
+- **Candidatos ITGA2/FN1/CCND1:** os três são DEGs Up, consistentes nos 3 métodos e
+  replicados em GSE33630, GSE60542 e GSE224356; ITGA2 e CCND1 predominantemente
+  epiteliais/tumorais no single-cell. **ITGA2 e FN1 não são core enrichment** — emergem em
+  programas de adesão/ECM; **ITGA2 permanece candidato translacional, não alvo validado.**
+
+---
+
+## ⚠ Estrutura das fases (ler antes de tudo)
+
+Este repositório contém **duas fases distintas**, que não devem ser confundidas:
+
+1. **Fase 1 (análise direcionada, R, v3.1.0)** — análise de expressão diferencial **restrita a uma única via** (KEGG hsa04919, 121 genes → 29 DEGs) + rede PPI. É uma etapa exploratória/direcionada, **não** uma análise transcriptômica global.
+2. **Fase 2 (análise transcriptômica global, R 4.6.1)** — aquisição da matriz global TOIL (`log₂(TPM+0,001)`, 58.581 genes × 783 amostras), DEG genoma-wide, GSEA global, painel a priori de 10 vias KEGG, redundância entre vias, PPI, priorização multicritério e avaliação de plausibilidade nanomédica.
+
+**Pergunta científica da Fase 2 (reboot):** quais alterações transcriptômicas e vias
+caracterizam o carcinoma de tireoide em escala global, considerando um painel pré-especificado
+de 30 vias e uma análise global de enriquecimento, e quais genes emergem como componentes
+convergentes dos programas tumorais (potenciais candidatos translacionais, não alvos validados)?
+
+> Os documentos listados abaixo (`documentation/…`) são **históricos** (Fase 2 original com
+> painel de 10 vias) e preservados apenas para rastreabilidade. A análise **atual** está em
+> `results/phase2/` e `scripts/phase2/`.
+
+**Documentos-chave da Fase 2:**
+- `documentation/AUDIT_PHASE1_REPOSITORIO.md` — auditoria integral da Fase 1
+- `documentation/PLANO_OPERACIONAL_FASE2.md` — plano operacional pré-registrado
+- `documentation/EXECUCAO_FASE2_LOG.md` — registro de aquisição/validação
+- `documentation/RELATORIO_FASE2.md` — relatório científico final (com hierarquia de evidência)
+- `documentation/RECOVERY_STATUS.md` — status de recuperação e classificação das etapas
+- `documentation/TRACEABILITY_MATRIX.tsv` — matriz de rastreabilidade (claim→script→resultado→nível)
+- `documentation/DIRECTORY_STATUS.md` — mapa de diretórios (incl. pastas vazias)
+- `scripts/01_*` a `15_*` — pipeline da Fase 2 (incl. contagens, comparação e validação)
+
+### Extensão Fase 2 — análise baseada em contagens (sensibilidade)
+
+O arquivo de contagens original do Xena (`TcgaTargetGtex_rsem_gene_count.gz`) retornou **HTTP 403**.
+Como fonte alternativa legítima para as **mesmas amostras**, usou-se o **recount3** (STAR, GENCODE G026):
+`data/global/TCGA_GTEx_thyroid_counts.tsv` (56.937 genes × 782 amostras; 504 THCA + 278 GTEx;
+1 amostra GTEx ausente: `GTEX-SUCS-0226-SM-5CHQG`).
+
+| Método | Genes testados | DEGs | up | down |
+|---|---|---|---|---|
+| limma (log₂ TPM) | 20.376 | 8.161 | 1.530 | 6.631 |
+| limma-voom (counts) | 22.118 | 7.185 | 2.710 | 4.475 |
+| DESeq2 (counts) | 22.118 | 6.976 | 2.888 | 4.088 |
+
+Concordância alta: logFC Spearman 0,91–0,98; direção 0,81–0,96; Jaccard de DEGs 0,56–0,86
+(detalhes em `results/counts_deg/`).
+
+**Achado de composição (FASE 9/10):** o sinal de genes musculares (MYH7, MYL1, MYL2, ACTA1,
+TNNT3, CKM) é **ROBUSTO** nos 3 métodos, mas é **composicional** — a assinatura muscular está
+concentrada no tecido normal GTEx (score +1,52 vs −2,19 no tumor; PC1 correlaciona −0,845),
+compatível com músculo esquelético adjacente (strap muscle) no tecido normal. **Não é evidência
+de regulação tumoral intrínseca.** FN1 e ITGA2 permanecem superexpressos no tumor de forma
+robusta (hipótese exploratória N5, não alvos terapêuticos validados).
+
+**Nanotecnologia não é uma premissa da análise.** É uma possível consequência translacional dos resultados moleculares. Nenhuma nanopartícula, nanocarreador, sistema magnético, hipertermia ou biossensor foi pré-selecionado.
 
 ---
 

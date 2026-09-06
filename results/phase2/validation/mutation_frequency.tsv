@@ -1,0 +1,10 @@
+gene	gene	n_mutated	n_samples	mutation_type	top_protein_change	n_samples_total	frequency
+BRAF	BRAF	287	287	Missense_Mutation	V600E	500	0.574
+NRAS	NRAS	39	39	Missense_Mutation	Q61R	500	0.078
+HRAS	HRAS	16	16	Missense_Mutation	Q61R	500	0.032
+KRAS	KRAS	4	4	Missense_Mutation	Q61K	500	0.008
+TP53	TP53	2	2	Nonsense_Mutation	Q192*	500	0.004
+TERT	TERT	3	3	Missense_Mutation	R470H	500	0.006
+ITGA2	ITGA2	0	NA	NA	NA	500	0
+FN1	FN1	2	2	Missense_Mutation	D2376N	500	0.004
+CCND1	CCND1	0	NA	NA	NA	500	0

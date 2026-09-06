@@ -1,0 +1,14 @@
+field	value
+dataset	TcgaTargetGtex_rsem_gene_tpm (TOIL recompute)
+url	https://toil-xena-hub.s3.us-east-1.amazonaws.com/download/TcgaTargetGtex_rsem_gene_tpm.gz
+last_modified_source	2021-04-09
+access_date	2026-09-06
+genes_after_collapse	58581
+samples	783
+samples_missing_from_global	0
+unmapped_ensembl_kept	0
+unit	log2(TPM+1) — COMPATÍVEL (contínuo, máx≈17.5, zeros presentes); TPM vs count: A CONFIRMAR na fonte
+probeMap	gencode.v23.annotation.gene.probemap
+R_version	4.6.1
+data.table_version	1.18.4
+checksum_md5	b27cf52504d53e1ecb593112254c7d80

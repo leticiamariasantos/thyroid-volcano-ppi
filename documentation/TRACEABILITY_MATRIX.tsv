@@ -1,0 +1,38 @@
+CLAIM	DATASET	SCRIPT	RESULT	FIGURE	TABLE	EVIDENCE_LEVEL
+Matriz global TPM contém 58.581 genes × 783 amostras (504 THCA + 279 GTEx)	TCGA-THCA + GTEx (Xena TOIL)	scripts/01_acquire_global_data.R	data/global/TCGA_GTEx_thyroid_tpm.tsv	—	MANIFEST.tsv	N1
+Unidade da matriz TPM é log2(TPM+0.001)	TCGA-THCA + GTEx (Xena TOIL)	scripts/01_acquire_global_data.R	data/global/TCGA_GTEx_thyroid_tpm.tsv	—	EXECUCAO_FASE2_LOG.md	N1
+Count original Xena (count/norm_count) inacessível por HTTP 403	UCSC Xena	scripts/01_acquire_global_data.R	—	—	EXECUCAO_FASE2_LOG.md	N1
+Count alternativa recount3 com 782/783 amostras correspondentes	recount3 (THCA tcga + THYROID gtex)	scripts/11_count_recount3.R	data/global/TCGA_GTEx_thyroid_counts.tsv	—	MANIFEST_counts.tsv	N1
+8.161 genes diferencialmente expressos (1.530↑/6.631↓) em TPM	TCGA-THCA + GTEx (TPM)	scripts/03_deg.R	04_differential_expression/DEG_full_results.tsv	—	DEG_summary.tsv	N2
+7.185 DEGs por limma-voom e 6.976 por DESeq2 (count)	recount3 counts	scripts/12_counts_deg.R	results/counts_deg/voom_full_results.tsv; deseq2_full_results.tsv	—	counts_deg_summary.tsv	N2
+Concordância TPM×voom×DESeq2 (Spearman logFC 0.91–0.98)	TPM + recount3	scripts/13_comparison.R	results/counts_deg/method_concordance.tsv	—	method_concordance.tsv	N2
+Genes musculares (MYH7/MYL1/MYL2/ACTA1/TNNT3/CKM) robustamente down nos 3 métodos	TPM + recount3	scripts/13_comparison.R	results/counts_deg/key_genes_concordance.tsv	—	key_genes_concordance.tsv	N2
+Sinal muscular concentrado no tecido normal GTEx (score +1,52 vs −2,19)	TCGA-THCA + GTEx (TPM)	scripts/09_composition.R	results/composition/composition_scores.tsv	—	composition_scores.tsv	N1
+PC1 correlaciona −0,845 com assinatura muscular	TCGA-THCA + GTEx (TPM)	scripts/09_composition.R	results/composition/composition_pca_corr.tsv	—	composition_pca_corr.tsv	N2
+Interpretação: sinal muscular é artefato de composição, não biologia tumoral	TPM + recount3	scripts/14_composition_contribution.R	results/composition/composition_contribution.tsv	—	composition_contribution.tsv	N2
+GSEA global dominado por vias imunes, proteassoma, OXPHOS, replicação, p53	TCGA-THCA + GTEx (TPM)	scripts/04_gsea.R	05_gsea/GSEA_KEGG_all.tsv	—	GSEA_KEGG_all.tsv	N2
+Apenas p53 significativa no painel a priori de 10 vias	TCGA-THCA + GTEx (TPM)	scripts/04_gsea.R	06_kegg_panel/KEGG_a_priori_panel.tsv	—	KEGG_a_priori_panel.tsv	N2
+22 vias significativas → 6 módulos → 7 representativas	TCGA-THCA + GTEx (TPM)	scripts/05_pathway_redundancy.R	07_pathway_redundancy/pathway_modules.tsv	—	pathway_modules.tsv	N3
+PPI com 177 genes → 148 nós/727 arestas/8 comunidades	STRING v12 (177 genes)	scripts/06_ppi.R	08_ppi/PPI_summary.tsv	—	PPI_summary.tsv	N3
+FN1 e ITGA2 são hubs (grau 30/26) e superexpressos no tumor	STRING v12 + TPM	scripts/06_ppi.R; 07_prioritization.R	08_ppi/PPI_centrality.tsv; 09_target_prioritization/candidate_ranking.tsv	—	PPI_centrality.tsv	N3
+Priorização dominada por genes musculares (artefato composicional)	TPM + STRING	scripts/07_prioritization.R	09_target_prioritization/candidate_ranking.tsv	—	candidate_ranking.tsv	N2+N3
+FN1/ITGA2 como alvo de reconhecimento/targeting em nanomedicina	TPM + STRING (inferência)	—	—	—	—	N5
+Hub = alvo terapêutico/biomarcador	—	—	—	—	—	N5 (não sustentado)
+Nanopartícula/nanocarreador específico justificado pelos dados	—	—	—	—	—	N5 (não sustentado)
+Validação externa GSE33630 (PTC vs normal, patient-matched)	TCGA-THCA + GTEx (discovery) + GSE33630	scripts/17_geo_validate.R	10_validation/GSE33630_deg.tsv	14_figures/Fig_validation_key_genes.png	validation_key_genes.tsv	N2
+FN1/ITGA2/CTSS/HLA-DPA1/CCND1 replicados em 2 coortes GEO independentes	discovery + GSE33630 + GSE60542	scripts/17_geo_validate.R	10_validation/validation_key_genes.tsv	14_figures/Fig_validation_key_genes.png	validation_key_genes.tsv	N2
+Genes musculares NÃO replicam nos GEO (normal pareado) → sinal composicional	discovery + GSE33630 + GSE60542	scripts/17_geo_validate.R	10_validation/validation_key_genes.tsv	14_figures/Fig_validation_key_genes.png	validation_key_genes.tsv	N2
+GSE33630 metadata (49 PTC/45 normal/11 ATC, patient-matched)	GSE33630 (GEO)	scripts/22_validation_enhance.R	results/validation/GSE33630/metadata/metadata.tsv	—	metadata.tsv	N1
+GSE60542 metadata (33 PTC/30 normal + metastases)	GSE60542 (GEO)	scripts/22_validation_enhance.R	results/validation/GSE60542/metadata/metadata.tsv	—	metadata.tsv	N1
+Sinal muscular ausente nos GEO (diff ≈ -0.1 vs -3.7 discovery)	GSE33630+GSE60542	scripts/22_validation_enhance.R	results/validation/composition_stress.tsv	—	composition_stress.tsv	N1
+FN1/ITGA2/CTSS/HLA-DPA1/CCND1 replicados (direção+FDR) em 2 coortes	GSE33630+GSE60542	scripts/22_validation_enhance.R	results/validation/integrated_candidates.tsv	14_figures/Fig_validation_key_genes.png	integrated_candidates.tsv	N2
+Via p53 replicada em ambos GEO (NES 2.2)	GSE33630+GSE60542	scripts/23_validation_pathway.R	results/validation/pathway_validation.tsv	—	pathway_validation.tsv	N2
+Via "Cytoskeleton in muscle" inverte direção nos GEO (composicional)	GSE33630+GSE60542	scripts/23_validation_pathway.R	results/validation/pathway_validation.tsv	—	pathway_validation.tsv	N2
+Discovery congelado antes da validação	discovery	documentation/DISCOVERY_FREEZE.md	results/discovery_freeze/SHA256SUMS.txt	—	DISCOVERY_FREEZE.md	N1
+Nenhum data leakage (auditoria)	discovery+GEO	documentation/VALIDATION_LEAKAGE_AUDIT.md	—	—	VALIDATION_LEAKAGE_AUDIT.md	N1
+GSEA Hallmark: MYOGENESIS down (composicional); COAGULATION/ECM up; APOPTOSIS up	TPM discovery	scripts/25_gsea_hallmark_reactome.R	results/gsea/GSEA_Hallmark.tsv	—	GSEA_Hallmark.tsv	N2
+GSEA Reactome: tradução/ribossomo + proteassoma + processamento de antígeno	TPM discovery	scripts/25_gsea_hallmark_reactome.R	results/gsea/GSEA_Reactome.tsv	—	GSEA_Reactome.tsv	N2
+Composição como covariável: genes musculares colapsam; FN1/ITGA2 robustos	TPM discovery	scripts/26_composition_covariate.R	results/composition/composition_covariate_genes.tsv	—	composition_covariate_genes.tsv	N2
+Hallmark P53 NÃO significativo (discrepância com KEGG p53)	TPM discovery	scripts/25_gsea_hallmark_reactome.R	results/gsea/GSEA_Hallmark.tsv	—	GSEA_Hallmark.tsv	N2
+Nenhuma coorte bulk RNA-seq independente adequada no GEO	NCBI E-utilities	—	documentation/TRANSPARENCY_LOG.md	—	TRANSPARENCY_LOG.md	N1
+Matriz de evidências integrada (FN1/ITGA2/musculares)	integrado	—	results/integration/EVIDENCE_MATRIX.tsv	—	EVIDENCE_MATRIX.tsv	N1/N2

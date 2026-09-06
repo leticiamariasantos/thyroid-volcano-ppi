@@ -1,0 +1,16 @@
+field	value
+dataset	recount3 gene-level raw counts (STAR)
+source	recount3 (Lieber Institute)
+project_tcga	THCA/tcga (572)
+project_gtex	THYROID/gtex (706)
+assay	raw_counts
+annotation	GENCODE G026 (63856 features)
+genes	56937
+samples	782
+samples_matched_tcga	504
+samples_matched_gtex	278
+samples_missing_gtex	GTEX-SUCS-0226-SM-5CHQG
+unit	raw counts (inteiros, não normalizados)
+R_version	4.6.1
+recount3_version	1.22.0
+access_date	2026-09-06

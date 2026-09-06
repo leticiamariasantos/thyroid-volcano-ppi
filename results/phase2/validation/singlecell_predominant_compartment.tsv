@@ -1,0 +1,5 @@
+gene	cell_type	mean_expr_across_samples	mean_pct_positive	n_samples	predominant_compartment	note
+ITGA2	Epithelial_tumor	2.52858333333333	46.7416666666667	12	Epithelial_tumor	marker-based classification (GSE232237); not authorial annotation
+ITGB1	SMC_pericyte	6.21683333333333	80.9583333333334	12	SMC_pericyte	marker-based classification (GSE232237); not authorial annotation
+FN1	Epithelial_tumor	148.176416666667	88.4	12	Epithelial_tumor	marker-based classification (GSE232237); not authorial annotation
+CCND1	Epithelial_tumor	11.02325	76.5333333333334	12	Epithelial_tumor	marker-based classification (GSE232237); not authorial annotation

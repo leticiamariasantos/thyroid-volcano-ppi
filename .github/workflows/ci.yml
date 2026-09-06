@@ -1,0 +1,45 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  structure-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check required files/dirs exist
+        run: |
+          set -e
+          test -f documentation/DISCOVERY_FREEZE.md
+          test -f documentation/EXTERNAL_VALIDATION_REPORT.md
+          test -f documentation/ADVANCED_VALIDATION_REPORT.md
+          test -f documentation/TRACEABILITY_MATRIX.tsv
+          test -f documentation/FINAL_AUDIT_REPORT.md
+          test -f results/discovery_freeze/SHA256SUMS.txt
+          test -f data/global/MANIFEST.tsv
+          echo "structure OK"
+
+  smoke-test:
+    runs-on: ubuntu-latest
+    container: rocker/r-ver:4.4.0
+    steps:
+      - uses: actions/checkout@v4
+      - name: Smoke test (no data download)
+        run: |
+          Rscript -e 'cat("R", as.character(getRversion()), "OK\n")'
+          test -f scripts/15_validate_outputs.R && echo "validation script present"
+        shell: bash
+
+  lint-markdown:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check no trailing whitespace in docs
+        run: |
+          if grep -rn '[[:blank:]]$' documentation/ --include='*.md' | head -1; then
+            echo "WARNING: trailing whitespace found"
+          else
+            echo "docs clean"
+          fi

@@ -1,0 +1,31 @@
+panel_group	source	database_id	pathway_name	biological_domain	reason_for_inclusion	redundancy_note	geneset_size
+ORIGINAL_10	KEGG	hsa05216	Thyroid cancer	Oncogenesis (thyroid)	Pré-especificado no desenho original do projeto (painel a priori)	—	37
+ORIGINAL_10	KEGG	hsa04919	Thyroid hormone signaling	Hormone signaling	Pré-especificado no desenho original do projeto (painel a priori)	—	122
+ORIGINAL_10	KEGG	hsa04010	MAPK signaling pathway	Growth factor signaling	Pré-especificado no desenho original do projeto (painel a priori)	—	301
+ORIGINAL_10	KEGG	hsa04151	PI3K-Akt signaling pathway	Growth factor signaling	Pré-especificado no desenho original do projeto (painel a priori)	—	362
+ORIGINAL_10	KEGG	hsa04150	mTOR signaling pathway	Nutrient signaling	Pré-especificado no desenho original do projeto (painel a priori)	—	158
+ORIGINAL_10	KEGG	hsa04115	p53 signaling pathway	Tumor suppression	Pré-especificado no desenho original do projeto (painel a priori)	—	75
+ORIGINAL_10	KEGG	hsa04210	Apoptosis	Cell death	Pré-especificado no desenho original do projeto (painel a priori)	—	138
+ORIGINAL_10	KEGG	hsa04110	Cell cycle	Cell proliferation	Pré-especificado no desenho original do projeto (painel a priori)	—	158
+ORIGINAL_10	KEGG	hsa04310	Wnt signaling pathway	Developmental signaling	Pré-especificado no desenho original do projeto (painel a priori)	—	178
+ORIGINAL_10	KEGG	hsa04064	NF-kappa B signaling pathway	Inflammation/immune	Pré-especificado no desenho original do projeto (painel a priori)	—	105
+ADDITIONAL_20	KEGG	hsa04510	Focal adhesion	Cell-matrix / adhesion	Medeia adesão célula-matriz e sinalização por integrinas; eixo central de invasão/migração tumoral	Relacionada a ECM-receptor e ECM organization, mas representa o braço de sinalização	203
+ADDITIONAL_20	KEGG	hsa04512	ECM-receptor interaction	ECM / adhesion	Receptores de matriz (integrinas/colágeno) governam interação tumor-microambiente	Relacionada a Focal adhesion, mas representa o braço de receptores estruturais	89
+ADDITIONAL_20	Reactome	R-HSA-1474244	Extracellular matrix organization	ECM / collagen remodeling	Biossíntese/remodelamento de colágeno e matriz; complementa as vias de sinalização de adesão com o componente estrutural	Relacionada a Focal adhesion/ECM-receptor, mas representa remodelamento estrutural de colágeno	321
+ADDITIONAL_20	KEGG	hsa04350	TGF-beta signaling pathway	EMT / TGF-beta	Indutor canônico de EMT e imunossupressão no microambiente tumoral	Distinta das vias de crescimento; converge com EMT	110
+ADDITIONAL_20	KEGG	hsa04390	Hippo signaling pathway	Tissue growth control	Regula tamanho de órgão e supressão tumoral (YAP/TAZ); mecanismo distinto das vias de crescimento originais	Complementar a Wnt (original); eixo YAP/TAZ distinto	157
+ADDITIONAL_20	KEGG	hsa04630	JAK-STAT signaling pathway	Cytokine signaling	Transdução de citocinas com papel em inflamação e imunidade antitumoral	Distinta de MAPK/PI3K; via própria de citocinas	168
+ADDITIONAL_20	KEGG	hsa04668	TNF signaling pathway	Inflammation / TNF	Inflamação crônica e sobrevivência/apoptose mediada por TNF no microambiente	Distinta de NF-kB original embora relacionada; foco em TNF	119
+ADDITIONAL_20	KEGG	hsa04657	IL-17 signaling pathway	Inflammation / IL-17	Eixo pró-inflamatório distinto do TNF, relevante para inflamação tecidual	Distinta de TNF e NF-kB; eixo Th17	94
+ADDITIONAL_20	KEGG	hsa04612	Antigen processing and presentation	Immune / antigen presentation	Mecanismo de apresentação de antígenos; conecta imunidade adaptativa ao reconhecimento tumoral	Distinta das vias de sinalização; foco em MHC/processamento	82
+ADDITIONAL_20	Reactome	R-HSA-913531	Interferon Signaling	Immune / interferon	Programa antiviral/imunológico de interferon, modulador do microambiente imune	Distinta de TNF/TLR; programa de interferon tipo I	361
+ADDITIONAL_20	KEGG	hsa04620	Toll-like receptor signaling pathway	Innate immunity	Sensoriamento imune inato (PAMPs); relevante para inflamação associada a tumor	Distinta de interferon; sensoriamento inato de PAMPs	109
+ADDITIONAL_20	KEGG	hsa04216	Ferroptosis	Regulated cell death (iron)	Morte celular dependente de ferro; vulnerabilidade metabólica distinta de apoptosis	Morte celular não-apoptótica; distinta de Apoptosis original	42
+ADDITIONAL_20	KEGG	hsa04218	Cellular senescence	Cell cycle arrest / aging	Parada proliferativa irreversível associada a senescência tumoral e resposta a terapia	Distinta de Cell cycle/Apoptosis; parada irreversível	157
+ADDITIONAL_20	KEGG	hsa03050	Proteasome	Protein degradation	Degradação proteica ubiquitina-proteassoma; regula turnover de oncoproteínas	Distinta de Apoptosis; degradação proteica	46
+ADDITIONAL_20	KEGG	hsa00190	Oxidative phosphorylation	Energy metabolism / OXPHOS	Metabolismo energético mitocondrial; reprogramação metabólica tumoral (efeito Warburg inverso)	Metabolismo mitocondrial; distinto das vias de sinalização	138
+ADDITIONAL_20	KEGG	hsa03440	Homologous recombination	DNA repair	Reparo de quebras de fita dupla; instabilidade genômica e resposta a dano de DNA	Distinta de Cell cycle; reparo de DNA	41
+ADDITIONAL_20	KEGG	hsa03030	DNA replication	DNA replication	Replicação do DNA; proliferação e estresse replicativo	Distinta de Cell cycle; maquinaria replicativa	36
+ADDITIONAL_20	Reactome	R-HSA-3299685	Detoxification of Reactive Oxygen Species	Oxidative stress / ROS	Eliminação de espécies reativas de oxigênio; homeostase redox	Homeostase redox; distinta de OXPHOS	37
+ADDITIONAL_20	KEGG	hsa04066	HIF-1 signaling pathway	Hypoxia / angiogenesis	Resposta a hipóxia e angiogênese; adaptação tumoral a microambiente hipóxico	Adaptação a hipóxia; distinta de OXPHOS e angiogênese	110
+ADDITIONAL_20	KEGG	hsa04140	Autophagy - animal	Autophagy / stress response	Reciclagem celular e sobrevivência sob estresse metabólico; mecanismo distinto de morte celular	Distinta de Apoptosis/Ferroptosis; reciclagem celular	169

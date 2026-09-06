@@ -1,0 +1,4 @@
+protein	antibody_in_panel	n_samples	mean_value	rna_protein_spearman	n_matched
+CCND1 (Cyclin D1)	TRUE	369	0.218847425474255	0.0512894223537026	366
+ITGA2 (Integrin alpha-2)	FALSE	NA	NA	NA	NA
+FN1 (Fibronectin)	FALSE	NA	NA	NA	NA

@@ -1,0 +1,17 @@
+═══ AUDITORIA DE DADOS — FASE 2 REBOOT ═══
+Data: 2026-09-06
+R: R version 4.6.1 (2026-06-24 ucrt)
+
+TPM genes: 58581 | amostras: 783
+  TCGA: 504 | GTEx: 279
+TPM distribuição: mean -4.848 median -9.966 min -9.966 max 17.543
+TPM fração de zeros: 0.5306
+TPM NA: 0 | Inf: 0
+
+Counts genes: 56937 | amostras: 782
+  TCGA: 504 | GTEx: 278
+Amostras comuns TPM×Counts: 782
+Amostras ausentes em Counts: GTEX-SUCS-0226-SM-5CHQG
+
+NOTA source≡condition: TCGA≡tumor e GTEx≡normal estão perfeitamente confundidos.
+Nenhuma correção de batch é alegada como eliminadora desse confundimento.

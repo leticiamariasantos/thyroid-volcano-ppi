@@ -1,0 +1,436 @@
+pathway_A	pathway_B	name_A	name_B	overlap_genes	jaccard
+hsa04510	hsa04512	Focal adhesion	ECM-receptor interaction	65	0.286343612334802
+hsa04668	hsa04657	TNF signaling pathway	IL-17 signaling pathway	44	0.260355029585799
+hsa04151	hsa04510	PI3K-Akt signaling pathway	Focal adhesion	115	0.255555555555556
+hsa04668	hsa04620	TNF signaling pathway	Toll-like receptor signaling pathway	46	0.252747252747253
+hsa04210	hsa04668	Apoptosis	TNF signaling pathway	44	0.206572769953052
+hsa04512	R-HSA-1474244	ECM-receptor interaction	Extracellular matrix organization	68	0.198830409356725
+hsa04010	hsa04151	MAPK signaling pathway	PI3K-Akt signaling pathway	108	0.194594594594595
+hsa04310	hsa04390	Wnt signaling pathway	Hippo signaling pathway	54	0.192170818505338
+hsa04657	hsa04620	IL-17 signaling pathway	Toll-like receptor signaling pathway	30	0.173410404624277
+hsa04064	hsa04668	NF-kappa B signaling pathway	TNF signaling pathway	33	0.172774869109948
+hsa04151	hsa04512	PI3K-Akt signaling pathway	ECM-receptor interaction	65	0.16839378238342
+hsa04151	hsa04630	PI3K-Akt signaling pathway	JAK-STAT signaling pathway	75	0.164835164835165
+hsa04064	hsa04620	NF-kappa B signaling pathway	Toll-like receptor signaling pathway	29	0.156756756756757
+hsa04150	hsa04140	mTOR signaling pathway	Autophagy - animal	43	0.151408450704225
+hsa04110	hsa04218	Cell cycle	Cellular senescence	41	0.14963503649635
+hsa04510	R-HSA-1474244	Focal adhesion	Extracellular matrix organization	67	0.146608315098468
+hsa04630	hsa04620	JAK-STAT signaling pathway	Toll-like receptor signaling pathway	34	0.139917695473251
+hsa04210	hsa04620	Apoptosis	Toll-like receptor signaling pathway	30	0.138248847926267
+hsa03440	hsa03030	Homologous recombination	DNA replication	9	0.132352941176471
+hsa04919	hsa04066	Thyroid hormone signaling	HIF-1 signaling pathway	27	0.131707317073171
+hsa04350	hsa04390	TGF-beta signaling pathway	Hippo signaling pathway	31	0.13135593220339
+hsa04150	hsa04310	mTOR signaling pathway	Wnt signaling pathway	39	0.131313131313131
+hsa04115	hsa04218	p53 signaling pathway	Cellular senescence	26	0.12621359223301
+hsa04064	hsa04657	NF-kappa B signaling pathway	IL-17 signaling pathway	22	0.124293785310734
+hsa04150	hsa04066	mTOR signaling pathway	HIF-1 signaling pathway	29	0.121338912133891
+hsa04210	hsa04140	Apoptosis	Autophagy - animal	33	0.12043795620438
+hsa04210	hsa04064	Apoptosis	NF-kappa B signaling pathway	26	0.119815668202765
+hsa04010	hsa04510	MAPK signaling pathway	Focal adhesion	53	0.117516629711752
+hsa04010	hsa04668	MAPK signaling pathway	TNF signaling pathway	44	0.117021276595745
+hsa04150	hsa04390	mTOR signaling pathway	Hippo signaling pathway	33	0.117021276595745
+hsa04210	hsa04218	Apoptosis	Cellular senescence	30	0.113207547169811
+hsa04115	hsa04110	p53 signaling pathway	Cell cycle	23	0.10952380952381
+hsa04115	hsa04210	p53 signaling pathway	Apoptosis	21	0.109375
+hsa04151	hsa04150	PI3K-Akt signaling pathway	mTOR signaling pathway	51	0.108742004264392
+hsa04151	hsa04066	PI3K-Akt signaling pathway	HIF-1 signaling pathway	46	0.107981220657277
+hsa04919	hsa04218	Thyroid hormone signaling	Cellular senescence	27	0.107142857142857
+hsa04919	hsa04150	Thyroid hormone signaling	mTOR signaling pathway	27	0.106719367588933
+hsa04151	R-HSA-1474244	PI3K-Akt signaling pathway	Extracellular matrix organization	64	0.103392568659128
+hsa04919	hsa04140	Thyroid hormone signaling	Autophagy - animal	27	0.102272727272727
+hsa04919	hsa04210	Thyroid hormone signaling	Apoptosis	24	0.101694915254237
+hsa04010	hsa04218	MAPK signaling pathway	Cellular senescence	42	0.100961538461538
+hsa04010	hsa04620	MAPK signaling pathway	Toll-like receptor signaling pathway	37	0.0991957104557641
+hsa04620	hsa04218	Toll-like receptor signaling pathway	Cellular senescence	24	0.0991735537190083
+hsa04010	hsa04210	MAPK signaling pathway	Apoptosis	39	0.0975
+hsa05216	hsa04919	Thyroid cancer	Thyroid hormone signaling	14	0.096551724137931
+hsa04151	hsa04620	PI3K-Akt signaling pathway	Toll-like receptor signaling pathway	41	0.0953488372093023
+hsa04630	hsa04066	JAK-STAT signaling pathway	HIF-1 signaling pathway	24	0.0944881889763779
+hsa04919	hsa04510	Thyroid hormone signaling	Focal adhesion	28	0.0942760942760943
+hsa04218	hsa04140	Cellular senescence	Autophagy - animal	28	0.0939597315436242
+hsa04110	hsa04350	Cell cycle	TGF-beta signaling pathway	23	0.0938775510204082
+hsa04620	hsa04066	Toll-like receptor signaling pathway	HIF-1 signaling pathway	18	0.0895522388059701
+hsa04210	hsa04510	Apoptosis	Focal adhesion	28	0.0894568690095847
+hsa04210	hsa04657	Apoptosis	IL-17 signaling pathway	19	0.0892018779342723
+hsa05216	hsa04210	Thyroid cancer	Apoptosis	14	0.0869565217391304
+hsa04668	hsa04218	TNF signaling pathway	Cellular senescence	22	0.0866141732283465
+hsa04151	hsa04218	PI3K-Akt signaling pathway	Cellular senescence	41	0.0857740585774059
+hsa04218	hsa04066	Cellular senescence	HIF-1 signaling pathway	21	0.0853658536585366
+hsa04150	hsa04210	mTOR signaling pathway	Apoptosis	23	0.0842490842490843
+hsa04150	hsa04510	mTOR signaling pathway	Focal adhesion	28	0.0840840840840841
+hsa04510	hsa04066	Focal adhesion	HIF-1 signaling pathway	24	0.0830449826989619
+hsa04150	hsa04218	mTOR signaling pathway	Cellular senescence	24	0.0824742268041237
+hsa04151	hsa04140	PI3K-Akt signaling pathway	Autophagy - animal	40	0.0814663951120163
+hsa04066	hsa04140	HIF-1 signaling pathway	Autophagy - animal	21	0.0813953488372093
+hsa04668	hsa04066	TNF signaling pathway	HIF-1 signaling pathway	17	0.080188679245283
+hsa04151	hsa04210	PI3K-Akt signaling pathway	Apoptosis	37	0.0799136069114471
+hsa05216	hsa04218	Thyroid cancer	Cellular senescence	14	0.0777777777777778
+hsa04620	hsa04140	Toll-like receptor signaling pathway	Autophagy - animal	20	0.0775193798449612
+hsa05216	hsa04115	Thyroid cancer	p53 signaling pathway	8	0.0769230769230769
+hsa04151	hsa04668	PI3K-Akt signaling pathway	TNF signaling pathway	33	0.0736607142857143
+hsa04210	hsa04066	Apoptosis	HIF-1 signaling pathway	17	0.0735930735930736
+hsa04510	hsa04668	Focal adhesion	TNF signaling pathway	22	0.0733333333333333
+hsa04919	hsa04151	Thyroid hormone signaling	PI3K-Akt signaling pathway	33	0.0731707317073171
+hsa04010	hsa04150	MAPK signaling pathway	mTOR signaling pathway	31	0.0724299065420561
+hsa04510	hsa04630	Focal adhesion	JAK-STAT signaling pathway	25	0.0722543352601156
+hsa04110	hsa04390	Cell cycle	Hippo signaling pathway	21	0.0714285714285714
+hsa04010	hsa04657	MAPK signaling pathway	IL-17 signaling pathway	26	0.0704607046070461
+hsa04010	hsa04066	MAPK signaling pathway	HIF-1 signaling pathway	27	0.0703125
+hsa04919	hsa04620	Thyroid hormone signaling	Toll-like receptor signaling pathway	15	0.0694444444444445
+hsa04010	hsa04064	MAPK signaling pathway	NF-kappa B signaling pathway	26	0.068421052631579
+hsa04510	hsa04218	Focal adhesion	Cellular senescence	23	0.0682492581602374
+hsa04150	hsa04620	mTOR signaling pathway	Toll-like receptor signaling pathway	17	0.068
+hsa04668	hsa04140	TNF signaling pathway	Autophagy - animal	18	0.0666666666666667
+hsa04630	R-HSA-913531	JAK-STAT signaling pathway	Interferon Signaling	33	0.0665322580645161
+hsa04919	hsa04630	Thyroid hormone signaling	JAK-STAT signaling pathway	18	0.0661764705882353
+hsa04510	hsa04140	Focal adhesion	Autophagy - animal	23	0.0659025787965616
+R-HSA-913531	hsa04620	Interferon Signaling	Toll-like receptor signaling pathway	29	0.0657596371882086
+hsa04150	hsa04668	mTOR signaling pathway	TNF signaling pathway	17	0.0653846153846154
+hsa04612	R-HSA-913531	Antigen processing and presentation	Interferon Signaling	27	0.0649038461538462
+hsa04510	hsa04620	Focal adhesion	Toll-like receptor signaling pathway	19	0.0648464163822526
+hsa04919	hsa04310	Thyroid hormone signaling	Wnt signaling pathway	18	0.0638297872340426
+hsa04210	hsa04630	Apoptosis	JAK-STAT signaling pathway	18	0.0625
+hsa04630	hsa04218	JAK-STAT signaling pathway	Cellular senescence	19	0.0620915032679739
+hsa04151	hsa04110	PI3K-Akt signaling pathway	Cell cycle	30	0.0612244897959184
+hsa04630	hsa04668	JAK-STAT signaling pathway	TNF signaling pathway	16	0.0590405904059041
+hsa04390	hsa04218	Hippo signaling pathway	Cellular senescence	17	0.0572390572390572
+hsa04919	hsa04668	Thyroid hormone signaling	TNF signaling pathway	13	0.0570175438596491
+hsa04310	hsa04218	Wnt signaling pathway	Cellular senescence	18	0.0567823343848581
+hsa04350	hsa04218	TGF-beta signaling pathway	Cellular senescence	14	0.0553359683794466
+hsa04010	hsa04140	MAPK signaling pathway	Autophagy - animal	24	0.0538116591928251
+hsa04010	hsa04310	MAPK signaling pathway	Wnt signaling pathway	24	0.0527472527472528
+hsa04150	hsa04630	mTOR signaling pathway	JAK-STAT signaling pathway	16	0.0516129032258065
+hsa04150	hsa00190	mTOR signaling pathway	Oxidative phosphorylation	14	0.049645390070922
+hsa04350	hsa04066	TGF-beta signaling pathway	HIF-1 signaling pathway	10	0.0476190476190476
+hsa04919	hsa04010	Thyroid hormone signaling	MAPK signaling pathway	19	0.047029702970297
+hsa04310	hsa04510	Wnt signaling pathway	Focal adhesion	17	0.0467032967032967
+hsa04630	hsa04140	JAK-STAT signaling pathway	Autophagy - animal	15	0.046583850931677
+hsa04115	hsa04064	p53 signaling pathway	NF-kappa B signaling pathway	8	0.0465116279069768
+hsa05216	hsa04010	Thyroid cancer	MAPK signaling pathway	15	0.0464396284829721
+hsa04151	R-HSA-913531	PI3K-Akt signaling pathway	Interferon Signaling	32	0.0463096960926194
+hsa04657	hsa04218	IL-17 signaling pathway	Cellular senescence	11	0.0458333333333333
+hsa04919	hsa04350	Thyroid hormone signaling	TGF-beta signaling pathway	10	0.0450450450450451
+hsa04210	R-HSA-913531	Apoptosis	Interferon Signaling	21	0.0439330543933054
+hsa05216	hsa04390	Thyroid cancer	Hippo signaling pathway	8	0.0430107526881721
+hsa04151	hsa04115	PI3K-Akt signaling pathway	p53 signaling pathway	18	0.0429594272076372
+hsa05216	hsa04150	Thyroid cancer	mTOR signaling pathway	8	0.0427807486631016
+hsa04151	hsa04390	PI3K-Akt signaling pathway	Hippo signaling pathway	21	0.0421686746987952
+hsa04110	hsa04310	Cell cycle	Wnt signaling pathway	13	0.0402476780185759
+hsa05216	hsa04310	Thyroid cancer	Wnt signaling pathway	8	0.0386473429951691
+hsa04064	hsa04066	NF-kappa B signaling pathway	HIF-1 signaling pathway	8	0.0386473429951691
+hsa04110	hsa03030	Cell cycle	DNA replication	7	0.0374331550802139
+hsa05216	hsa04110	Thyroid cancer	Cell cycle	7	0.0372340425531915
+hsa05216	hsa04151	Thyroid cancer	PI3K-Akt signaling pathway	14	0.0363636363636364
+hsa04310	hsa04350	Wnt signaling pathway	TGF-beta signaling pathway	10	0.0359712230215827
+hsa04310	hsa04066	Wnt signaling pathway	HIF-1 signaling pathway	10	0.0359712230215827
+hsa05216	hsa04066	Thyroid cancer	HIF-1 signaling pathway	5	0.0352112676056338
+hsa05216	hsa04140	Thyroid cancer	Autophagy - animal	7	0.0351758793969849
+hsa04510	hsa04390	Focal adhesion	Hippo signaling pathway	12	0.0344827586206897
+hsa04216	hsa04140	Ferroptosis	Autophagy - animal	7	0.0343137254901961
+hsa04919	hsa04110	Thyroid hormone signaling	Cell cycle	9	0.033210332103321
+hsa04010	hsa04630	MAPK signaling pathway	JAK-STAT signaling pathway	15	0.0330396475770925
+hsa04612	hsa03050	Antigen processing and presentation	Proteasome	4	0.032258064516129
+hsa04151	hsa04657	PI3K-Akt signaling pathway	IL-17 signaling pathway	14	0.0316742081447964
+hsa04657	hsa04140	IL-17 signaling pathway	Autophagy - animal	8	0.0313725490196078
+R-HSA-913531	hsa04066	Interferon Signaling	HIF-1 signaling pathway	14	0.0306345733041576
+hsa04657	hsa04066	IL-17 signaling pathway	HIF-1 signaling pathway	6	0.0303030303030303
+hsa04612	hsa04218	Antigen processing and presentation	Cellular senescence	7	0.0301724137931035
+hsa05216	hsa04510	Thyroid cancer	Focal adhesion	7	0.0300429184549356
+hsa04919	hsa04390	Thyroid hormone signaling	Hippo signaling pathway	8	0.029520295202952
+R-HSA-1474244	hsa04350	Extracellular matrix organization	TGF-beta signaling pathway	12	0.0286396181384248
+hsa05216	hsa04620	Thyroid cancer	Toll-like receptor signaling pathway	4	0.028169014084507
+hsa04064	hsa04218	NF-kappa B signaling pathway	Cellular senescence	7	0.0274509803921569
+hsa04630	hsa04657	JAK-STAT signaling pathway	IL-17 signaling pathway	7	0.0274509803921569
+hsa04216	hsa04066	Ferroptosis	HIF-1 signaling pathway	4	0.027027027027027
+hsa04115	hsa04390	p53 signaling pathway	Hippo signaling pathway	6	0.0265486725663717
+hsa04310	hsa04657	Wnt signaling pathway	IL-17 signaling pathway	7	0.0264150943396226
+hsa04919	hsa04115	Thyroid hormone signaling	p53 signaling pathway	5	0.0260416666666667
+hsa05216	hsa04216	Thyroid cancer	Ferroptosis	2	0.025974025974026
+hsa04115	hsa04510	p53 signaling pathway	Focal adhesion	7	0.025830258302583
+R-HSA-1474244	hsa04390	Extracellular matrix organization	Hippo signaling pathway	12	0.0257510729613734
+hsa04115	hsa04630	p53 signaling pathway	JAK-STAT signaling pathway	6	0.0253164556962025
+R-HSA-913531	hsa04140	Interferon Signaling	Autophagy - animal	13	0.0251450676982592
+hsa04210	R-HSA-1474244	Apoptosis	Extracellular matrix organization	11	0.0245535714285714
+hsa04150	hsa04657	mTOR signaling pathway	IL-17 signaling pathway	6	0.024390243902439
+hsa04510	hsa04657	Focal adhesion	IL-17 signaling pathway	7	0.0241379310344828
+R-HSA-913531	hsa04218	Interferon Signaling	Cellular senescence	12	0.0237154150197628
+hsa04668	R-HSA-913531	TNF signaling pathway	Interferon Signaling	11	0.023454157782516
+hsa04657	hsa04612	IL-17 signaling pathway	Antigen processing and presentation	4	0.0232558139534884
+hsa04010	R-HSA-913531	MAPK signaling pathway	Interferon Signaling	15	0.0231839258114374
+hsa04150	hsa04350	mTOR signaling pathway	TGF-beta signaling pathway	6	0.0229007633587786
+hsa04010	hsa04350	MAPK signaling pathway	TGF-beta signaling pathway	9	0.0223880597014925
+hsa04064	hsa04140	NF-kappa B signaling pathway	Autophagy - animal	6	0.0223880597014925
+hsa04115	hsa04066	p53 signaling pathway	HIF-1 signaling pathway	4	0.0220994475138122
+hsa04350	hsa04140	TGF-beta signaling pathway	Autophagy - animal	6	0.021978021978022
+hsa04110	hsa04630	Cell cycle	JAK-STAT signaling pathway	7	0.0219435736677116
+hsa04151	hsa04064	PI3K-Akt signaling pathway	NF-kappa B signaling pathway	10	0.0218818380743982
+hsa04350	R-HSA-913531	TGF-beta signaling pathway	Interferon Signaling	10	0.0216919739696312
+hsa04310	hsa04064	Wnt signaling pathway	NF-kappa B signaling pathway	6	0.0216606498194946
+hsa04151	hsa04350	PI3K-Akt signaling pathway	TGF-beta signaling pathway	10	0.0216450216450216
+hsa05216	hsa04064	Thyroid cancer	NF-kappa B signaling pathway	3	0.0215827338129496
+hsa04310	hsa04620	Wnt signaling pathway	Toll-like receptor signaling pathway	6	0.0213523131672598
+hsa05216	hsa04350	Thyroid cancer	TGF-beta signaling pathway	3	0.0208333333333333
+hsa04210	hsa04390	Apoptosis	Hippo signaling pathway	6	0.0207612456747405
+hsa04218	hsa03440	Cellular senescence	Homologous recombination	4	0.0206185567010309
+hsa04310	hsa04140	Wnt signaling pathway	Autophagy - animal	7	0.0205882352941176
+hsa04115	hsa04310	p53 signaling pathway	Wnt signaling pathway	5	0.0201612903225806
+hsa04010	hsa04390	MAPK signaling pathway	Hippo signaling pathway	9	0.0200445434298441
+hsa04010	hsa04110	MAPK signaling pathway	Cell cycle	9	0.02
+hsa04350	hsa04657	TGF-beta signaling pathway	IL-17 signaling pathway	4	0.02
+hsa05216	hsa04630	Thyroid cancer	JAK-STAT signaling pathway	4	0.0199004975124378
+hsa04064	R-HSA-913531	NF-kappa B signaling pathway	Interferon Signaling	9	0.0196936542669584
+hsa04150	R-HSA-913531	mTOR signaling pathway	Interferon Signaling	10	0.0196463654223969
+hsa04110	R-HSA-913531	Cell cycle	Interferon Signaling	10	0.0196463654223969
+hsa05216	hsa04668	Thyroid cancer	TNF signaling pathway	3	0.0196078431372549
+hsa04150	hsa04064	mTOR signaling pathway	NF-kappa B signaling pathway	5	0.0193798449612403
+hsa04110	hsa04066	Cell cycle	HIF-1 signaling pathway	5	0.0190114068441065
+hsa04010	hsa04115	MAPK signaling pathway	p53 signaling pathway	7	0.018970189701897
+hsa04210	hsa04612	Apoptosis	Antigen processing and presentation	4	0.0185185185185185
+hsa04310	hsa04630	Wnt signaling pathway	JAK-STAT signaling pathway	6	0.0176470588235294
+hsa04150	hsa04115	mTOR signaling pathway	p53 signaling pathway	4	0.0174672489082969
+hsa04115	hsa04216	p53 signaling pathway	Ferroptosis	2	0.0173913043478261
+hsa04210	hsa04110	Apoptosis	Cell cycle	5	0.0171821305841924
+hsa04310	hsa04668	Wnt signaling pathway	TNF signaling pathway	5	0.0171232876712329
+hsa04919	R-HSA-913531	Thyroid hormone signaling	Interferon Signaling	8	0.0168421052631579
+hsa04115	hsa04140	p53 signaling pathway	Autophagy - animal	4	0.0166666666666667
+hsa04064	hsa04510	NF-kappa B signaling pathway	Focal adhesion	5	0.0165016501650165
+hsa04510	hsa04350	Focal adhesion	TGF-beta signaling pathway	5	0.0162337662337662
+R-HSA-1474244	hsa04668	Extracellular matrix organization	TNF signaling pathway	7	0.0161662817551963
+hsa04210	hsa04310	Apoptosis	Wnt signaling pathway	5	0.0160771704180064
+hsa04010	hsa04612	MAPK signaling pathway	Antigen processing and presentation	6	0.0159151193633952
+hsa04115	hsa04668	p53 signaling pathway	TNF signaling pathway	3	0.0157068062827225
+hsa05216	hsa04657	Thyroid cancer	IL-17 signaling pathway	2	0.0155038759689922
+hsa04110	hsa04064	Cell cycle	NF-kappa B signaling pathway	4	0.0154440154440154
+hsa04216	hsa04218	Ferroptosis	Cellular senescence	3	0.0153061224489796
+hsa04151	hsa04310	PI3K-Akt signaling pathway	Wnt signaling pathway	8	0.0150375939849624
+hsa04010	R-HSA-1474244	MAPK signaling pathway	Extracellular matrix organization	9	0.0146818923327896
+hsa04350	hsa04630	TGF-beta signaling pathway	JAK-STAT signaling pathway	4	0.0145985401459854
+hsa04919	hsa04657	Thyroid hormone signaling	IL-17 signaling pathway	3	0.0140845070422535
+hsa04350	hsa04620	TGF-beta signaling pathway	Toll-like receptor signaling pathway	3	0.0138888888888889
+hsa04919	R-HSA-1474244	Thyroid hormone signaling	Extracellular matrix organization	6	0.0137299771167048
+hsa04390	R-HSA-913531	Hippo signaling pathway	Interferon Signaling	7	0.0136986301369863
+hsa04919	hsa04064	Thyroid hormone signaling	NF-kappa B signaling pathway	3	0.0133928571428571
+hsa04657	R-HSA-913531	IL-17 signaling pathway	Interferon Signaling	6	0.0133630289532294
+hsa04350	hsa04216	TGF-beta signaling pathway	Ferroptosis	2	0.0133333333333333
+hsa04350	hsa04668	TGF-beta signaling pathway	TNF signaling pathway	3	0.0132743362831858
+hsa04310	R-HSA-913531	Wnt signaling pathway	Interferon Signaling	7	0.0131578947368421
+hsa04216	R-HSA-3299685	Ferroptosis	Detoxification of Reactive Oxygen Species	1	0.0128205128205128
+R-HSA-1474244	hsa04218	Extracellular matrix organization	Cellular senescence	6	0.0127118644067797
+hsa04510	R-HSA-913531	Focal adhesion	Interferon Signaling	7	0.0125673249551167
+hsa04390	hsa04630	Hippo signaling pathway	JAK-STAT signaling pathway	4	0.0124610591900312
+hsa04210	hsa04350	Apoptosis	TGF-beta signaling pathway	3	0.0122448979591837
+R-HSA-1474244	hsa04657	Extracellular matrix organization	IL-17 signaling pathway	5	0.0121951219512195
+hsa04115	hsa04657	p53 signaling pathway	IL-17 signaling pathway	2	0.0119760479041916
+hsa03050	hsa03440	Proteasome	Homologous recombination	1	0.0116279069767442
+hsa04110	hsa04510	Cell cycle	Focal adhesion	4	0.0112044817927171
+hsa04064	hsa04630	NF-kappa B signaling pathway	JAK-STAT signaling pathway	3	0.0111111111111111
+hsa04350	hsa04612	TGF-beta signaling pathway	Antigen processing and presentation	2	0.0105263157894737
+R-HSA-1474244	R-HSA-913531	Extracellular matrix organization	Interferon Signaling	7	0.0103703703703704
+hsa05216	R-HSA-913531	Thyroid cancer	Interferon Signaling	4	0.0101522842639594
+hsa04668	hsa04612	TNF signaling pathway	Antigen processing and presentation	2	0.0100502512562814
+hsa04919	hsa04512	Thyroid hormone signaling	ECM-receptor interaction	2	0.00956937799043062
+hsa04115	R-HSA-3299685	p53 signaling pathway	Detoxification of Reactive Oxygen Species	1	0.00900900900900901
+hsa04115	hsa03440	p53 signaling pathway	Homologous recombination	1	0.00869565217391304
+hsa04612	hsa04140	Antigen processing and presentation	Autophagy - animal	2	0.00803212851405622
+hsa04110	hsa04657	Cell cycle	IL-17 signaling pathway	2	0.008
+hsa04064	hsa04390	NF-kappa B signaling pathway	Hippo signaling pathway	2	0.00769230769230769
+hsa04115	R-HSA-1474244	p53 signaling pathway	Extracellular matrix organization	3	0.00763358778625954
+R-HSA-1474244	hsa04612	Extracellular matrix organization	Antigen processing and presentation	3	0.0075
+hsa04390	hsa04668	Hippo signaling pathway	TNF signaling pathway	2	0.0072992700729927
+hsa04657	hsa03050	IL-17 signaling pathway	Proteasome	1	0.00719424460431655
+R-HSA-1474244	hsa04066	Extracellular matrix organization	HIF-1 signaling pathway	3	0.00700934579439252
+hsa04115	R-HSA-913531	p53 signaling pathway	Interferon Signaling	3	0.0069284064665127
+hsa04064	hsa03440	NF-kappa B signaling pathway	Homologous recombination	1	0.00689655172413793
+R-HSA-3299685	hsa04066	Detoxification of Reactive Oxygen Species	HIF-1 signaling pathway	1	0.00684931506849315
+hsa04151	hsa04612	PI3K-Akt signaling pathway	Antigen processing and presentation	3	0.00680272108843537
+hsa04350	hsa03050	TGF-beta signaling pathway	Proteasome	1	0.00645161290322581
+hsa03050	hsa04066	Proteasome	HIF-1 signaling pathway	1	0.00645161290322581
+hsa04150	hsa04110	mTOR signaling pathway	Cell cycle	2	0.00636942675159236
+hsa04110	R-HSA-1474244	Cell cycle	Extracellular matrix organization	3	0.00630252100840336
+hsa04390	hsa04140	Hippo signaling pathway	Autophagy - animal	2	0.00617283950617284
+R-HSA-1474244	hsa04140	Extracellular matrix organization	Autophagy - animal	3	0.00616016427104723
+hsa04110	hsa04140	Cell cycle	Autophagy - animal	2	0.00615384615384615
+hsa04919	hsa04216	Thyroid hormone signaling	Ferroptosis	1	0.00613496932515337
+hsa04115	hsa04512	p53 signaling pathway	ECM-receptor interaction	1	0.00613496932515337
+hsa04310	R-HSA-1474244	Wnt signaling pathway	Extracellular matrix organization	3	0.00604838709677419
+hsa04210	R-HSA-3299685	Apoptosis	Detoxification of Reactive Oxygen Species	1	0.00574712643678161
+hsa00190	R-HSA-3299685	Oxidative phosphorylation	Detoxification of Reactive Oxygen Species	1	0.00574712643678161
+hsa04210	hsa03440	Apoptosis	Homologous recombination	1	0.00561797752808989
+hsa04210	hsa04216	Apoptosis	Ferroptosis	1	0.00558659217877095
+hsa04115	hsa04620	p53 signaling pathway	Toll-like receptor signaling pathway	1	0.00546448087431694
+hsa04115	hsa04350	p53 signaling pathway	TGF-beta signaling pathway	1	0.00543478260869565
+hsa04064	hsa04612	NF-kappa B signaling pathway	Antigen processing and presentation	1	0.00537634408602151
+hsa04612	hsa04620	Antigen processing and presentation	Toll-like receptor signaling pathway	1	0.00526315789473684
+hsa04612	hsa04066	Antigen processing and presentation	HIF-1 signaling pathway	1	0.00523560209424084
+hsa04512	hsa04620	ECM-receptor interaction	Toll-like receptor signaling pathway	1	0.0050761421319797
+hsa04110	hsa03440	Cell cycle	Homologous recombination	1	0.00505050505050505
+hsa04512	hsa04350	ECM-receptor interaction	TGF-beta signaling pathway	1	0.00505050505050505
+hsa04150	hsa04216	mTOR signaling pathway	Ferroptosis	1	0.0050251256281407
+hsa04110	hsa04216	Cell cycle	Ferroptosis	1	0.0050251256281407
+R-HSA-913531	hsa03050	Interferon Signaling	Proteasome	2	0.00493827160493827
+hsa04115	hsa00190	p53 signaling pathway	Oxidative phosphorylation	1	0.00471698113207547
+hsa04064	R-HSA-1474244	NF-kappa B signaling pathway	Extracellular matrix organization	2	0.00471698113207547
+hsa04630	hsa03050	JAK-STAT signaling pathway	Proteasome	1	0.00469483568075117
+hsa04064	hsa04350	NF-kappa B signaling pathway	TGF-beta signaling pathway	1	0.00467289719626168
+R-HSA-1474244	hsa04620	Extracellular matrix organization	Toll-like receptor signaling pathway	2	0.00467289719626168
+hsa04310	hsa04216	Wnt signaling pathway	Ferroptosis	1	0.0045662100456621
+hsa04150	hsa04612	mTOR signaling pathway	Antigen processing and presentation	1	0.00418410041841004
+R-HSA-1474244	hsa04630	Extracellular matrix organization	JAK-STAT signaling pathway	2	0.00410677618069815
+hsa04630	hsa04612	JAK-STAT signaling pathway	Antigen processing and presentation	1	0.00401606425702811
+hsa04390	hsa04657	Hippo signaling pathway	IL-17 signaling pathway	1	0.004
+hsa04390	hsa04066	Hippo signaling pathway	HIF-1 signaling pathway	1	0.0037593984962406
+hsa04210	hsa00190	Apoptosis	Oxidative phosphorylation	1	0.00363636363636364
+hsa04010	hsa04216	MAPK signaling pathway	Ferroptosis	1	0.00292397660818713
+hsa05216	R-HSA-1474244	Thyroid cancer	Extracellular matrix organization	1	0.00280112044817927
+R-HSA-1474244	R-HSA-3299685	Extracellular matrix organization	Detoxification of Reactive Oxygen Species	1	0.00280112044817927
+hsa04151	hsa03440	PI3K-Akt signaling pathway	Homologous recombination	1	0.00248756218905473
+R-HSA-913531	hsa04216	Interferon Signaling	Ferroptosis	1	0.00248756218905473
+hsa04151	hsa04216	PI3K-Akt signaling pathway	Ferroptosis	1	0.00248138957816377
+hsa04512	R-HSA-913531	ECM-receptor interaction	Interferon Signaling	1	0.0022271714922049
+hsa04150	R-HSA-1474244	mTOR signaling pathway	Extracellular matrix organization	1	0.00209205020920502
+hsa05216	hsa04512	Thyroid cancer	ECM-receptor interaction	0	0
+hsa05216	hsa04612	Thyroid cancer	Antigen processing and presentation	0	0
+hsa05216	hsa03050	Thyroid cancer	Proteasome	0	0
+hsa05216	hsa00190	Thyroid cancer	Oxidative phosphorylation	0	0
+hsa05216	hsa03440	Thyroid cancer	Homologous recombination	0	0
+hsa05216	hsa03030	Thyroid cancer	DNA replication	0	0
+hsa05216	R-HSA-3299685	Thyroid cancer	Detoxification of Reactive Oxygen Species	0	0
+hsa04919	hsa04612	Thyroid hormone signaling	Antigen processing and presentation	0	0
+hsa04919	hsa03050	Thyroid hormone signaling	Proteasome	0	0
+hsa04919	hsa00190	Thyroid hormone signaling	Oxidative phosphorylation	0	0
+hsa04919	hsa03440	Thyroid hormone signaling	Homologous recombination	0	0
+hsa04919	hsa03030	Thyroid hormone signaling	DNA replication	0	0
+hsa04919	R-HSA-3299685	Thyroid hormone signaling	Detoxification of Reactive Oxygen Species	0	0
+hsa04010	hsa04512	MAPK signaling pathway	ECM-receptor interaction	0	0
+hsa04010	hsa03050	MAPK signaling pathway	Proteasome	0	0
+hsa04010	hsa00190	MAPK signaling pathway	Oxidative phosphorylation	0	0
+hsa04010	hsa03440	MAPK signaling pathway	Homologous recombination	0	0
+hsa04010	hsa03030	MAPK signaling pathway	DNA replication	0	0
+hsa04010	R-HSA-3299685	MAPK signaling pathway	Detoxification of Reactive Oxygen Species	0	0
+hsa04151	hsa03050	PI3K-Akt signaling pathway	Proteasome	0	0
+hsa04151	hsa00190	PI3K-Akt signaling pathway	Oxidative phosphorylation	0	0
+hsa04151	hsa03030	PI3K-Akt signaling pathway	DNA replication	0	0
+hsa04151	R-HSA-3299685	PI3K-Akt signaling pathway	Detoxification of Reactive Oxygen Species	0	0
+hsa04150	hsa04512	mTOR signaling pathway	ECM-receptor interaction	0	0
+hsa04150	hsa03050	mTOR signaling pathway	Proteasome	0	0
+hsa04150	hsa03440	mTOR signaling pathway	Homologous recombination	0	0
+hsa04150	hsa03030	mTOR signaling pathway	DNA replication	0	0
+hsa04150	R-HSA-3299685	mTOR signaling pathway	Detoxification of Reactive Oxygen Species	0	0
+hsa04115	hsa04612	p53 signaling pathway	Antigen processing and presentation	0	0
+hsa04115	hsa03050	p53 signaling pathway	Proteasome	0	0
+hsa04115	hsa03030	p53 signaling pathway	DNA replication	0	0
+hsa04210	hsa04512	Apoptosis	ECM-receptor interaction	0	0
+hsa04210	hsa03050	Apoptosis	Proteasome	0	0
+hsa04210	hsa03030	Apoptosis	DNA replication	0	0
+hsa04110	hsa04512	Cell cycle	ECM-receptor interaction	0	0
+hsa04110	hsa04668	Cell cycle	TNF signaling pathway	0	0
+hsa04110	hsa04612	Cell cycle	Antigen processing and presentation	0	0
+hsa04110	hsa04620	Cell cycle	Toll-like receptor signaling pathway	0	0
+hsa04110	hsa03050	Cell cycle	Proteasome	0	0
+hsa04110	hsa00190	Cell cycle	Oxidative phosphorylation	0	0
+hsa04110	R-HSA-3299685	Cell cycle	Detoxification of Reactive Oxygen Species	0	0
+hsa04310	hsa04512	Wnt signaling pathway	ECM-receptor interaction	0	0
+hsa04310	hsa04612	Wnt signaling pathway	Antigen processing and presentation	0	0
+hsa04310	hsa03050	Wnt signaling pathway	Proteasome	0	0
+hsa04310	hsa00190	Wnt signaling pathway	Oxidative phosphorylation	0	0
+hsa04310	hsa03440	Wnt signaling pathway	Homologous recombination	0	0
+hsa04310	hsa03030	Wnt signaling pathway	DNA replication	0	0
+hsa04310	R-HSA-3299685	Wnt signaling pathway	Detoxification of Reactive Oxygen Species	0	0
+hsa04064	hsa04512	NF-kappa B signaling pathway	ECM-receptor interaction	0	0
+hsa04064	hsa04216	NF-kappa B signaling pathway	Ferroptosis	0	0
+hsa04064	hsa03050	NF-kappa B signaling pathway	Proteasome	0	0
+hsa04064	hsa00190	NF-kappa B signaling pathway	Oxidative phosphorylation	0	0
+hsa04064	hsa03030	NF-kappa B signaling pathway	DNA replication	0	0
+hsa04064	R-HSA-3299685	NF-kappa B signaling pathway	Detoxification of Reactive Oxygen Species	0	0
+hsa04510	hsa04612	Focal adhesion	Antigen processing and presentation	0	0
+hsa04510	hsa04216	Focal adhesion	Ferroptosis	0	0
+hsa04510	hsa03050	Focal adhesion	Proteasome	0	0
+hsa04510	hsa00190	Focal adhesion	Oxidative phosphorylation	0	0
+hsa04510	hsa03440	Focal adhesion	Homologous recombination	0	0
+hsa04510	hsa03030	Focal adhesion	DNA replication	0	0
+hsa04510	R-HSA-3299685	Focal adhesion	Detoxification of Reactive Oxygen Species	0	0
+hsa04512	hsa04390	ECM-receptor interaction	Hippo signaling pathway	0	0
+hsa04512	hsa04630	ECM-receptor interaction	JAK-STAT signaling pathway	0	0
+hsa04512	hsa04668	ECM-receptor interaction	TNF signaling pathway	0	0
+hsa04512	hsa04657	ECM-receptor interaction	IL-17 signaling pathway	0	0
+hsa04512	hsa04612	ECM-receptor interaction	Antigen processing and presentation	0	0
+hsa04512	hsa04216	ECM-receptor interaction	Ferroptosis	0	0
+hsa04512	hsa04218	ECM-receptor interaction	Cellular senescence	0	0
+hsa04512	hsa03050	ECM-receptor interaction	Proteasome	0	0
+hsa04512	hsa00190	ECM-receptor interaction	Oxidative phosphorylation	0	0
+hsa04512	hsa03440	ECM-receptor interaction	Homologous recombination	0	0
+hsa04512	hsa03030	ECM-receptor interaction	DNA replication	0	0
+hsa04512	R-HSA-3299685	ECM-receptor interaction	Detoxification of Reactive Oxygen Species	0	0
+hsa04512	hsa04066	ECM-receptor interaction	HIF-1 signaling pathway	0	0
+hsa04512	hsa04140	ECM-receptor interaction	Autophagy - animal	0	0
+R-HSA-1474244	hsa04216	Extracellular matrix organization	Ferroptosis	0	0
+R-HSA-1474244	hsa03050	Extracellular matrix organization	Proteasome	0	0
+R-HSA-1474244	hsa00190	Extracellular matrix organization	Oxidative phosphorylation	0	0
+R-HSA-1474244	hsa03440	Extracellular matrix organization	Homologous recombination	0	0
+R-HSA-1474244	hsa03030	Extracellular matrix organization	DNA replication	0	0
+hsa04350	hsa00190	TGF-beta signaling pathway	Oxidative phosphorylation	0	0
+hsa04350	hsa03440	TGF-beta signaling pathway	Homologous recombination	0	0
+hsa04350	hsa03030	TGF-beta signaling pathway	DNA replication	0	0
+hsa04350	R-HSA-3299685	TGF-beta signaling pathway	Detoxification of Reactive Oxygen Species	0	0
+hsa04390	hsa04612	Hippo signaling pathway	Antigen processing and presentation	0	0
+hsa04390	hsa04620	Hippo signaling pathway	Toll-like receptor signaling pathway	0	0
+hsa04390	hsa04216	Hippo signaling pathway	Ferroptosis	0	0
+hsa04390	hsa03050	Hippo signaling pathway	Proteasome	0	0
+hsa04390	hsa00190	Hippo signaling pathway	Oxidative phosphorylation	0	0
+hsa04390	hsa03440	Hippo signaling pathway	Homologous recombination	0	0
+hsa04390	hsa03030	Hippo signaling pathway	DNA replication	0	0
+hsa04390	R-HSA-3299685	Hippo signaling pathway	Detoxification of Reactive Oxygen Species	0	0
+hsa04630	hsa04216	JAK-STAT signaling pathway	Ferroptosis	0	0
+hsa04630	hsa00190	JAK-STAT signaling pathway	Oxidative phosphorylation	0	0
+hsa04630	hsa03440	JAK-STAT signaling pathway	Homologous recombination	0	0
+hsa04630	hsa03030	JAK-STAT signaling pathway	DNA replication	0	0
+hsa04630	R-HSA-3299685	JAK-STAT signaling pathway	Detoxification of Reactive Oxygen Species	0	0
+hsa04668	hsa04216	TNF signaling pathway	Ferroptosis	0	0
+hsa04668	hsa03050	TNF signaling pathway	Proteasome	0	0
+hsa04668	hsa00190	TNF signaling pathway	Oxidative phosphorylation	0	0
+hsa04668	hsa03440	TNF signaling pathway	Homologous recombination	0	0
+hsa04668	hsa03030	TNF signaling pathway	DNA replication	0	0
+hsa04668	R-HSA-3299685	TNF signaling pathway	Detoxification of Reactive Oxygen Species	0	0
+hsa04657	hsa04216	IL-17 signaling pathway	Ferroptosis	0	0
+hsa04657	hsa00190	IL-17 signaling pathway	Oxidative phosphorylation	0	0
+hsa04657	hsa03440	IL-17 signaling pathway	Homologous recombination	0	0
+hsa04657	hsa03030	IL-17 signaling pathway	DNA replication	0	0
+hsa04657	R-HSA-3299685	IL-17 signaling pathway	Detoxification of Reactive Oxygen Species	0	0
+hsa04612	hsa04216	Antigen processing and presentation	Ferroptosis	0	0
+hsa04612	hsa00190	Antigen processing and presentation	Oxidative phosphorylation	0	0
+hsa04612	hsa03440	Antigen processing and presentation	Homologous recombination	0	0
+hsa04612	hsa03030	Antigen processing and presentation	DNA replication	0	0
+hsa04612	R-HSA-3299685	Antigen processing and presentation	Detoxification of Reactive Oxygen Species	0	0
+R-HSA-913531	hsa00190	Interferon Signaling	Oxidative phosphorylation	0	0
+R-HSA-913531	hsa03440	Interferon Signaling	Homologous recombination	0	0
+R-HSA-913531	hsa03030	Interferon Signaling	DNA replication	0	0
+R-HSA-913531	R-HSA-3299685	Interferon Signaling	Detoxification of Reactive Oxygen Species	0	0
+hsa04620	hsa04216	Toll-like receptor signaling pathway	Ferroptosis	0	0
+hsa04620	hsa03050	Toll-like receptor signaling pathway	Proteasome	0	0
+hsa04620	hsa00190	Toll-like receptor signaling pathway	Oxidative phosphorylation	0	0
+hsa04620	hsa03440	Toll-like receptor signaling pathway	Homologous recombination	0	0
+hsa04620	hsa03030	Toll-like receptor signaling pathway	DNA replication	0	0
+hsa04620	R-HSA-3299685	Toll-like receptor signaling pathway	Detoxification of Reactive Oxygen Species	0	0
+hsa04216	hsa03050	Ferroptosis	Proteasome	0	0
+hsa04216	hsa00190	Ferroptosis	Oxidative phosphorylation	0	0
+hsa04216	hsa03440	Ferroptosis	Homologous recombination	0	0
+hsa04216	hsa03030	Ferroptosis	DNA replication	0	0
+hsa04218	hsa03050	Cellular senescence	Proteasome	0	0
+hsa04218	hsa00190	Cellular senescence	Oxidative phosphorylation	0	0
+hsa04218	hsa03030	Cellular senescence	DNA replication	0	0
+hsa04218	R-HSA-3299685	Cellular senescence	Detoxification of Reactive Oxygen Species	0	0
+hsa03050	hsa00190	Proteasome	Oxidative phosphorylation	0	0
+hsa03050	hsa03030	Proteasome	DNA replication	0	0
+hsa03050	R-HSA-3299685	Proteasome	Detoxification of Reactive Oxygen Species	0	0
+hsa03050	hsa04140	Proteasome	Autophagy - animal	0	0
+hsa00190	hsa03440	Oxidative phosphorylation	Homologous recombination	0	0
+hsa00190	hsa03030	Oxidative phosphorylation	DNA replication	0	0
+hsa00190	hsa04066	Oxidative phosphorylation	HIF-1 signaling pathway	0	0
+hsa00190	hsa04140	Oxidative phosphorylation	Autophagy - animal	0	0
+hsa03440	R-HSA-3299685	Homologous recombination	Detoxification of Reactive Oxygen Species	0	0
+hsa03440	hsa04066	Homologous recombination	HIF-1 signaling pathway	0	0
+hsa03440	hsa04140	Homologous recombination	Autophagy - animal	0	0
+hsa03030	R-HSA-3299685	DNA replication	Detoxification of Reactive Oxygen Species	0	0
+hsa03030	hsa04066	DNA replication	HIF-1 signaling pathway	0	0
+hsa03030	hsa04140	DNA replication	Autophagy - animal	0	0
+R-HSA-3299685	hsa04140	Detoxification of Reactive Oxygen Species	Autophagy - animal	0	0

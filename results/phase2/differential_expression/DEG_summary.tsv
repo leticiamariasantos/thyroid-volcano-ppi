@@ -1,0 +1,4 @@
+method	genes_tested	total_deg	up	down	threshold
+limma	26011	12200	2485	9715	|log2FC|>1.0 & FDR<0.05
+limma-voom	39702	19485	7235	12250	|log2FC|>1.0 & FDR<0.05
+DESeq2	39702	17737	5572	12165	|log2FC|>1.0 & FDR<0.05

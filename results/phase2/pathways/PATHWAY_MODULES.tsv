@@ -1,0 +1,31 @@
+database_id	module	pathway_name	panel_group
+hsa05216	1	Thyroid cancer	ORIGINAL_10
+hsa04919	2	Thyroid hormone signaling	ORIGINAL_10
+hsa04010	3	MAPK signaling pathway	ORIGINAL_10
+hsa04151	4	PI3K-Akt signaling pathway	ORIGINAL_10
+hsa04510	4	Focal adhesion	ADDITIONAL_20
+hsa04512	4	ECM-receptor interaction	ADDITIONAL_20
+hsa04140	5	Autophagy - animal	ADDITIONAL_20
+hsa04150	5	mTOR signaling pathway	ORIGINAL_10
+hsa04115	6	p53 signaling pathway	ORIGINAL_10
+hsa04210	7	Apoptosis	ORIGINAL_10
+hsa04110	8	Cell cycle	ORIGINAL_10
+hsa04310	9	Wnt signaling pathway	ORIGINAL_10
+hsa04390	9	Hippo signaling pathway	ADDITIONAL_20
+hsa04064	10	NF-kappa B signaling pathway	ORIGINAL_10
+hsa04620	10	Toll-like receptor signaling pathway	ADDITIONAL_20
+hsa04657	10	IL-17 signaling pathway	ADDITIONAL_20
+hsa04668	10	TNF signaling pathway	ADDITIONAL_20
+R-HSA-1474244	11	Extracellular matrix organization	ADDITIONAL_20
+hsa04350	12	TGF-beta signaling pathway	ADDITIONAL_20
+hsa04630	13	JAK-STAT signaling pathway	ADDITIONAL_20
+hsa04612	14	Antigen processing and presentation	ADDITIONAL_20
+R-HSA-913531	15	Interferon Signaling	ADDITIONAL_20
+hsa04216	16	Ferroptosis	ADDITIONAL_20
+hsa04218	17	Cellular senescence	ADDITIONAL_20
+hsa03050	18	Proteasome	ADDITIONAL_20
+hsa00190	19	Oxidative phosphorylation	ADDITIONAL_20
+hsa03440	20	Homologous recombination	ADDITIONAL_20
+hsa03030	21	DNA replication	ADDITIONAL_20
+R-HSA-3299685	22	Detoxification of Reactive Oxygen Species	ADDITIONAL_20
+hsa04066	23	HIF-1 signaling pathway	ADDITIONAL_20

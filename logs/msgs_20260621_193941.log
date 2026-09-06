@@ -1,3 +1,0 @@
-Mensagen de aviso:
-`hub_score()` was deprecated in igraph 2.0.3.
-ℹ Please use `hits_scores()` instead. 
