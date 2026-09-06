@@ -74,8 +74,7 @@ inteiras).
 | **PPI** | Rede STRING (excluindo músculo): 70 nós / 65 arestas; hub FN1 (grau 9), com CCND1, CDT1, CDH2, SDC1, TK1, PCLAF, CENPM, MET, FGF17 |
 | **ITGA2 / FN1 / CCND1** | Todos Up (logFC +2,47 / +4,32 / +2,26), consistentes nos 3 métodos, replicados em GSE33630/GSE60542/GSE224356 |
 
-**Sobre a rede PPI:** na Fase 1 (análise direcionada à via hsa04919, 29 DEGs), **PRKCA** era o
-hub. Na análise **genoma-wide** (12.200 DEGs), a rede tumor-relevante é dominada por genes de
+**Sobre a rede PPI:** Na análise **genoma-wide** (12.200 DEGs), a rede tumor-relevante é dominada por genes de
 **proliferação e adesão/EMT**. **FN1** é o hub principal, e PRKCA **não** é mais hub. A
 centralidade é reportada como **propriedade topológica**, não como relevância funcional ou alvo
 terapêutico.
