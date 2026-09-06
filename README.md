@@ -1,6 +1,4 @@
-# thyroid-volcano-ppi
-
-**Análise transcriptômica do carcinoma papilífero da tireoide com painel de 30 vias, convergência molecular e priorização de ITGA2 como candidato translacional**
+# Análise transcriptômica do carcinoma papilífero da tireoide com painel de 30 vias, convergência molecular e priorização de ITGA2 como candidato translacional
 
 > **Versão:** 4.1.0 (Fase 2 — reboot) | **Data da execução:** 2026-09-06 | **Tipo de estudo:** Exploratório, gerador de hipóteses
 

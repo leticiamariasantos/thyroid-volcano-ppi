@@ -73,9 +73,10 @@ FULL vs REMOVED (`sensitivity/gsea_composition_sensitivity.tsv`).
 
 ## 9. PPI
 
-Genes elegíveis (pré-especificado): DEGs limma com FDR<0,05 e |logFC|≥2; top 400 por |t|.
-STRING (taxon 9606, escore≥700). Centralidade (degree, betweenness, closeness, eigenvector)
-e comunidades (walktrap). Variante de sensibilidade sem marcadores musculares.
+Genes elegíveis (tumor-relevante, pré-especificado): DEGs limma com FDR<0,05 e |logFC|≥1,
+excluindo os 48 marcadores de músculo estriado (artefato de composição do tecido normal),
+equilibrados em 250 Up + 250 Down por |t|. STRING (taxon 9606, escore≥700). Centralidade
+(degree, betweenness, closeness, eigenvector) e comunidades (walktrap).
 
 ## 10. Validação externa
 

@@ -32,10 +32,12 @@ Para vias com genes quase todos Up (ex.: Interferon Signaling), o fgsea retornou
 NA em alguns métodos (estatísticas desbalanceadas). Reportado como "indeterminado", não
 forçado.
 
-## 6. PPI esparso
+## 6. PPI
 
-A rede STRING dos DEGs de maior |logFC| é esparsa (34 arestas) e dominada por composição
-muscular. Centralidade é topológica, não funcional, e não identifica alvo terapêutico.
+A rede STRING (escore≥700) foi reconstruída excluindo os marcadores de músculo estriado
+(70 nós / 65 arestas), com FN1 como hub principal e genes de ciclo celular/EMT. A rede
+permanece esparsa e **in silico** (interações inferidas pelo STRING); a centralidade é
+topológica, não funcional, e não identifica alvo terapêutico.
 
 ## 7. RPPA
 
