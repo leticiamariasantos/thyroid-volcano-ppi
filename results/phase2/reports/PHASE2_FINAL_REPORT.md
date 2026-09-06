@@ -27,9 +27,10 @@ pré-especificada do painel de 10 → 30 vias.
    processing, OXPHOS, DNA replication, p53, Cell cycle) permanecem robustas após remoção
    dos 48 marcadores musculares — nenhuma via significativa desapareceu.
 
-6. **Principais módulos de PPI:** rede esparsa (34 arestas) dominada pelo cluster muscular
-   (MYH7/MYL1/MYL2/ACTA1/CKM/CSRP3); sem módulo tumoral coerente — centralidade é topológica,
-   não alvo terapêutico.
+6. **Principais módulos de PPI:** rede STRING reconstruída excluindo marcadores musculares
+   (70 nós / 65 arestas, 18 comunidades); hub principal FN1 (grau 9), com CCND1 e genes de
+   ciclo celular/EMT; centralidade é propriedade topológica, não alvo terapêutico. PRKCA não
+   é mais hub (era hub apenas na Fase 1 direcionada à via hsa04919).
 
 7. **ITGA2:** Up no tumor (logFC +2,47, FDR 4,1e-89), consistente nos 3 métodos, replicado
    externamente (GSE33630/GSE60542/GSE224356), predominantemente epitelial/tumoral no

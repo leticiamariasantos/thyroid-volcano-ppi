@@ -1,8 +1,8 @@
 metric	value
-nodes	34
-edges	34
-n_communities	12
-modularity	0.717993079584775
-density	0.0606060606060606
-top_hub_degree	6
-top_hub_gene	MYL1
+nodes	70
+edges	65
+n_communities	18
+modularity	0.794437869822485
+density	0.0269151138716356
+top_hub_degree	9
+top_hub_gene	FN1

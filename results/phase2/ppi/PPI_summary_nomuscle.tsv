@@ -1,5 +1,5 @@
 metric	value
-nodes	27
-edges	17
-n_communities	11
-modularity	0.8719723183391
+nodes	70
+edges	65
+n_communities	18
+modularity	0.794437869822485

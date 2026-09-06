@@ -68,11 +68,13 @@ que o sinal muscular é artefato de composição do GTEx.
 
 ## 6. PPI
 
-Rede STRING (escore≥700) dos 400 DEGs de maior |logFC|: **34 nós / 34 arestas** — rede
-esparsa dominada pelo cluster muscular (MYH7, MYL1, MYL2, ACTA1, CKM, CSRP3). Após remoção
-muscular: 27 nós / 17 arestas. **A centralidade é reportada como propriedade topológica,**
-não como alvo terapêutico. O resultado reforça que os DEGs de maior magnitude são dominados
-por composição tecidual, não por um programa tumoral coerente.
+Rede STRING (escore≥700) reconstruída excluindo os 48 marcadores de músculo estriado
+(artefato de composição do tecido normal) e equilibrando 250 genes Up + 250 Down: **70 nós / 65
+arestas**, 18 comunidades (modularidade 0,794). **FN1** é o hub de maior grau (9), seguido por
+CDT1, CDH2, SDC1 (grau 5) e CCND1, TK1, PCLAF, CENPM, MET, FGF17 (grau 4) — programa de
+proliferação (ciclo celular) e adesão/EMT. **A centralidade é reportada como propriedade
+topológica, não como alvo terapêutico.** PRKCA (hub da Fase 1 direcionada à via hsa04919) não
+é hub na análise genoma-wide.
 
 ## 7. Candidatos ITGA2 / FN1 / CCND1 (convergência independente)
 

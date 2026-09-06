@@ -20,13 +20,23 @@ log_msg("══ Rede PPI ══")
 
 limma <- fread(file.path(DIR_DE, "limma_full_results.tsv"))
 
-# ── 1. Regra pré-especificada de elegibilidade ────────────────────────────────
-eligible <- limma[adj.P.Val < FDR_THRESH & abs(logFC) >= 2]
-eligible[, abs_t := abs(t)]
-setorder(eligible, -abs_t)
-if (nrow(eligible) > 400) eligible <- eligible[seq_len(400)]
+# ── 1. Regra de elegibilidade (tumor-relevante; exclui composição muscular) ───
+# A análise de composição demonstrou que os marcadores de músculo estriado são
+# artefato do tecido normal (GTEx). Excluí-los evita que a rede seja dominada por
+# esse sinal composicional. Gene set equilibrado: 250 Up + 250 Down por |t|.
+MUSCLE <- c("MYH7","MYH1","MYH2","MYH3","MYH4","MYH6","MYH8","MYH13",
+  "MYL1","MYL2","MYL3","MYL4","MYLPF","ACTA1","ACTC1","ACTN2","ACTN3",
+  "TNNT1","TNNT2","TNNT3","TNNI1","TNNI2","TNNI3","TNNC1","TNNC2",
+  "CKM","CKMT2","MB","TTN","NEB","MYOM1","MYOM2","MYBPC1","MYBPC2","MYBPC3",
+  "CASQ1","CASQ2","ATP2A1","RYR1","CACNA1S","PYGM","ENO3","MYOZ1","MYOZ2",
+  "TPM2","TPM3","LMOD2","LMOD3")
+eligible <- limma[adj.P.Val < FDR_THRESH & abs(logFC) >= 1 & !(gene_symbol %in% MUSCLE)]
+up <- eligible[logFC > 0]; setorder(up, -t); if (nrow(up) > 250) up <- up[seq_len(250)]
+dn <- eligible[logFC < 0]; setorder(dn, t);   if (nrow(dn) > 250) dn <- dn[seq_len(250)]
+eligible <- rbind(up, dn)
 elig_genes <- eligible$gene_symbol
-log_msg(sprintf("Genes elegíveis (FDR<0.05 & |logFC|>=2): %d", length(elig_genes)))
+log_msg(sprintf("Genes elegíveis (tumor-relevante, sem músculo, %d Up + %d Down): %d",
+                nrow(up), nrow(dn), length(elig_genes)))
 fwrite_tsv(eligible[, .(gene_symbol, logFC, adj.P.Val, t, regulation)],
            file.path(DIR_PPI, "PPI_eligible_genes.tsv"))
 
