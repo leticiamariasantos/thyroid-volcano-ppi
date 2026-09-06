@@ -106,48 +106,4 @@ if (is.null(edges) || nrow(edges) == 0) {
   print(head(centrality, 15))
 }
 
-log_msg("══ PPI concluída (análise principal) ══")
-
-# ── 7. Variante de sensibilidade: PPI controlado por composição muscular ─────
-# A elegibilidade por |logFC|>=2 é dominada por genes musculares (presentes no
-# normal). Como sensibilidade (exigida pela análise de composição), refaz a rede
-# removendo os marcadores de músculo estriado — documentado, não post-hoc.
-STRIATED_MUSCLE <- c("MYH7","MYH1","MYH2","MYH3","MYH4","MYH6","MYH8","MYH13",
-  "MYL1","MYL2","MYL3","MYL4","MYLPF","ACTA1","ACTC1","ACTN2","ACTN3",
-  "TNNT1","TNNT2","TNNT3","TNNI1","TNNI2","TNNI3","TNNC1","TNNC2",
-  "CKM","CKMT2","MB","TTN","NEB","MYOM1","MYOM2","MYBPC1","MYBPC2","MYBPC3",
-  "CASQ1","CASQ2","ATP2A1","RYR1","CACNA1S","PYGM","ENO3","MYOZ1","MYOZ2",
-  "TPM2","TPM3","LMOD2","LMOD3")
-eligible2 <- eligible[!gene_symbol %in% STRIATED_MUSCLE]
-log_msg(sprintf("Genes elegíveis pós-remoção muscular: %d", nrow(eligible2)))
-fwrite_tsv(eligible2[, .(gene_symbol, logFC, adj.P.Val, t, regulation)],
-           file.path(DIR_PPI, "PPI_eligible_genes_nomuscle.tsv"))
-
-edges2 <- string_query(eligible2$gene_symbol, STRING_SCORE)
-if (is.null(edges2) || nrow(edges2) == 0) {
-  log_msg("AVISO: PPI controlado por composição sem interações.")
-} else {
-  edges2[, node1 := sub("^9606\\.", "", stringId_A)]
-  edges2[, node2 := sub("^9606\\.", "", stringId_B)]
-  nm2 <- unique(rbind(edges2[, .(node = node1, name = preferredName_A)],
-                      edges2[, .(node = node2, name = preferredName_B)]))
-  g2 <- graph_from_data_frame(edges2[, .(node1, node2, score)], directed = FALSE)
-  V(g2)$name <- nm2$name[match(V(g2)$name, nm2$node)]
-  cent2 <- data.table(gene = V(g2)$name, degree = degree(g2),
-                      betweenness = betweenness(g2, normalized = TRUE))
-  cent2 <- cent2[order(-degree, -betweenness)]
-  set.seed(SEED)
-  wt2 <- cluster_walktrap(g2)
-  fwrite_tsv(cent2, file.path(DIR_PPI, "PPI_centrality_nomuscle.tsv"))
-  fwrite_tsv(as_data_frame(g2, what = "edges"), file.path(DIR_PPI, "PPI_edges_nomuscle.tsv"))
-  fwrite_tsv(data.table(metric = c("nodes","edges","n_communities","modularity"),
-                        value = c(vcount(g2), ecount(g2), length(unique(membership(wt2))),
-                                  modularity(wt2))),
-             file.path(DIR_PPI, "PPI_summary_nomuscle.tsv"))
-  saveRDS(g2, file.path(DIR_DATAOUT, "ppi_graph_nomuscle.rds"))
-  log_msg(sprintf("PPI (s/ músculo): %d nós, %d arestas, %d comunidades (mod %.3f)",
-                  vcount(g2), ecount(g2), length(unique(membership(wt2))), modularity(wt2)))
-  cat("\n=== Top 15 hubs (PPI sem músculo) ===\n")
-  print(head(cent2, 15))
-}
-log_msg("══ PPI (com sensibilidade) concluída ══")
+log_msg("══ PPI concluída ══")

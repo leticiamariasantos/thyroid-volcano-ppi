@@ -29,7 +29,7 @@ jobs:
           test -f data/manifests/MANIFEST_counts.tsv
           # Pipeline da nova fase
           test -f scripts/phase2/00_config.R
-          test -f scripts/phase2/17_validate.R
+          test -f scripts/phase2/16_validate.R
           test -f scripts/15_validate_outputs.R
           # Resultados da nova fase
           test -f results/phase2/audit/DATA_AUDIT.txt

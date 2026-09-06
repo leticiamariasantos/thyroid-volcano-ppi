@@ -11,13 +11,13 @@
 
 ## Execução
 
-Scripts em `scripts/phase2/` (numerados 00–17), executados na ordem:
+Scripts em `scripts/phase2/` (numerados 00–16), executados na ordem:
 
 ```
 00_config.R 01_audit_data.R 02_qc.R 03_de.R 04_panel.R 05_gsea_global.R
 06_gsea_panel.R 07_redundancy.R 08_composition.R 09_ppi.R 10_validation.R
 11_singlecell.R 12_protein_mutation.R 13_robustness.R 14_convergence.R
-15_figures.R 17_validate.R
+15_figures.R 16_validate.R
 ```
 
 ## Dependências externas
@@ -37,7 +37,7 @@ Scripts em `scripts/phase2/` (numerados 00–17), executados na ordem:
 
 ## Validação técnica
 
-`Rscript scripts/phase2/17_validate.R` — verifica existência, dimensões, consistência e
+`Rscript scripts/phase2/16_validate.R` — verifica existência, dimensões, consistência e
 integridade dos outputs. Objetivo: **0 failures**.
 
 ## Rastreabilidade

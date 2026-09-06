@@ -1,5 +1,5 @@
 # ═══════════════════════════════════════════════════════════════════════════════
-# 17_validate.R — Validação técnica final da FASE 2 (reboot)
+# 16_validate.R — Validação técnica final da FASE 2 (reboot)
 #
 # Verifica existência, dimensões, consistência e integridade de todos os outputs
 # da nova fase. Objetivo: 0 failures. Substitui o antigo 15_validate_outputs.R.

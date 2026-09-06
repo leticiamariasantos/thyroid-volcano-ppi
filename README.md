@@ -108,9 +108,9 @@ thyroid-volcano-ppi/
 │   │                            #   differential_expression, pathways, gsea, ppi,
 │   │                            #   validation, sensitivity, figures, reports)
 ├── scripts/
-│   ├── phase2/                  # pipeline da nova fase (00–17)
+│   ├── phase2/                  # pipeline da nova fase (00–16)
 │   ├── legacy/                  # scripts legados (Fases 1 e 2 originais)
-│   ├── 15_validate_outputs.R    # validação técnica (delega para phase2/17_validate.R)
+│   ├── 15_validate_outputs.R    # validação técnica (delega para phase2/16_validate.R)
 │   ├── download_data.R          # aquisição de dados
 │   └── setup_renv.R             # instalação do ambiente
 ├── tests/                       # testes unitários
@@ -147,7 +147,7 @@ e `*.tsv`):
 | 13 | `13_robustness.R` | Matriz de robustez das 30 vias | `pathways/PATHWAY_ROBUSTNESS_MATRIX.tsv` |
 | 14 | `14_convergence.R` | Convergência do painel + candidatos ITGA2/FN1/CCND1 | `validation/panel_convergence_genes.tsv`, `convergence_candidates.tsv` |
 | 15 | `15_figures.R` | Figuras (volcano, heatmap, GSEA, dotplot, NES, PPI, single-cell) | `figures/` |
-| 17 | `17_validate.R` | Validação técnica (0 failures) | — |
+| 16 | `16_validate.R` | Validação técnica (0 failures) | — |
 
 **Execução em lote** (na ordem acima):
 
@@ -161,7 +161,7 @@ Rscript scripts/phase2/08_composition.R && Rscript scripts/phase2/09_ppi.R      
 Rscript scripts/phase2/10_validation.R  && Rscript scripts/phase2/11_singlecell.R && \
 Rscript scripts/phase2/12_protein_mutation.R && Rscript scripts/phase2/13_robustness.R && \
 Rscript scripts/phase2/14_convergence.R && Rscript scripts/phase2/15_figures.R && \
-Rscript scripts/phase2/17_validate.R
+Rscript scripts/phase2/16_validate.R
 ```
 
 Validação técnica (também acessível por `Rscript scripts/15_validate_outputs.R`).

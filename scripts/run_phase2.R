@@ -8,7 +8,7 @@ steps <- c(
   "00_config.R", "01_audit_data.R", "02_qc.R", "03_de.R", "04_panel.R",
   "05_gsea_global.R", "06_gsea_panel.R", "07_redundancy.R", "08_composition.R",
   "09_ppi.R", "10_validation.R", "11_singlecell.R", "12_protein_mutation.R",
-  "13_robustness.R", "14_convergence.R", "15_figures.R", "17_validate.R"
+  "13_robustness.R", "14_convergence.R", "15_figures.R", "16_validate.R"
 )
 for (s in steps) {
   p <- file.path("scripts", "phase2", s)
