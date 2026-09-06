@@ -1,0 +1,9 @@
+# Arquivos de resumo do workshop (não versionados por decisão dos autores)
+resumo_workshop_*.docx
+resumo_workshop_*.pdf
+
+# Lixo de sistema operacional
+.DS_Store
+.Rhistory
+.RData
+.Rproj.user/
