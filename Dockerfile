@@ -8,8 +8,8 @@
 #
 # Construir:
 #   docker build -t thyroid-volcano-ppi .
-# Executar pipeline completo:
-#   docker run --rm -v "$(pwd):/work" -w /work thyroid-volcano-ppi Rscript scripts/run_all.R
+# Executar pipeline completo da FASE 2 (reboot, painel de 30 vias):
+#   docker run --rm -v "$(pwd):/work" -w /work thyroid-volcano-ppi Rscript scripts/run_phase2.R
 # ═══════════════════════════════════════════════════════════════════════════════
 
 FROM rocker/r-ver:4.6.1
@@ -34,4 +34,4 @@ RUN R -e 'if (!require("BiocManager", quietly=TRUE)) install.packages("BiocManag
 WORKDIR /work
 COPY . .
 
-CMD ["Rscript", "scripts/run_all.R"]
+CMD ["Rscript", "scripts/run_phase2.R"]

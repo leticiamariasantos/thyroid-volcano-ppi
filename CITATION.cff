@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 message: "If you use this software, please cite it as below."
-title: "Análise Transcriptômica da Via de Sinalização do Hormônio Tireoidiano no Carcinoma de Tireoide e Potenciais Implicações para a Enfermagem de Precisão"
+title: "Análise transcriptômica do carcinoma papilífero da tireoide com painel de 30 vias, convergência molecular e priorização de ITGA2 como candidato translacional"
 type: software
 authors:
   - given-names: "Letícia Maria Dias"
@@ -31,5 +31,5 @@ keywords:
   - "reproducible research"
   - "precision nursing"
 license: MIT
-version: "3.1.0"
-date-released: "2026-06-24"
+version: "4.1.0"
+date-released: "2026-09-06"
