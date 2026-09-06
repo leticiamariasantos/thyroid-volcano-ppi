@@ -1,3 +1,4 @@
+---
 name: CI
 
 on:
@@ -9,16 +10,38 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Check required files/dirs exist
+      - name: Check required files/dirs exist (Fase 2 — reboot)
         run: |
           set -e
+          # Raiz
+          test -f README.md
+          test -f Dockerfile
+          test -f renv.lock
+          test -f LICENSE
+          # Documentação (rastreabilidade histórica)
           test -f documentation/DISCOVERY_FREEZE.md
           test -f documentation/EXTERNAL_VALIDATION_REPORT.md
           test -f documentation/ADVANCED_VALIDATION_REPORT.md
           test -f documentation/TRACEABILITY_MATRIX.tsv
           test -f documentation/FINAL_AUDIT_REPORT.md
-          test -f results/discovery_freeze/SHA256SUMS.txt
-          test -f data/global/MANIFEST.tsv
+          # Manifests de dados
+          test -f data/manifests/MANIFEST_TPM.tsv
+          test -f data/manifests/MANIFEST_counts.tsv
+          # Pipeline da nova fase
+          test -f scripts/phase2/00_config.R
+          test -f scripts/phase2/17_validate.R
+          test -f scripts/15_validate_outputs.R
+          # Resultados da nova fase
+          test -f results/phase2/audit/DATA_AUDIT.txt
+          test -f results/phase2/pathways/PANEL_30_PATHWAYS.tsv
+          test -f results/phase2/pathways/PANEL_SELECTION_RATIONALE.md
+          test -f results/phase2/reports/PHASE2_FINAL_REPORT.md
+          test -f results/phase2/reports/PHASE2_METHODS.md
+          test -f results/phase2/reports/PHASE2_RESULTS.md
+          test -f results/phase2/reports/PHASE2_LIMITATIONS.md
+          test -f results/phase2/reports/PHASE2_FALSIFICATION_AUDIT.md
+          test -f results/phase2/reports/PHASE2_REPRODUCIBILITY.md
+          test -f results/phase2/reports/PHASE2_LANGUAGE_LOCK_AUDIT.md
           echo "structure OK"
 
   smoke-test:
@@ -30,6 +53,7 @@ jobs:
         run: |
           Rscript -e 'cat("R", as.character(getRversion()), "OK\n")'
           test -f scripts/15_validate_outputs.R && echo "validation script present"
+          test -f scripts/phase2/00_config.R && echo "phase2 config present"
         shell: bash
 
   lint-markdown:

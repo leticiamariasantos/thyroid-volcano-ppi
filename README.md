@@ -74,7 +74,7 @@ convergentes dos programas tumorais (potenciais candidatos translacionais, não 
 - `documentation/RECOVERY_STATUS.md` — status de recuperação e classificação das etapas
 - `documentation/TRACEABILITY_MATRIX.tsv` — matriz de rastreabilidade (claim→script→resultado→nível)
 - `documentation/DIRECTORY_STATUS.md` — mapa de diretórios (incl. pastas vazias)
-- `scripts/01_*` a `15_*` — pipeline da Fase 2 (incl. contagens, comparação e validação)
+- `scripts/legacy/` — pipeline legado da Fase 2 original (scripts 01–30, contagens, comparação e validação)
 
 ### Extensão Fase 2 — análise baseada em contagens (sensibilidade)
 

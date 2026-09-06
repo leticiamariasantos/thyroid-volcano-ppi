@@ -84,14 +84,16 @@ por composição tecidual, não por um programa tumoral coerente.
 
 **Convergência do painel (leading edge recorrente):** 18 genes figuram no core enrichment
 (leading edge) de ≥2 vias robustas. O painel de 30 vias converge para o **eixo ciclo
-celular/p53** — TP53 (7 vias), CCND1, CDK1, CDKN1A, CCNB1, CCNB2, CCND2, CDK4, CDKN2A,
-CHEK1, MDM2, SFN — e para a **maquinaria de replicação** (MCM2–MCM5, PCNA) e **PSME1**
-(elo proteassoma–apresentação de antígeno). `validation/panel_convergence_genes.tsv`.
+celular/p53 (vias ORIGINAIS)** — TP53 (7 vias), CCND1, CDK1, CDKN1A, CCNB1, CCNB2, CCND2,
+CDK4, CDKN2A, CHEK1, MDM2, SFN — e para a **maquinaria de replicação** (MCM2–MCM5, PCNA) e
+**PSME1** (elo proteassoma–apresentação de antígeno). As 20 vias adicionais convergem para
+proteassoma/apresentação de antígeno/OXPHOS/replicação de DNA. `validation/panel_convergence_genes.tsv`.
 
-**Candidatos pré-especificados:** CCND1 **converge** (core enrichment de Cell cycle, p53,
-Cellular senescence e Thyroid cancer). ITGA2 e FN1 **não** figuram no core enrichment —
-emergem como DEGs robustos e replicados dentro dos programas de adesão/ECM (Focal adhesion,
-ECM-receptor, ECM organization), não como nós centrais dos programas mais enriquecidos.
+**Candidatos pré-especificados:** CCND1 figura no core enrichment apenas de vias ORIGINAIS
+(Cell cycle, p53) e de Cellular senescence/Thyroid cancer; não figura no core enrichment das
+20 vias adicionais. ITGA2 e FN1 **não** figuram no core enrichment — emergem como DEGs
+individuais robustos e replicados dentro dos programas de adesão/ECM (Focal adhesion,
+ECM-receptor, ECM organization), não como componentes centrais dos programas mais enriquecidos.
 
 **Validação externa (direção concordante):** ITGA2, FN1 e CCND1 **Up** em GSE33630
 (logFC +2,00 / +2,88 / +1,42), GSE60542 (+2,50 / +3,06 / +1,07) e GSE224356 (T1N1, T2N2, T3N3).
