@@ -2,8 +2,8 @@
 
 **Data da execução:** 2026-09-06
 **Escopo:** reconstrução independente do pipeline (dados → DE → painel 30 vias → GSEA global
-→ composição → PPI → validação externa → single-cell → proteína/mutação) com expansão
-pré-especificada do painel de 10 → 30 vias.
+→ composição → PPI → validação externa → single-cell → proteína/mutação) com painel
+pré-especificado de 30 vias.
 
 ## Resumo executivo (16 itens)
 
@@ -81,7 +81,7 @@ pré-especificada do painel de 10 → 30 vias.
 
 ## Conclusão
 
-A expansão pré-especificada do espaço biológico (10→30 vias) converge para o **eixo ciclo
+O painel pré-especificado de 30 vias converge para o **eixo ciclo
 celular/p53** (TP53, CDK1, CDKN1A, CDKN2A, MDM2, CHEK1 e a maquinaria MCM/PCNA). **CCND1 é
 o único dos três candidatos que figura no core enrichment — restrito às vias ORIGINAIS (Cell
 cycle, p53)** e a Cellular senescence/Thyroid cancer; não figura no core enrichment das 20

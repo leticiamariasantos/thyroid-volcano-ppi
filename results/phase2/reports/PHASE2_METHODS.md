@@ -1,7 +1,7 @@
 # PHASE 2 (reboot) — Métodos
 
 **Data da execução:** 2026-09-06
-**Natureza:** reconstrução independente do pipeline com expansão do painel de vias de 10 → 30.
+**Natureza:** reconstrução independente do pipeline com painel de 30 vias.
 **Ambiente:** R 4.6.1 (ucrt); pacotes-chave: limma, edgeR, DESeq2, fgsea (1.37.4),
 msigdbr (2026.1.Hs), KEGGREST, hgu133plus2.db, igraph, data.table, ggplot2.
 

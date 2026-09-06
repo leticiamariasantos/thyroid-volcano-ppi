@@ -1,6 +1,6 @@
 # Análise transcriptômica do carcinoma papilífero da tireoide com painel de 30 vias, convergência molecular e priorização de ITGA2 como candidato translacional
 
-> **Versão:** 4.1.0 (Fase 2 — reboot) | **Data da execução:** 2026-09-06 | **Tipo de estudo:** Exploratório, gerador de hipóteses
+> **Versão:** 4.1.0 (Fase 2 (reboot)) | **Data da execução:** 2026-09-06 | **Tipo de estudo:** Exploratório, gerador de hipóteses
 
 [![R](https://img.shields.io/badge/R-%E2%89%A5%204.1-blue)](https://www.r-project.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
@@ -13,7 +13,7 @@
 ## 1. Sobre esta versão
 
 > **Esta é a fase atual e única documentada neste README: uma reconstrução independente do
-> pipeline com expansão do painel de vias de 10 para 30 vias.**
+> pipeline com um painel de 30 vias.**
 
 A análise anterior (Fase 1 direcionada à via KEGG hsa04919) e a Fase 2 original (painel de 10
 vias) foram **removidas da camada analítica** e preservadas apenas como documentação histórica
@@ -22,9 +22,9 @@ dos dados brutos, sem reutilizar resultados estatísticos, rankings, DEGs ou con
 fases anteriores.
 
 **Pergunta científica:** quais programas biológicos emergem do transcriptoma do carcinoma
-papilífero da tireoide (PTC) em escala global e, após a expansão **pré-especificada** do espaço
-de hipóteses (10 → 30 vias), quais genes emergem como componentes convergentes dos programas
-tumorais — e quais podem ser priorizados como candidatos translacionais (não alvos validados)?
+papilífero da tireoide (PTC) em escala global e, com um painel **pré-especificado** de 30 vias,
+quais genes emergem como componentes convergentes dos programas
+tumorais, e quais podem ser priorizados como candidatos translacionais (não alvos validados)?
 
 ---
 
@@ -35,14 +35,13 @@ execução, para evitar circularidade:
 
 | Decisão | Justificativa |
 |---|---|
-| Painel de 10 vias preservado | As vias originais (hsa05216, hsa04919, hsa04010, hsa04151, hsa04150, hsa04115, hsa04210, hsa04110, hsa04310, hsa04064) são hipótese **a priori** do projeto |
-| 20 vias adicionais selecionadas **a priori** | Ampliar o espaço biológico (adesão/ECM, EMT/TGF-β, Hippo, JAK-STAT, TNF, interferon, imunidade, ferroptose, senescência, proteassoma, OXPHOS, reparo/replicação de DNA, hipóxia, autofagia) **sem** consultar quais vias seriam significativas |
+| Painel de 30 vias definido **a priori** | As 30 vias foram pré-especificadas antes da interpretação dos resultados (sinalização, adesão/ECM, EMT/TGF-β, Hippo, JAK-STAT, TNF, interferon, imunidade, ferroptose, senescência, proteassoma, OXPHOS, reparo/replicação de DNA, hipóxia e autofagia), **sem** consultar quais seriam significativas |
 | `source ≡ condition` documentado | TCGA ≡ tumor e GTEx ≡ normal estão perfeitamente confundidos; **nenhuma** correção de batch é alegada como eliminadora |
 | Controle de composição muscular | A assinatura de músculo estriado (MYH7, MYL1, MYL2, ACTA1, TNNT3, CKM e 48 marcadores) é **artefato de composição** do tecido normal GTEx, não regulação tumoral |
 | ITGA2/FN1/CCND1 avaliados **após** o pipeline | Não se selecionam vias nem genes por esses candidatos; a convergência é verificada a posteriori |
 | Nanotecnologia como consequência | A nanotecnologia **não** é premissa da seleção; é consequência translacional hipotética (biologia → candidato → localização → acessibilidade → hipótese de targeting → nanomedicina) |
 
-A seleção das 20 vias adicionais está fundamentada em
+A seleção das 30 vias está fundamentada em
 `results/phase2/pathways/PANEL_SELECTION_RATIONALE.md` e na tabela
 `results/phase2/pathways/PANEL_30_PATHWAYS.tsv`.
 
@@ -67,7 +66,7 @@ inteiras).
 | Etapa | Resultado |
 |---|---|
 | **DE (limma, principal)** | 26.011 genes testados → 12.200 DEGs (2.485 Up / 9.715 Down; \|log2FC\|>1, FDR<0,05) |
-| **Concordância** | Spearman(log2FC) 0,88–0,96 entre limma/voom/DESeq2 |
+| **Concordância** | Spearman(log2FC) 0,88 a 0,96 entre limma/voom/DESeq2 |
 | **Painel de 30 vias (GSEA)** | 6 significativas e robustas (todas Up): Proteasome, Antigen processing, OXPHOS, DNA replication + p53, Cell cycle |
 | **GSEA global** | Ribosome/tradução, Proteasome, resposta imune, Cell cycle, OXPHOS, p53 (Up); Myogenesis (Down) |
 | **Composição** | Score muscular tumor −2,91 vs normal +0,03; as 6 vias persistem após remoção dos 48 marcadores |
@@ -77,15 +76,15 @@ inteiras).
 
 **Sobre a rede PPI:** na Fase 1 (análise direcionada à via hsa04919, 29 DEGs), **PRKCA** era o
 hub. Na análise **genoma-wide** (12.200 DEGs), a rede tumor-relevante é dominada por genes de
-**proliferação e adesão/EMT** — **FN1** é o hub principal, e PRKCA **não** é mais hub. A
+**proliferação e adesão/EMT**. **FN1** é o hub principal, e PRKCA **não** é mais hub. A
 centralidade é reportada como **propriedade topológica**, não como relevância funcional ou alvo
 terapêutico.
 
-**Conclusão oficial:** a expansão 10→30 **não** convergiu para ITGA2/FN1/CCND1 como componentes
+**Conclusão oficial:** o painel de 30 vias **não** convergiu para ITGA2/FN1/CCND1 como componentes
 dos programas mais enriquecidos (proteassoma/antígeno/OXPHOS/replicação). Eles emergem como
-**DEGs individuais robustos e replicados** (CCND1 com core enrichment restrito a vias
-**originais** Cell cycle/p53). **ITGA2 permanece candidato translacional para investigação de
-direcionamento molecular — nunca alvo validado.** Relatórios completos em
+**DEGs individuais robustos e replicados** (CCND1 com core enrichment restrito às vias Cell
+cycle e p53 do painel). **ITGA2 permanece candidato translacional para investigação de
+direcionamento molecular; nunca alvo validado.** Relatórios completos em
 `results/phase2/reports/`.
 
 ---
@@ -108,7 +107,7 @@ thyroid-volcano-ppi/
 │   │                            #   differential_expression, pathways, gsea, ppi,
 │   │                            #   validation, sensitivity, figures, reports)
 ├── scripts/
-│   ├── phase2/                  # pipeline da nova fase (00–16)
+│   ├── phase2/                  # pipeline da nova fase (00 a 16)
 │   ├── legacy/                  # scripts legados (Fases 1 e 2 originais)
 │   ├── 15_validate_outputs.R    # validação técnica (delega para phase2/16_validate.R)
 │   ├── download_data.R          # aquisição de dados
@@ -121,35 +120,78 @@ thyroid-volcano-ppi/
 
 ---
 
-## 6. Como executar (cada etapa)
+## 6. Como executar (passo a passo completo)
 
-Pré-requisitos: R ≥ 4.1 (testado em R 4.6.1), `renv::restore()` para instalar os pacotes
-(versões em `renv.lock`), e conexão de internet para STRING, KEGG, Reactome, MSigDB e cBioPortal.
+Esta seção descreve, em detalhe, como reproduzir integralmente a análise. Foi escrita para ser
+seguida tanto por uma pessoa quanto por um agente de IA, com os comandos exatos e o que verificar
+em cada etapa.
 
-Os scripts são executados **em ordem** (cada um depende do anterior via `results/phase2/data/*.rds`
-e `*.tsv`):
+### 6.1. Pré-requisitos
 
-| # | Script | O que faz | Saídas |
-|---|---|---|---|
-| 00 | `00_config.R` | Parâmetros, thresholds, seeds, caminhos, helpers | — |
-| 01 | `01_audit_data.R` | Auditoria de integridade (dimensões, IDs, duplicatas, NA, distribuição) | `audit/DATA_AUDIT.txt`, `audit/sample_metadata.tsv`, `data/tpm_matrix.rds`, `data/counts_matrix.rds` |
-| 02 | `02_qc.R` | QC: distribuição, PCA, clustering, outliers, `source≡condition` | `preprocessing/`, figuras QC |
-| 03 | `03_de.R` | DE: limma (TPM), limma-voom e DESeq2 (contagens) + comparação de métodos | `differential_expression/` |
-| 04 | `04_panel.R` | Define o painel de 30 vias (10 + 20 *a priori*) e obtém gene sets (KEGG/Reactome) | `pathways/PANEL_30_PATHWAYS*.tsv`, `data/panel30_genesets.rds` |
-| 05 | `05_gsea_global.R` | GSEA global (KEGG, Reactome, Hallmark) | `gsea/GSEA_GLOBAL_*.tsv` |
-| 06 | `06_gsea_panel.R` | GSEA do painel de 30 vias para os 3 métodos | `pathways/PANEL_30_GSEA_*.tsv` |
-| 07 | `07_redundancy.R` | Redundância (Jaccard) e clustering das 30 vias | `pathways/PATHWAY_REDUNDANCY.tsv`, `PATHWAY_MODULES.tsv` |
-| 08 | `08_composition.R` | Sensibilidade de composição muscular (FULL vs removido) | `sensitivity/` |
-| 09 | `09_ppi.R` | Rede PPI (STRING ≥700) sobre DEGs tumor-relevantes (excluindo músculo) | `ppi/` |
-| 10 | `10_validation.R` | Validação externa (GSE33630, GSE60542, GSE224356) | `validation/` |
-| 11 | `11_singlecell.R` | Localização celular (GSE232237, marker-based) | `validation/singlecell_*` |
-| 12 | `12_protein_mutation.R` | RPPA (CCND1) e mutação/CNV (cBioPortal THCA) | `validation/RPPA_summary.tsv`, `mutation_frequency.tsv` |
-| 13 | `13_robustness.R` | Matriz de robustez das 30 vias | `pathways/PATHWAY_ROBUSTNESS_MATRIX.tsv` |
-| 14 | `14_convergence.R` | Convergência do painel + candidatos ITGA2/FN1/CCND1 | `validation/panel_convergence_genes.tsv`, `convergence_candidates.tsv` |
-| 15 | `15_figures.R` | Figuras (volcano, heatmap, GSEA, dotplot, NES, PPI, single-cell) | `figures/` |
-| 16 | `16_validate.R` | Validação técnica (0 failures) | — |
+| Item | Requisito |
+|---|---|
+| Sistema operacional | Windows, macOS ou Linux |
+| R | >= 4.1 (testado em R 4.6.1, 2026-06-24) |
+| Gerenciador de pacotes | renv (o projeto usa `renv.lock` com versões exatas) |
+| Internet | Necessária para STRING, KEGG, Reactome (MSigDB), cBioPortal e GEO |
+| Espaço em disco | ~3 GB (matrizes grandes versionadas via Git LFS) |
+| Git LFS | Necessário para clonar as matrizes grandes |
 
-**Execução em lote** (na ordem acima):
+### 6.2. Etapa 0: obter o código e os dados
+
+```bash
+git lfs install
+git clone https://github.com/leticiamariasantos/thyroid-volcano-ppi.git
+cd thyroid-volcano-ppi
+git lfs pull
+```
+
+Os dados brutos ficam em `data/global/` (TPM, contagens, arquivo `.gz`), `data/external/`
+(GEO, single-cell, Reactome GMT) e `data/raw/`. Os manifestos de proveniência estão em
+`data/manifests/`.
+
+### 6.3. Etapa 1: restaurar o ambiente R
+
+```bash
+Rscript -e 'if (!requireNamespace("renv", quietly=TRUE)) install.packages("renv"); renv::restore()'
+```
+
+Confirme que os pacotes foram instalados nas versões registradas em `renv.lock`.
+
+### 6.4. Etapa 2: executar o pipeline (em ordem)
+
+Os scripts estão em `scripts/phase2/` e devem rodar em ordem numérica (00 a 16), pois cada um
+consome artefatos do anterior (`results/phase2/data/*.rds` e `*.tsv`).
+
+**Forma recomendada (orquestrador):**
+
+```bash
+Rscript scripts/run_phase2.R
+```
+
+**Forma manual (um a um, para depuração):**
+
+| # | Comando | O que faz e o que verificar |
+|---|---|---|
+| 00 | `Rscript scripts/phase2/00_config.R` | Carrega parâmetros, thresholds, seed e caminhos; verifique se a raiz foi detectada |
+| 01 | `Rscript scripts/phase2/01_audit_data.R` | Auditoria de integridade; deve terminar com 0 falhas e gerar `audit/DATA_AUDIT.txt` |
+| 02 | `Rscript scripts/phase2/02_qc.R` | QC, PCA, clustering e outliers; gera `preprocessing/QC_summary.txt` |
+| 03 | `Rscript scripts/phase2/03_de.R` | DE com limma, limma-voom e DESeq2; gera `differential_expression/` (12.200 DEGs no limma) |
+| 04 | `Rscript scripts/phase2/04_panel.R` | Define o painel de 30 vias e obtém gene sets; gera `pathways/PANEL_30_PATHWAYS.tsv` |
+| 05 | `Rscript scripts/phase2/05_gsea_global.R` | GSEA global (KEGG, Reactome, Hallmark); gera `gsea/GSEA_GLOBAL_*.tsv` |
+| 06 | `Rscript scripts/phase2/06_gsea_panel.R` | GSEA das 30 vias para os 3 métodos; gera `pathways/PANEL_30_GSEA_*.tsv` |
+| 07 | `Rscript scripts/phase2/07_redundancy.R` | Redundância (Jaccard) e clustering; gera `pathways/PATHWAY_REDUNDANCY.tsv` |
+| 08 | `Rscript scripts/phase2/08_composition.R` | Sensibilidade de composição muscular; gera `sensitivity/` |
+| 09 | `Rscript scripts/phase2/09_ppi.R` | Rede PPI (STRING, escore >=700); gera `ppi/` |
+| 10 | `Rscript scripts/phase2/10_validation.R` | Validação externa (GSE33630, GSE60542, GSE224356); gera `validation/` |
+| 11 | `Rscript scripts/phase2/11_singlecell.R` | Localização single-cell (GSE232237); gera `validation/singlecell_*` |
+| 12 | `Rscript scripts/phase2/12_protein_mutation.R` | RPPA e mutação/CNV (cBioPortal THCA); gera `validation/RPPA_summary.tsv` |
+| 13 | `Rscript scripts/phase2/13_robustness.R` | Matriz de robustez; gera `pathways/PATHWAY_ROBUSTNESS_MATRIX.tsv` |
+| 14 | `Rscript scripts/phase2/14_convergence.R` | Convergência do painel e candidatos; gera `validation/` |
+| 15 | `Rscript scripts/phase2/15_figures.R` | Figuras; gera `figures/` |
+| 16 | `Rscript scripts/phase2/16_validate.R` | Validação técnica; deve terminar com 0 failures |
+
+**Execução em lote alternativa (linha única, sem o orquestrador):**
 
 ```bash
 cd thyroid-volcano-ppi
@@ -164,7 +206,49 @@ Rscript scripts/phase2/14_convergence.R && Rscript scripts/phase2/15_figures.R &
 Rscript scripts/phase2/16_validate.R
 ```
 
-Validação técnica (também acessível por `Rscript scripts/15_validate_outputs.R`).
+### 6.5. Etapa 3: validação técnica
+
+```bash
+Rscript scripts/phase2/16_validate.R
+# ou
+Rscript scripts/15_validate_outputs.R
+```
+
+Saída esperada: `VALIDAÇÃO OK (0 failures)`.
+
+### 6.6. Etapa 4: testes unitários (opcional)
+
+```bash
+Rscript -e 'testthat::test_dir("tests/testthat")'
+```
+
+### 6.7. Dependências entre etapas (para depuração)
+
+- `00_config.R` é carregado por todos os scripts via `source(...)`, portanto roda primeiro.
+- `01_audit_data.R` gera `data/tpm_matrix.rds` e `data/counts_matrix.rds`, consumidos por `02_qc.R` e `03_de.R`.
+- `03_de.R` gera rankings e resultados de DE, consumidos a partir de `04_panel.R`.
+- `04_panel.R` gera `data/panel30_genesets.rds`, consumido por `06_gsea_panel.R`, `07_redundancy.R`, `08_composition.R` e `14_convergence.R`.
+- `05_gsea_global.R` persiste os gene sets globais (RDS), consumidos por `13_robustness.R`.
+- `09_ppi.R` consulta a API do STRING; `10_validation.R` e `12_protein_mutation.R` dependem de internet e são independentes entre si.
+
+### 6.8. Tempo estimado
+
+| Etapa | Tempo aproximado |
+|---|---|
+| 00 a 02 | 2 a 5 minutos |
+| 03 (inclui DESeq2) | 10 a 15 minutos |
+| 04 a 08 | 5 a 10 minutos |
+| 09 a 12 | 3 a 8 minutos (depende da rede) |
+| 13 a 16 | 2 a 5 minutos |
+
+### 6.9. Resolução de problemas comuns
+
+| Sintoma | Causa provável e solução |
+|---|---|
+| Erro `pandoc not found` | Instale o Pandoc ou adicione-o ao PATH |
+| Erro de pacote ausente | Rode `renv::restore()` novamente |
+| Falha em STRING/cBioPortal | Verifique a conexão e tente novamente |
+| Arquivos grandes não vieram no clone | Rode `git lfs pull` |
 
 ---
 
@@ -192,7 +276,7 @@ Validação técnica (também acessível por `Rscript scripts/15_validate_output
 | httr / jsonlite | 1.4.8 / 2.0.0 | APIs (STRING, cBioPortal) | CRAN |
 | here | 1.0.2 | Caminhos portáveis | CRAN |
 | readxl | 1.5.0 | Leitura de listas de DEGs (GSE224356) | CRAN |
-| reshape2 / MASS | 1.4.5 / — | Manipulação / Mahalanobis | CRAN |
+| reshape2 / MASS | 1.4.5 / n/a | Manipulação / Mahalanobis | CRAN |
 
 Versões completas em `renv.lock`.
 
@@ -200,57 +284,68 @@ Versões completas em `renv.lock`.
 
 ## 8. Declaração de uso de Inteligência Artificial
 
-Em conformidade com a Portaria CNPq nº 2.664/2026, declara-se que este projeto utilizou
-ferramentas de IA como **suporte técnico e metodológico** (geração/depuração de código R e
-Python, revisão de documentação e auditoria de qualidade científica), e não como autora do
-conteúdo científico.
+Em conformidade com a Portaria CNPq nº 2.664/2026, este projeto declara o uso de ferramentas de
+inteligência artificial (IA) **exclusivamente como suporte técnico e metodológico**, e nunca
+como autora do conteúdo científico, das hipóteses ou das conclusões.
 
-- **Nenhuma conclusão científica foi derivada exclusivamente por IA.** Hipóteses, interpretação
-  e discussão foram formuladas pelos autores com base nos outputs do pipeline e na literatura.
-- **As análises estatísticas foram executadas pelo pipeline em R**, com `set.seed(42)`
-  garantindo reprodutibilidade determinística.
-- **Nenhum texto científico final foi redigido por IA** — as ferramentas atuaram como
-  assistentes de programação e revisão metodológica.
-- **As ferramentas não substituem o julgamento científico**; os autores assumem responsabilidade
-  integral pela acurácia, validade e adequação das conclusões.
+### 8.1. Natureza do uso de IA
 
----
-
-## 9. Contribuições (CRediT)
-
-| Autor | Contribuição |
-|---|---|
-| **Letícia Maria Dias Freitas** | Conceitualização (liderança); Metodologia; Software; Análise formal; Curadoria de dados; Validação; Visualização; Investigação; Redação — rascunho original |
-| **Ryan de Paulo Santos** | Conceitualização (suporte); Metodologia; Software; Análise formal; Curadoria; Validação; Visualização; Administração do projeto; Revisão e edição |
-| **Thais Faria Coutinho da Silva Pereira** | Supervisão (liderança); Revisão científica (liderança); Validação (suporte) |
-
-## 10. Autores
-
-| Autor | ORCID | Afiliação |
+| Atividade | Papel da IA | Papel humano |
 |---|---|---|
-| Letícia Maria Dias Freitas | [0009-0009-9930-9588](https://orcid.org/0009-0009-9930-9588) | ETEJBM, Campos dos Goytacazes, RJ |
-| Ryan de Paulo Santos | [0009-0005-6770-2001](https://orcid.org/0009-0005-6770-2001) | IFF, Campus Campos Guarus, RJ |
-| Thais Faria Coutinho da Silva Pereira | [0009-0005-7091-2480](https://orcid.org/0009-0005-7091-2480) | ETEJBM, Campos dos Goytacazes, RJ |
+| Geração, depuração e otimização de código R e Python | Assistência na implementação do pipeline | Especificação dos métodos, revisão e validação de cada script |
+| Auditoria de qualidade científica e linguística | Busca automática de padrões (overclaiming, inconsistências) | Decisão sobre o que corrigir e redação das correções |
+| Revisão de documentação | Sugestões de estrutura e clareza | Redação e aprovação final de todo o texto |
+| Interpretação dos resultados | Nenhuma | Formulação de hipóteses, leitura dos outputs e discussão |
+
+### 8.2. Garantias de integridade
+
+- **Nenhuma conclusão científica foi derivada exclusivamente por IA.** As hipóteses biológicas, a
+  interpretação dos resultados e a discussão sobre relevância translacional foram formuladas
+  pelos autores, com base nos outputs reproduzíveis do pipeline e na literatura.
+- **As análises estatísticas foram executadas integralmente pelo pipeline em R**, com
+  `set.seed(42)` e versões fixadas em `renv.lock`, garantindo reprodutibilidade determinística.
+- **Nenhum texto científico final foi redigido por IA.** As ferramentas atuaram como assistentes
+  de programação e revisão metodológica; todo o conteúdo textual foi redigido, revisado e
+  aprovado pelos autores.
+- **As ferramentas de IA não substituem o julgamento científico.** Os autores assumem
+  responsabilidade integral pela acurácia dos dados, pela validade das análises e pela adequação
+  das conclusões apresentadas.
+
+### 8.3. Rastreabilidade
+
+O registro das tarefas assistidas por IA, a trilha de auditoria do pipeline e a matriz de
+rastreabilidade estão documentados em `documentation/TRACEABILITY_MATRIX.tsv`,
+`documentation/TRANSPARENCY_LOG.md` e `results/phase2/reports/PHASE2_REPRODUCIBILITY.md`.
 
 ---
 
-## 11. Limitações
+## 9. Contribuições (CRediT) e autores
 
-1. **`source ≡ condition`** — TCGA (tumor) e GTEx (normal) estão perfeitamente confundidos;
+| Autor | ORCID | Afiliação | Contribuição (CRediT) |
+|---|---|---|---|
+| Letícia Maria Dias Freitas | [0009-0009-9930-9588](https://orcid.org/0009-0009-9930-9588) | ETEJBM, Campos dos Goytacazes, RJ | Conceitualização (liderança); Metodologia; Software; Análise formal; Curadoria de dados; Validação; Visualização; Investigação; Redação (rascunho original) |
+| Ryan de Paulo Santos | [0009-0005-6770-2001](https://orcid.org/0009-0005-6770-2001) | IFF, Campus Campos Guarus, RJ | Conceitualização (suporte); Metodologia; Software; Análise formal; Curadoria; Validação; Visualização; Administração do projeto; Revisão e edição |
+| Thais Faria Coutinho da Silva Pereira | [0009-0005-7091-2480](https://orcid.org/0009-0005-7091-2480) | ETEJBM, Campos dos Goytacazes, RJ | Supervisão (liderança); Revisão científica (liderança); Validação (suporte) |
+
+---
+
+## 10. Limitações
+
+1. **`source ≡ condition`**: TCGA (tumor) e GTEx (normal) estão perfeitamente confundidos;
    nenhuma correção de batch elimina o problema sem remover o sinal biológico.
-2. **Composição muscular do normal** — a assinatura de músculo estriado é artefato do GTEx.
-3. **PPI esparso e in silico** — interações STRING são inferidas; centralidade é topológica.
-4. **RPPA tumor-only** — ITGA2 e FN1 fora do painel; CCND1 com correlação RNA-proteína fraca (0,051).
-5. **TERT promotor não captado** — exoma não detecta mutações de promotor.
-6. **Single-cell marker-based** — classificação do GSE232237 sem anotação autoral.
+2. **Composição muscular do normal**: a assinatura de músculo estriado é artefato do GTEx.
+3. **PPI esparso e in silico**: interações STRING são inferidas; centralidade é topológica.
+4. **RPPA tumor-only**: ITGA2 e FN1 fora do painel; CCND1 com correlação RNA-proteína fraca (0,051).
+5. **TERT promotor não captado**: exoma não detecta mutações de promotor.
+6. **Single-cell marker-based**: classificação do GSE232237 sem anotação autoral.
 7. **Ausência de alteração genômica** que explique a expressão de ITGA2/FN1/CCND1.
-8. **Estudo exploratório, não confirmatório** — resultados restritos ao PTC no contexto TCGA/GTEx.
+8. **Estudo exploratório, não confirmatório**: resultados restritos ao PTC no contexto TCGA/GTEx.
 
 ---
 
-## 12. Licença e citação
+## 11. Licença e citação
 
-MIT License — veja [LICENSE](LICENSE).
+MIT License. Veja [LICENSE](LICENSE).
 
 ```bibtex
 @software{freitas2026thyroid30,
