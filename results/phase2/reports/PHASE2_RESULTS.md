@@ -27,7 +27,7 @@ Vias significativas (FDR<0,05, |NES| decrescente), todas **Up no tumor**:
 | p53 signaling (hsa04115) | ORIGINAL_10 | +1,89 | 8,4e-5 |
 | Cell cycle (hsa04110) | ORIGINAL_10 | +1,75 | 3,2e-6 |
 
-No painel original de 10 vias, **p53 e Cell cycle** foram as vias a priori mais robustas.
+No painel de 30 vias, **p53 e Cell cycle** foram as vias a priori mais robustas.
 As demais vias do painel (incluindo MAPK, PI3K-Akt, mTOR, Wnt, NF-kB, Thyroid cancer,
 Thyroid hormone signaling, Apoptosis) não atingiram FDR<0,05 no limma.
 
@@ -88,12 +88,12 @@ topológica, não como alvo terapêutico.** PRKCA (hub da Fase 1 direcionada à 
 (leading edge) de ≥2 vias robustas. O painel de 30 vias converge para o **eixo ciclo
 celular/p53 (vias ORIGINAIS)** — TP53 (7 vias), CCND1, CDK1, CDKN1A, CCNB1, CCNB2, CCND2,
 CDK4, CDKN2A, CHEK1, MDM2, SFN — e para a **maquinaria de replicação** (MCM2–MCM5, PCNA) e
-**PSME1** (elo proteassoma–apresentação de antígeno). As 20 vias adicionais convergem para
+**PSME1** (elo proteassoma–apresentação de antígeno). As vias adicionais convergem para
 proteassoma/apresentação de antígeno/OXPHOS/replicação de DNA. `validation/panel_convergence_genes.tsv`.
 
 **Candidatos pré-especificados:** CCND1 figura no core enrichment apenas de vias ORIGINAIS
 (Cell cycle, p53) e de Cellular senescence/Thyroid cancer; não figura no core enrichment das
-20 vias adicionais. ITGA2 e FN1 **não** figuram no core enrichment — emergem como DEGs
+vias adicionais. ITGA2 e FN1 **não** figuram no core enrichment — emergem como DEGs
 individuais robustos e replicados dentro dos programas de adesão/ECM (Focal adhesion,
 ECM-receptor, ECM organization), não como componentes centrais dos programas mais enriquecidos.
 

@@ -1,3 +1,5 @@
+> ⚠ **Documento legado** (Fases 1 e 2 originais). Descreve a análise anterior, não a Fase 2 atual (painel de 30 vias). Consulte o `README.md` e `results/phase2/` para a versão vigente.
+
 # Data Dictionary — thyroid-volcano-ppi
 
 ## Input Data

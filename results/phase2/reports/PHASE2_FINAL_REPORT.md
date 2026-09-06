@@ -43,7 +43,7 @@ pré-especificado de 30 vias.
 9. **CCND1:** Up (logFC +2,26, FDR 2,7e-144), consistente e replicado externamente; epitelial;
    RPPA presente mas correlação RNA-proteína fraca (0,051). Entre os três candidatos, é o
    único que figura no core enrichment — restrito às vias ORIGINAIS (Cell cycle, p53) e a
-   Cellular senescence/Thyroid cancer; não figura no core enrichment das 20 vias adicionais.
+   Cellular senescence/Thyroid cancer; não figura no core enrichment das vias adicionais.
 
 10. **Validação externa:** ITGA2/FN1/CCND1 **Up** em GSE33630 (+2,00/+2,88/+1,42),
     GSE60542 (+2,50/+3,06/+1,07) e GSE224356 (T1N1/T2N2/T3N3).
@@ -64,12 +64,12 @@ pré-especificado de 30 vias.
     absoluta, acessibilidade, internalização ou eficácia.
 
 15. **Classificação dos resultados:**
-    - **Confirmatórios (hipótese a priori, painel original):** p53 e Cell cycle.
+    - **Confirmatórios (hipótese a priori):** p53 e Cell cycle.
     - **Robustos (pré-especificados + tripla validação):** Proteasome, Antigen processing,
       OXPHOS, DNA replication.
     - **Convergência molecular do painel (vias ORIGINAIS):** eixo ciclo celular/p53 (TP53,
       CCND1, CDK1, CDKN1A, CCNB1/2, CCND2, CDK4, CDKN2A, CHEK1, MDM2, SFN) + replicação
-      (MCM2–MCM5, PCNA) + PSME1 — 18 genes no leading edge de ≥2 vias robustas. As 20 vias
+      (MCM2–MCM5, PCNA) + PSME1 — 18 genes no leading edge de ≥2 vias robustas. As vias
       adicionais convergem para proteassoma/apresentação de antígeno/OXPHOS/replicação de DNA.
     - **Exploratórios:** demais vias adicionais (Interferon, Focal adhesion, Hippo,
       Ferroptose, Autophagy, etc. — método-dependentes).

@@ -29,7 +29,7 @@ RUN install2.r --error --skipinstalled \
     stringr tibble purrr pheatmap corrplot
 
 # Bioconductor (Fase 2)
-RUN R -e 'if (!require("BiocManager", quietly=TRUE)) install.packages("BiocManager"); BiocManager::install(c("limma","edgeR","DESeq2","fgsea","msigdbr","KEGGREST","org.Hs.eg.db","AnnotationDbi","SummarizedExperiment","recount3","GEOquery","hgu133plus2.db","BiocParallel"), update=FALSE, ask=FALSE)'
+RUN R -e 'if (!require("BiocManager", quietly=TRUE)) install.packages("BiocManager"); BiocManager::install(c("limma","edgeR","DESeq2","fgsea","msigdbr","KEGGREST","org.Hs.eg.db","AnnotationDbi","hgu133plus2.db"), update=FALSE, ask=FALSE)'
 
 WORKDIR /work
 COPY . .

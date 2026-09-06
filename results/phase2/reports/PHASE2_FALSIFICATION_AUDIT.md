@@ -36,7 +36,7 @@ de direcionamento molecular**, não alvo validado.
 1. **ITGA2/FN1 como componentes do core enrichment** — não figuram no leading edge de
    nenhuma via; são DEGs individuais dentro de programas de adesão/ECM. (CCND1, em contraste,
    figura no core enrichment de vias ORIGINAIS — Cell cycle, p53 — e de Cellular
-   senescence/Thyroid cancer, não das 20 vias adicionais.)
+   senescence/Thyroid cancer, não das vias adicionais.)
 2. **ITGA2/FN1 como alvos RPPA-validados** — fora do painel RPPA.
 3. **Assinatura muscular como sinal tumoral** — refutada (composicional; não replica em
    coortes pareadas).

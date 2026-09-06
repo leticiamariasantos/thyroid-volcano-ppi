@@ -40,7 +40,7 @@ e análises de sensibilidade (não por alegação de correção completa).
 
 ## 4. Painel de 30 vias (definido a priori)
 
-- 10 vias originais (INALTERADAS) + 20 vias adicionais selecionadas **antes** da
+- 30 vias pré-especificadas **antes** da
   interpretação dos resultados (critérios em `pathways/PANEL_SELECTION_RATIONALE.md`).
 - Gene sets: KEGG via `KEGGREST::keggGet` (símbolos parseados do campo GENE); Reactome via
   GMT oficial (`ReactomePathways.gmt`).
@@ -55,9 +55,9 @@ e análises de sensibilidade (não por alegação de correção completa).
 
 ## 6. Múltiplos testes (separados)
 
-- A. painel original (10 vias) — hipótese a priori;
-- B. 20 vias adicionais — expansão pré-especificada (linguagem exploratória);
-- C. GSEA global — descoberta exploratória.
+- A. vias pré-especificadas no projeto (hipótese a priori);
+- B. vias adicionais pré-especificadas (linguagem exploratória);
+- C. GSEA global (descoberta exploratória).
 Correção: Benjamini-Hochberg (padj do fgsea), reportado o nº de hipóteses por grupo.
 
 ## 7. Redundância entre vias
