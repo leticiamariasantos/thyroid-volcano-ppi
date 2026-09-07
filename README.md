@@ -21,7 +21,7 @@ em `documentation/` e `scripts/legacy/`. Todo o pipeline foi **reconstruído do 
 dos dados brutos, sem reutilizar resultados estatísticos, rankings, DEGs ou conclusões das
 fases anteriores.
 
-**Pergunta científica:** quais programas biológicos emergem do transcriptoma do carcinoma
+**questão norteadora:** quais programas biológicos emergem do transcriptoma do carcinoma
 papilífero da tireoide (PTC) em escala global e, com um painel **pré-especificado** de 30 vias,
 quais genes emergem como componentes convergentes dos programas
 tumorais, e quais podem ser priorizados como candidatos translacionais (não alvos validados)?
