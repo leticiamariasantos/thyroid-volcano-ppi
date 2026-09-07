@@ -21,21 +21,21 @@ em `documentation/` e `scripts/legacy/`. Todo o pipeline foi **reconstruído do 
 dos dados brutos, sem reutilizar resultados estatísticos, rankings, DEGs ou conclusões das
 fases anteriores.
 
-**questão norteadora:** quais programas biológicos emergem do transcriptoma do carcinoma
+**Questão norteadora:** quais programas biológicos emergem do transcriptoma do carcinoma
 papilífero da tireoide (PTC) em escala global e, com um painel **pré-especificado** de 30 vias,
 quais genes emergem como componentes convergentes dos programas
 tumorais, e quais podem ser priorizados como candidatos translacionais (não alvos validados)?
 
 ---
 
-## 2. Justificativas metodológicas (pré-registradas)
+## 2. Justificativas metodológicas
 
-Todas as decisões metodológicas foram tomadas **antes** da interpretação dos resultados desta
+Todas as decisões metodológicas foram tomadas antes da interpretação dos resultados desta
 execução, para evitar circularidade:
 
 | Decisão | Justificativa |
 |---|---|
-| Painel de 30 vias definido **a priori** | As 30 vias foram pré-especificadas antes da interpretação dos resultados (sinalização, adesão/ECM, EMT/TGF-β, Hippo, JAK-STAT, TNF, interferon, imunidade, ferroptose, senescência, proteassoma, OXPHOS, reparo/replicação de DNA, hipóxia e autofagia), **sem** consultar quais seriam significativas |
+| Painel de 30 vias definido **a priori** | As 30 vias foram pré-especificadas antes da interpretação dos resultados (sinalização, adesão/ECM, EMT/TGF-β, Hippo, JAK-STAT, TNF, interferon, imunidade, ferroptose, senescência, proteassoma, OXPHOS, reparo/replicação de DNA, hipóxia e autofagia), sem consultar quais seriam significativas |
 | `source ≡ condition` documentado | TCGA ≡ tumor e GTEx ≡ normal estão perfeitamente confundidos; **nenhuma** correção de batch é alegada como eliminadora |
 | Controle de composição muscular | A assinatura de músculo estriado (MYH7, MYL1, MYL2, ACTA1, TNNT3, CKM e 48 marcadores) é **artefato de composição** do tecido normal GTEx, não regulação tumoral |
 | ITGA2/FN1/CCND1 avaliados **após** o pipeline | Não se selecionam vias nem genes por esses candidatos; a convergência é verificada a posteriori |
@@ -72,14 +72,14 @@ inteiras).
 | **Composição** | Score muscular tumor −2,91 vs normal +0,03; as 6 vias persistem após remoção dos 48 marcadores |
 | **Convergência** | 18 genes no leading edge de ≥2 vias robustas: eixo ciclo celular/p53 (TP53, CCND1, CDK1, CDKN1A, CDKN2A, MDM2, CHEK1, MCM/PCNA) |
 | **PPI** | Rede STRING (excluindo músculo): 70 nós / 65 arestas; hub FN1 (grau 9), com CCND1, CDT1, CDH2, SDC1, TK1, PCLAF, CENPM, MET, FGF17 |
-| **ITGA2 / FN1 / CCND1** | Todos Up (logFC +2,47 / +4,32 / +2,26), consistentes nos 3 métodos, replicados em GSE33630/GSE60542/GSE224356 |
+| **ITGA2 / FN1 / CCND1** | Todos Up (logFC +2,47 / +4,32 / +2,26, respectivamente), consistentes nos 3 métodos, replicados em GSE33630/GSE60542/GSE224356 |
 
 **Sobre a rede PPI:** Na análise **genoma-wide** (12.200 DEGs), a rede tumor-relevante é dominada por genes de
 **proliferação e adesão/EMT**. **FN1** é o hub principal, e PRKCA **não** é mais hub. A
 centralidade é reportada como **propriedade topológica**, não como relevância funcional ou alvo
 terapêutico.
 
-**Conclusão oficial:** o painel de 30 vias **não** convergiu para ITGA2/FN1/CCND1 como componentes
+**Conclusão oficial:** o painel de 30 vias não convergiu para ITGA2/FN1/CCND1 como componentes
 dos programas mais enriquecidos (proteassoma/antígeno/OXPHOS/replicação). Eles emergem como
 **DEGs individuais robustos e replicados** (CCND1 com core enrichment restrito às vias Cell
 cycle e p53 do painel). **ITGA2 permanece candidato translacional para investigação de
@@ -284,12 +284,12 @@ Versões completas em `renv.lock`.
 ## 8. Declaração de uso de Inteligência Artificial
 
 Em conformidade com a Portaria CNPq nº 2.664/2026, este projeto declara o uso de ferramentas de
-inteligência artificial (IA) **exclusivamente como suporte técnico e metodológico**, e nunca
-como autora do conteúdo científico, das hipóteses ou das conclusões.
+inteligência artificial (IA) exclusivamente como suporte técnico, e nunca
+como autora do conteúdo, das hipóteses ou das conclusões.
 
 ### 8.1. Natureza do uso de IA
 
-| Atividade | Papel da IA | Papel humano |
+| Atividade | Papel da IA | Papel dos pesquisadores |
 |---|---|---|
 | Geração, depuração e otimização de código R e Python | Assistência na implementação do pipeline | Especificação dos métodos, revisão e validação de cada script |
 | Auditoria de qualidade científica e linguística | Busca automática de padrões (overclaiming, inconsistências) | Decisão sobre o que corrigir e redação das correções |
@@ -318,7 +318,7 @@ rastreabilidade estão documentados em `documentation/TRACEABILITY_MATRIX.tsv`,
 
 ---
 
-## 9. Contribuições (CRediT) e autores
+## 9. CRediT
 
 | Autor | ORCID | Afiliação | Contribuição (CRediT) |
 |---|---|---|---|
@@ -338,11 +338,11 @@ rastreabilidade estão documentados em `documentation/TRACEABILITY_MATRIX.tsv`,
 5. **TERT promotor não captado**: exoma não detecta mutações de promotor.
 6. **Single-cell marker-based**: classificação do GSE232237 sem anotação autoral.
 7. **Ausência de alteração genômica** que explique a expressão de ITGA2/FN1/CCND1.
-8. **Estudo exploratório, não confirmatório**: resultados restritos ao PTC no contexto TCGA/GTEx.
+8. **Estudo exploratório**: resultados restritos ao PTC no contexto TCGA/GTEx.
 
 ---
 
-## 11. Licença e citação
+## 11. Licença
 
 MIT License. Veja [LICENSE](LICENSE).
 
