@@ -1,0 +1,14 @@
+field	value
+filter	CPM >= 1 in >= 85 samples (25% of smaller condition group)
+genes_retained	22103
+combat_workers	2
+partition	deterministic greedy balance by nonzero sample count
+estimated_worker_load	9255843|9256036
+combat_cache_key	9dfafe7dff49c960718157dbdb784c9b4469dbdbfa4ea959da608f74d07b335c
+combat_shrinkage	FALSE
+condition_preserved	TRUE
+n_sv_method	Buja-Eyuboglu B=20 seed=42
+n_sv_estimated	43
+n_sv_retained	10
+n_sv_safety_cap	10
+raw_matrix_fingerprint_sha256	8614d59b0a71801f530b116aaf957f3273d882e9437873e80a985dcfb158bf5c

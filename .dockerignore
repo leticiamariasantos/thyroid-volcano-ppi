@@ -1,0 +1,8 @@
+.git
+.Rproj.user
+.Rhistory
+.RData
+renv/library
+data/cache/**/*.rds
+results/phase2/upgrade_2026
+results/phase2/reports/METHODOLOGICAL_UPGRADE_2026.html

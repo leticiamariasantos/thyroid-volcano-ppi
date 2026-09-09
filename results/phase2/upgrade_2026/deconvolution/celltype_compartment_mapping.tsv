@@ -1,0 +1,81 @@
+method	cell_type	compartment
+xcell	Adipocytes	NA
+xcell	Astrocytes	NA
+xcell	B-cells	immune
+xcell	Basophils	immune
+xcell	CD4+ T-cells	immune
+xcell	CD4+ Tcm	NA
+xcell	CD4+ Tem	NA
+xcell	CD4+ memory T-cells	immune
+xcell	CD4+ naive T-cells	immune
+xcell	CD8+ T-cells	immune
+xcell	CD8+ Tcm	NA
+xcell	CD8+ Tem	NA
+xcell	CD8+ naive T-cells	immune
+xcell	CLP	NA
+xcell	CMP	NA
+xcell	Chondrocytes	NA
+xcell	Class-switched memory B-cells	immune
+xcell	DC	immune
+xcell	Endothelial cells	endothelial
+xcell	Eosinophils	immune
+xcell	Epithelial cells	thyroid_epithelial
+xcell	Erythrocytes	NA
+xcell	Fibroblasts	fibroblast
+xcell	GMP	NA
+xcell	HSC	NA
+xcell	Hepatocytes	other_parenchymal
+xcell	Keratinocytes	other_parenchymal
+xcell	MEP	NA
+xcell	MPP	NA
+xcell	MSC	NA
+xcell	Macrophages	immune
+xcell	Macrophages M1	immune
+xcell	Macrophages M2	immune
+xcell	Mast cells	immune
+xcell	Megakaryocytes	immune
+xcell	Melanocytes	NA
+xcell	Memory B-cells	immune
+xcell	Mesangial cells	NA
+xcell	Monocytes	immune
+xcell	Myocytes	muscle
+xcell	NK cells	immune
+xcell	NKT	NA
+xcell	Neurons	other_parenchymal
+xcell	Neutrophils	immune
+xcell	Osteoblast	NA
+xcell	Pericytes	NA
+xcell	Plasma cells	immune
+xcell	Platelets	NA
+xcell	Preadipocytes	NA
+xcell	Sebocytes	other_parenchymal
+xcell	Skeletal muscle	muscle
+xcell	Smooth muscle	muscle
+xcell	Tgd cells	NA
+xcell	Th1 cells	NA
+xcell	Th2 cells	NA
+xcell	Tregs	NA
+xcell	aDC	immune
+xcell	cDC	immune
+xcell	iDC	immune
+xcell	ly Endothelial cells	endothelial
+xcell	mv Endothelial cells	endothelial
+xcell	naive B-cells	immune
+xcell	pDC	immune
+xcell	pro B-cells	immune
+xcell	ImmuneScore	immune
+xcell	StromaScore	fibroblast
+xcell	MicroenvironmentScore	NA
+epic	Bcells	immune
+epic	CAFs	fibroblast
+epic	CD4_Tcells	immune
+epic	CD8_Tcells	immune
+epic	Endothelial	endothelial
+epic	Macrophages	immune
+epic	NKcells	immune
+epic	otherCells	other_parenchymal
+multi_signature_ssgsea	thyroid_epithelial	thyroid_epithelial
+multi_signature_ssgsea	fibroblast	fibroblast
+multi_signature_ssgsea	endothelial	endothelial
+multi_signature_ssgsea	immune	immune
+multi_signature_ssgsea	muscle	muscle

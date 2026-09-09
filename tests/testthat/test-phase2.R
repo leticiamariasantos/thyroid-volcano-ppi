@@ -49,3 +49,17 @@ test_that("candidatos ITGA2/FN1/CCND1 presentes na convergência", {
   expect_true(all(c("ITGA2", "FN1", "CCND1") %in% c$gene))
   expect_true(all(sign(c$logFC_limma) > 0))  # os três são Up no tumor
 })
+
+test_that("upgrade metodológico está pré-especificado e modular", {
+  expect_true(file.exists(here::here("docs/METHODOLOGICAL_UPGRADE_2026.md")))
+  scripts <- sprintf("%02d", c(20:31))
+  present <- basename(list.files(here::here("scripts/phase2"), pattern = "^[0-9]+_.*\\.R$"))
+  expect_true(all(vapply(scripts, function(x) any(startsWith(present, paste0(x, "_"))), logical(1))))
+})
+
+test_that("outputs do upgrade, quando presentes, respeitam o contrato", {
+  f <- here::here("results/phase2/upgrade_2026/validation/VALIDATION_SUMMARY.tsv")
+  skip_if_not(file.exists(f), "execução científica completa ainda não disponível")
+  z <- utils::read.delim(f, check.names = FALSE)
+  expect_true(all(z$passed))
+})

@@ -1,0 +1,111 @@
+---
+title: "Upgrade metodológico 2026 — TCGA-THCA"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    self_contained: true
+    toc: true
+    toc_float: true
+params:
+  seed: 42
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo=FALSE, warning=FALSE, message=FALSE)
+library(data.table); library(knitr)
+root <- here::here(); u <- file.path(root,"results","phase2","upgrade_2026")
+```
+
+# Escopo
+
+Esta análise é exploratória e geradora de hipóteses. Batch correction e deconvolução
+reduzem confundimento mensurável, mas não eliminam confundimento residual nem demonstram
+causalidade, eficácia terapêutica, especificidade tumoral ou prontidão nanomédica.
+
+# Coortes e versões da matriz
+
+```{r}
+m <- fread(file.path(u,"matrices","tcga_thca_primary_normal_manifest.tsv")); kable(m)
+b <- fread(file.path(u,"matrices","batch_diagnostics.tsv")); kable(b, digits=3)
+```
+
+# Deconvolução
+
+```{r}
+d <- fread(file.path(u,"deconvolution","deconvolution_status.tsv")); kable(d)
+epic <- fread(file.path(u,"deconvolution","epic_convergence_status.tsv"))
+kable(epic[, .(samples=.N), by=status])
+cv <- fread(file.path(u,"deconvolution","top_deg_celltype_variance.tsv"))
+kable(head(cv[order(-percent_variance_unique)], 30), digits=3)
+```
+
+Estimativas EPIC com otimização não convergente são mantidas, identificadas por
+amostra e tratadas como evidência de sensibilidade, não como frações definitivas.
+
+```{r}
+knitr::include_graphics(file.path(root,"results","phase2","figures","Fig23_Composition_Variance.png"))
+```
+
+# Expressão diferencial
+
+```{r}
+de <- fread(file.path(u,"differential_expression","DEG_summary_all_variants.tsv")); kable(de)
+```
+
+# GSEA e robustez
+
+```{r}
+gr <- fread(file.path(u,"gsea","GSEA_robustness_summary.tsv")); kable(gr[order(-robust)][1:min(.N,30)], digits=3)
+le <- fread(file.path(u,"gsea","leading_edge_composition_overlap.tsv"))
+kable(head(le[order(-abs(NES))], 30), digits=3)
+```
+
+# Meta-análise e sobrevivência
+
+```{r}
+ma <- fread(file.path(u,"validation","meta_analysis_REML.tsv")); kable(ma, digits=3)
+sv <- fread(file.path(u,"validation","TCGA_survival_stratified.tsv")); kable(head(sv[order(p)],30), digits=3)
+surface <- fread(file.path(u,"validation","surface_accessibility_evidence.tsv"))
+kable(surface, digits=3)
+```
+
+As fontes de superfície são Human Protein Atlas, tabela SURFY do Human Surfaceome e
+UniProt revisado; dados clínicos/moleculares provêm do cBioPortal e permanecem cacheados
+com versão. Presença nessas fontes não demonstra internalização nem disponibilidade de
+um anticorpo ou ligante terapêutico adequado.
+
+```{r}
+knitr::include_graphics(file.path(root,"results","phase2","figures","Fig24_MetaAnalysis_Forest.png"))
+```
+
+# Gate pré-especificado de ITGA2
+
+```{r}
+gate <- fread(file.path(u,"validation","ITGA2_prespecified_gate.tsv")); kable(gate)
+```
+
+A classificação acima é calculada mecanicamente pelos critérios congelados em
+`docs/METHODOLOGICAL_UPGRADE_2026.md`. Centralidade PPI não entra nesse gate.
+
+# PPI com evidência experimental e coexpressão
+
+```{r}
+ppi <- fread(file.path(u,"ppi","PPI_upgrade_summary.tsv")); kable(ppi)
+```
+
+As centralidades são descritores topológicos; não constituem evidência terapêutica.
+
+# Reprodutibilidade e desempenho
+
+```{r}
+bench <- fread(file.path(u,"pipeline","pipeline_benchmark.tsv"))
+kable(bench[, .(step,status,elapsed_seconds,input_signature_sha256,output_signature_sha256)], digits=2)
+```
+
+# Limitações residuais
+
+Normais adjacentes podem conter field effects e são menos numerosos que os tumores.
+Estimativas de composição dependem das assinaturas. Correção de batch pode remover sinal
+biológico real. A meta-análise agrega plataformas heterogêneas e aproxima erros-padrão
+quando apenas logFC e p-value estão disponíveis. THCA tem poucos eventos de sobrevida.
+Anotação de membrana não prova internalização, segurança ou janela terapêutica.

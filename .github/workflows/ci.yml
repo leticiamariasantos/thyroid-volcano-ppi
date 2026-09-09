@@ -26,6 +26,11 @@ jobs:
           test -f data/manifests/MANIFEST_counts.tsv
           test -f scripts/phase2/00_config.R
           test -f scripts/phase2/16_validate.R
+          for n in $(seq 20 31); do
+            test "$(find scripts/phase2 -maxdepth 1 -type f -name "${n}_*.R" | wc -l)" -eq 1
+          done
+          test -f docs/METHODOLOGICAL_UPGRADE_2026.md
+          test -f reports/methodological_upgrade_2026.Rmd
           test -f scripts/15_validate_outputs.R
           test -f results/phase2/audit/DATA_AUDIT.txt
           test -f results/phase2/pathways/PANEL_30_PATHWAYS.tsv
@@ -37,7 +42,18 @@ jobs:
           test -f results/phase2/reports/PHASE2_FALSIFICATION_AUDIT.md
           test -f results/phase2/reports/PHASE2_REPRODUCIBILITY.md
           test -f results/phase2/reports/PHASE2_LANGUAGE_LOCK_AUDIT.md
+          python -m json.tool renv.lock >/dev/null
           echo "structure OK"
+
+  upgrade-syntax:
+    runs-on: ubuntu-latest
+    container: rocker/r-ver:4.6.1
+    steps:
+      - uses: actions/checkout@v4
+      - name: Parse upgrade scripts without network
+        run: |
+          Rscript -e 'files <- c("scripts/run_phase2.R", list.files("scripts/phase2", pattern="^(2[0-9]|3[01])_.*[.]R$", full.names=TRUE)); invisible(lapply(files, parse)); cat("upgrade syntax OK\n")'
+        shell: bash
 
   regression-check:
     runs-on: ubuntu-latest
@@ -68,6 +84,34 @@ jobs:
           cat("regression checks OK\n")
           '
         shell: bash
+
+  upgrade-contract:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check scientific and reproducibility contracts
+        run: |
+          set -e
+          grep -q 'TCGA-matched' docs/METHODOLOGICAL_UPGRADE_2026.md
+          grep -q 'source and condition partially separable\|source.*condition.*parcialmente' docs/METHODOLOGICAL_UPGRADE_2026.md
+          grep -q 'ComBat_seq' scripts/phase2/22_batch_correction.R
+          grep -q 'edgeR_QL' scripts/phase2/24_multiverse_de.R
+          grep -q 'voom_quality_weights' scripts/phase2/24_multiverse_de.R
+          grep -q 'clusterProfiler' scripts/phase2/25_multiverse_gsea.R
+          grep -q 'GO_BP' scripts/phase2/25_multiverse_gsea.R
+          grep -q 'cluster_leiden' scripts/phase2/28_ppi_multinetwork.R
+          grep -q 'topological descriptor; not therapeutic evidence' scripts/phase2/28_ppi_multinetwork.R
+          grep -q 'keep_by_cpm' scripts/phase2/22_batch_correction.R
+          grep -q 'EXPR_FRAC' scripts/phase2/22_batch_correction.R
+          grep -q 'PPI_upgrade_summary.tsv' scripts/phase2/28_ppi_multinetwork.R
+          echo "upgrade contract OK"
+
+  dockerfile-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate Dockerfile build graph
+        run: docker build --check .
 
   lint-markdown:
     runs-on: ubuntu-latest

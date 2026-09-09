@@ -1,0 +1,4 @@
+method	completed	samples	nonconverged_samples	interpretation
+xCell	TRUE	842	NA	relative enrichment
+EPIC	TRUE	842	51	estimated fractions; convergence audited per sample
+multi_signature_ssgsea	TRUE	842	NA	reference score; not a fraction

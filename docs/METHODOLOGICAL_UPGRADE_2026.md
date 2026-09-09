@@ -46,15 +46,17 @@ em vez de produzir um resultado rotulado como corrigido.
 - Escala contínua: log2-CPM com offset e normalização TMM.
 - Correção principal: ComBat-seq nas contagens quando o desenho `~ condition + source`
   for identificável; `condition` é preservada no grupo de interesse.
-- Sensibilidades: SVA no modelo de DE; RUVg somente se controles negativos empíricos
-  forem definidos sem usar os candidatos; `removeBatchEffect` apenas para visualização
+- Sensibilidades: SVA com número estimado por Buja–Eyuboglu (20 permutações, seed 42),
+  teto de segurança de 10 variáveis e inclusão somente no modelo composição-ajustado;
+  RUVg somente se controles negativos empíricos forem definidos sem usar os candidatos;
+  `removeBatchEffect` apenas para visualização
   e análises baseadas em escala contínua, nunca como substituto do modelo de contagens.
 - Risco residual: ComBat/SVA/RUV podem remover sinal biológico real; concordância com o
   contraste TCGA-matched será reportada e nenhuma versão será declarada “verdade”.
 
 ## 4. Deconvolução e ajuste de composição
 
-- Métodos-alvo: xCell e EPIC por `immunedeconv`; resultados são cacheados com versão,
+- Métodos-alvo: xCell e EPIC em pacotes fixados no `renv.lock`; resultados são cacheados com versão,
   checksum da entrada e parâmetros. CIBERSORTx/BayesPrism não são obrigatórios porque
   exigem credenciais, execução externa ou referência single-cell validada; sua ausência
   deve permanecer explícita.
@@ -83,14 +85,18 @@ em vez de produzir um resultado rotulado como corrigido.
 
 Meta-análise de efeitos aleatórios (REML) para ITGA2, FN1, CCND1 e os 18 genes de
 convergência. Efeitos serão log2FC com erro-padrão; estudos sem erro-padrão não serão
-combinados quantitativamente e aparecerão como evidência direcional.
+combinados quantitativamente e aparecerão como evidência direcional. Sobrevida (OS, PFS
+e DSS) será modelada por Cox, globalmente e estratificada por BRAF/RAS e histologia.
+Idade, estágio e sexo entram nessa ordem quando disponíveis, com no mínimo 10 eventos
+por coeficiente; modelos sem eventos suficientes permanecem rotulados como não ajustados.
 
 ITGA2 só poderá receber a expressão **“candidato prioritário para investigação de
 surface targeting”** se satisfizer simultaneamente:
 
 1. direção positiva em ≥80% dos datasets elegíveis e nenhuma inversão significativa;
 2. meta-log2FC ≥ 1,0, FDR da meta-análise < 0,05 e heterogeneidade I² ≤ 75%;
-3. anotação de membrana plasmática em fonte versionada e evidência proteica;
+3. anotação de membrana plasmática concordante em HPA, SURFY e UniProt, além de evidência
+   proteica/localização baseada em anticorpo no HPA;
 4. log2FC ajustado por composição ≥ 1,0, FDR < 0,05 e retenção ≥70% do efeito bruto;
 5. associação de sobrevivência, se reportada, não contraditória após ajuste clínico;
 6. nenhum critério de segurança/especificidade será inferido de centralidade PPI.
@@ -114,6 +120,10 @@ Leiden serão comparados; módulos receberão enriquecimento funcional com unive
 - O orquestrador só pula uma etapa quando checksum de script + inputs coincide e todos
   os outputs declarados existem e são não vazios.
 - Falha de API usa cache válido; sem cache, a etapa falha com mensagem acionável.
+- Avisos de não convergência do EPIC são registrados por amostra e propagados ao
+  relatório; as estimativas afetadas não são silenciosamente descartadas.
+- Cada busca remota tem até três tentativas curtas e gravação atômica; cache inválido é
+  preservado com sufixo de auditoria antes de ser substituído.
 - Resultados 4.1.0 permanecem disponíveis; novos resultados usam subdiretórios
   `raw`, `batch_corrected`, `composition_adjusted` e `tcga_matched`.
 - `documentation/` e `scripts/legacy/` são históricos e não serão reescritos.
@@ -124,4 +134,5 @@ Normais adjacentes não são tecido saudável perfeito, têm tamanho amostral me
 conter field effects. Deconvolução depende de assinaturas e não prova origem celular.
 Correção de batch sob confundimento parcial pode sobrecorrigir. Meta-análise combina
 plataformas e coortes heterogêneas. Sobrevivência em THCA tem poucos eventos. Dados de
-superfície não demonstram internalização, especificidade tumoral ou janela terapêutica.
+superfície não demonstram internalização, especificidade tumoral, existência de ligante ou
+anticorpo terapêutico adequado, internalização do complexo nem janela terapêutica.

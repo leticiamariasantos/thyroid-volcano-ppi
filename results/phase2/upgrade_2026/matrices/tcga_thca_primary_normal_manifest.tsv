@@ -1,0 +1,11 @@
+field	value
+source	recount3 TCGA THCA
+assay	raw_counts
+annotation	GENCODE G026
+tumor_code	01
+normal_code	11
+n_tumor	505
+n_normal	59
+n_paired_participants	59
+matrix_fingerprint_sha256	c001dfd1dc547ae546b134dd3b67412ccffa856f159d43e4fb0e0147a2b84b39
+acquired	2026-09-08
