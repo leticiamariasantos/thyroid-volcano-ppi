@@ -1,0 +1,5 @@
+[run] scripts/phase2/24_multiverse_de.R 
+19:08:38 | Configuração carregada. Raiz do repositório: C:/Users/oorie/OneDrive/Documentos/TRABALHOS/THYROID/thyroid-volcano-ppi 
+19:08:48 | DE cache miss: tcga_matched 629bf2dd69cdd5c86982b790533bee10d19b6e1cf35b50cf15d0236c1143d228 
+19:09:17 | DE tcga_matched voom 
+19:09:39 | DE tcga_matched voom quality weights 
