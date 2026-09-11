@@ -74,7 +74,27 @@ for (s in steps) {
   if (!file.exists(s$script)) stop("Missing step: ", s$script)
   missing_inputs <- s$inputs[!file.exists(s$inputs)]
   if (length(missing_inputs)) stop("Missing inputs for ", s$script, ": ", paste(missing_inputs, collapse = ", "))
-  signature <- file_sig(c(s$script, s$inputs, "renv.lock"))
+  signature_inputs <- c(s$script, s$inputs, "renv.lock")
+  if (num == 24L) {
+    signature_inputs <- c(signature_inputs, "R/quality_weights_equivalent.R", "R/upgrade_utils.R",
+      "scripts/phase2/00_config.R", "scripts/phase2/20_upgrade_config.R",
+      "results/phase2/upgrade_2026/matrices/raw_counts.rds",
+      "results/phase2/upgrade_2026/matrices/analysis_metadata.tsv",
+      "results/phase2/upgrade_2026/matrices/tcga_thca_primary_normal_counts.rds",
+      "results/phase2/upgrade_2026/matrices/tcga_thca_primary_normal_metadata.tsv",
+      "results/phase2/upgrade_2026/matrices/batch_corrected_logcpm.rds",
+      "results/phase2/upgrade_2026/matrices/surrogate_variables.rds",
+      "results/phase2/upgrade_2026/deconvolution/composition_consensus.rds")
+    s$outputs <- c(s$outputs, unlist(lapply(c("tcga_matched", "raw", "batch_corrected",
+      "composition_adjusted", "tcga_paired"), function(variant) {
+        file.path("results/phase2/upgrade_2026/differential_expression", variant,
+          c(paste0(c("voom", "voom_qw", "edgeR_QL", "DESeq2", "limma"), "_full_results.tsv"),
+            "sample_weights.rds"))
+      })))
+    absent <- signature_inputs[!file.exists(signature_inputs)]
+    if (length(absent)) stop("Missing DE dependency: ", paste(absent, collapse = ", "))
+  }
+  signature <- file_sig(signature_inputs)
   state_file <- file.path(state_dir, paste0(basename(s$script), ".rds"))
   old <- if (file.exists(state_file)) readRDS(state_file) else NULL
   skip <- !force && valid_outputs(s$outputs) && !is.null(old) && identical(old$signature, signature)
