@@ -1,0 +1,16 @@
+During startup - Warning messages:
+1: Setting LC_COLLATE=C.UTF-8 failed
+2: Setting LC_CTYPE=C.UTF-8 failed
+3: Setting LC_MONETARY=C.UTF-8 failed
+4: Setting LC_TIME=C.UTF-8 failed
+During startup - Warning messages:
+1: Setting LC_COLLATE=C.UTF-8 failed
+2: Setting LC_CTYPE=C.UTF-8 failed
+3: Setting LC_MONETARY=C.UTF-8 failed
+4: Setting LC_TIME=C.UTF-8 failed
+Error in safe_api_cache(cache_file, function() { :
+  API unavailable and no valid cache at C:/Users/oorie/OneDrive/Documentos/TRABALHOS/THYROID/thyroid-volcano-ppi/data/cache/multiverse_de/v5.0.0/tcga_matched-deb69f908f91782e37eb5b3d684e3f09c1e4a761284a698633ac6537da707657.rds: API unavailable and no valid cache at C:/Users/oorie/OneDrive/Documentos/TRABALHOS/THYROID/thyroid-volcano-ppi/data/cache/multiverse_de/v5.0.0/reference_validation/629bf2dd69cdd5c86982b790533bee10d19b6e1cf35b50cf15d0236c1143d228-fa05fc34767ff025c9e0a99ee0a338da39224b806cc5493983285e9e7616425e.rds
+Calls: cached_variant -> safe_api_cache
+Execution halted
+Error: Step failed or outputs invalid: scripts/phase2/24_multiverse_de.R
+Execution halted

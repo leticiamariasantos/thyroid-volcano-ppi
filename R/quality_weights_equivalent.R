@@ -80,7 +80,8 @@ voom_quality_weights_equivalent <- function(counts, design, progress = NULL) {
       return(limma::arrayWeights(object, design, method = method, maxiter = maxiter,
         tol = tol, var.design = var.design, var.group = var.group, trace = trace, ...))
     }
-    as.numeric(array_weights_samplewise_fast(E, design, weights, progress = progress))
+    setNames(as.numeric(array_weights_samplewise_fast(E, design, weights,
+      progress = progress)), colnames(E))
   }
   environment(reference) <- scope
   reference(counts, design, plot = FALSE)

@@ -1,0 +1,16 @@
+During startup - Warning messages:
+1: Setting LC_COLLATE=C.UTF-8 failed
+2: Setting LC_CTYPE=C.UTF-8 failed
+3: Setting LC_MONETARY=C.UTF-8 failed
+4: Setting LC_TIME=C.UTF-8 failed
+During startup - Warning messages:
+1: Setting LC_COLLATE=C.UTF-8 failed
+2: Setting LC_CTYPE=C.UTF-8 failed
+3: Setting LC_MONETARY=C.UTF-8 failed
+4: Setting LC_TIME=C.UTF-8 failed
+Error in safe_api_cache(cache_file, function() { :
+  API unavailable and no valid cache at C:/Users/oorie/OneDrive/Documentos/TRABALHOS/THYROID/thyroid-volcano-ppi/data/cache/multiverse_de/v5.0.0/tcga_matched-5865787ad4ea11d2d85ac7923b9a72233eb9d6e51c04838b5ef1e0de12767600.rds: Accelerated DE failed the formal equivalence gate; inspect C:/Users/oorie/OneDrive/Documentos/TRABALHOS/THYROID/thyroid-volcano-ppi/results/phase2/upgrade_2026/pipeline/DE_acceleration_equivalence.tsv (failed: passed)
+Calls: cached_variant -> safe_api_cache
+Execution halted
+Error: Step failed or outputs invalid: scripts/phase2/24_multiverse_de.R
+Execution halted

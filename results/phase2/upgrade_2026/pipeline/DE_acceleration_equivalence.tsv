@@ -1,0 +1,2 @@
+legacy_key	validation_key	genes	samples	max_abs_log_weight_ratio	max_abs_logFC_difference	max_abs_statistic_difference	max_abs_p_difference	max_abs_fdr_difference	changed_regulation	identical_ranking	passed	completed
+629bf2dd69cdd5c86982b790533bee10d19b6e1cf35b50cf15d0236c1143d228	a359167a2235a0b0fc2d2a3831a1742d2fd47881921c6f82b00eb851ec35352a	22787	564	3.71258579434583e-13	4.6029846600959e-13	2.40163444686914e-12	5.1458837191376e-13	5.28799226628962e-13	0	TRUE	FALSE	2026-09-11T13:20:00-0300

@@ -112,6 +112,70 @@ run_variant <- function(counts, meta, design, variant, continuous = NULL, cache_
        limma = limma_res, sample_weights = setNames(sample_weights, colnames(counts)))
 }
 
+validate_accelerated_reference <- function(counts, meta, design, legacy_file, legacy_key) {
+  validation_key <- digest::digest(list(
+    legacy_sha256 = file_sha256(legacy_file),
+    helper_sha256 = file_sha256(here("R", "quality_weights_equivalent.R")),
+    limma = as.character(packageVersion("limma")),
+    seed = SEED, min_cpm = MIN_EXPR_CPM, expression_fraction = EXPR_FRAC
+  ), algo = "sha256")
+  validation_file <- file.path(DIR_CACHE, "multiverse_de", paste0("v", UPGRADE_VERSION),
+    "reference_validation", paste0(legacy_key, "-", validation_key, ".rds"))
+  validation <- safe_api_cache(validation_file, function() {
+    log_msg("DE formal equivalence gate:", "tcga_matched", validation_key)
+    dge <- DGEList(counts = round(counts))
+    keep <- keep_by_cpm(counts, meta$condition, min_cpm = MIN_EXPR_CPM, fraction = EXPR_FRAC)
+    dge <- normLibSizes(dge[keep, , keep.lib.sizes = FALSE])
+    set.seed(SEED)
+    vqw <- voom_quality_weights_equivalent(dge, design,
+      progress = function(i, n) log_msg("DE equivalence gate quality weights", i, "/", n))
+    fit <- eBayes(lmFit(vqw, design), robust = TRUE)
+    coef_name <- grep("^conditionTumor$", colnames(design), value = TRUE)
+    tt <- standardize(topTable(fit, coef = coef_name, number = Inf, sort.by = "none"),
+      "voom_quality_weights", "tcga_matched")
+    ref <- readRDS(legacy_file)
+    ref_table <- ref$voom_qw[match(tt$gene_symbol, ref$voom_qw$gene_symbol), ]
+    checks <- list(
+      samples = identical(names(vqw$targets$sample.weights), names(ref$sample_weights)),
+      genes = identical(tt$gene_symbol, ref_table$gene_symbol),
+      weight = max(abs(log(vqw$targets$sample.weights / ref$sample_weights))) < 1e-7,
+      logFC = max(abs(tt$logFC - ref_table$logFC)) < 1e-6,
+      statistic = max(abs(tt$statistic - ref_table$statistic)) < 1e-6,
+      p_value = max(abs(tt$P.Value - ref_table$P.Value)) < 1e-7,
+      fdr = max(abs(tt$adj.P.Val - ref_table$adj.P.Val)) < 1e-7,
+      regulation = identical(tt$regulation, ref_table$regulation),
+      ranking = identical(tt$gene_symbol, ref$voom_qw$gene_symbol)
+    )
+    metrics <- data.table(
+      legacy_key = legacy_key, validation_key = validation_key,
+      genes = nrow(tt), samples = ncol(dge),
+      max_abs_log_weight_ratio = max(abs(log(vqw$targets$sample.weights / ref$sample_weights))),
+      max_abs_logFC_difference = max(abs(tt$logFC - ref_table$logFC)),
+      max_abs_statistic_difference = max(abs(tt$statistic - ref_table$statistic)),
+      max_abs_p_difference = max(abs(tt$P.Value - ref_table$P.Value)),
+      max_abs_fdr_difference = max(abs(tt$adj.P.Val - ref_table$adj.P.Val)),
+      changed_regulation = sum(tt$regulation != ref_table$regulation),
+      samples_identical = checks$samples, genes_identical = checks$genes,
+      weights_within_tolerance = checks$weight, logFC_within_tolerance = checks$logFC,
+      statistic_within_tolerance = checks$statistic, p_within_tolerance = checks$p_value,
+      fdr_within_tolerance = checks$fdr, regulation_identical = checks$regulation,
+      identical_ranking = checks$ranking, passed = all(unlist(checks)),
+      completed = format(Sys.time(), "%Y-%m-%dT%H:%M:%S%z"))
+    list(passed = isTRUE(metrics$passed), metrics = metrics)
+  }, validate = function(x) is.list(x) && is.logical(x$passed) && length(x$passed) == 1L &&
+    is.data.table(x$metrics) &&
+    nrow(x$metrics) == 1L, attempts = 1L)
+  fwrite_tsv(validation$metrics, file.path(DIR_PIPELINE, "DE_acceleration_equivalence.tsv"))
+  if (!isTRUE(validation$passed)) {
+    failed <- names(validation$metrics)[vapply(validation$metrics[1, ], function(x)
+      is.logical(x) && length(x) == 1L && !isTRUE(x), logical(1))]
+    stop("Accelerated DE failed the formal equivalence gate; inspect ",
+      file.path(DIR_PIPELINE, "DE_acceleration_equivalence.tsv"),
+      if (length(failed)) paste0(" (failed: ", paste(failed, collapse = ", "), ")") else "")
+  }
+  invisible(validation)
+}
+
 hash_memo <- new.env(parent = emptyenv())
 file_sha256 <- function(path) {
   path <- normalizePath(path, winslash = "/", mustWork = TRUE)
@@ -157,6 +221,8 @@ cached_variant <- function(variant, counts, meta, design, input_paths, continuou
   legacy_file <- file.path(dirname(cache_file), paste0(variant, "-", legacy_key, ".rds"))
   result <- safe_api_cache(cache_file, function() {
     if (file.exists(legacy_file)) {
+      if (identical(variant, "tcga_matched"))
+        validate_accelerated_reference(counts, meta, design, legacy_file, legacy_key)
       original <- readRDS(legacy_file)
       if (!isTRUE(validate(original))) stop("Invalid legacy DE cache: ", legacy_file)
       log_msg("DE validated reference cache reused:", variant, legacy_key)
