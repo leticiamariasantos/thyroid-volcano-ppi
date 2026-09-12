@@ -7,12 +7,3 @@ resumo_workshop_*.pdf
 .Rhistory
 .RData
 .Rproj.user/
-
-# Caches e matrizes binárias regeneráveis do upgrade 2026
-data/cache/**/*.rds
-results/phase2/upgrade_2026/matrices/*.rds
-results/phase2/upgrade_2026/deconvolution/*.rds
-results/phase2/upgrade_2026/pipeline/*.rds
-results/phase2/upgrade_2026/differential_expression/**/*.rds
-results/phase2/upgrade_2026/gsea/*.rds
-results/phase2/upgrade_2026/ppi/*.rds
