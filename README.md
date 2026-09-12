@@ -92,17 +92,49 @@ subcelular de membrana no HPA não estava anotada para ITGA2) e foi classificado
 
 ### Resultados 5.0.0 (upgrade metodológico 2026)
 
-| Resultado | Valor (execução congelada) |
-|---|---|
-| Equivalência acelerada (voom quality-weights) | `passed=TRUE`; diferenças máximas ~1e-13 vs referência oficial |
-| DE (5 variantes × 5 métodos) | `tcga_matched/voom_qw`: 4.015 DEGs (1.961 Up / 2.054 Down); `composition_adjusted/voom_qw`: 2.592 DEGs |
-| GSEA robustez | 14 vias robustas (Proteassoma, Ciclo celular, p53, Replicação de DNA, Adesão focal, ECM-receptor, TNF, Câncer de tireoide, entre outras) |
-| Meta-análise ITGA2 (REML) | meta_logFC = 2,42 (IC 95% 1,94–2,91); FDR = 5,6e-22; I² = 66,7 |
-| Gate ITGA2 pré-especificado | 5/6 critérios → **“DEG robusto de interesse”** |
-| PPI (3 universos) | genome_wide_top500 (34 nós), panel30 (1.333 nós), robust_leading_edge (1.109 nós) |
-| Composição | xCell + EPIC + consenso; R² parcial dos top 100 DEGs (`top_deg_celltype_variance.tsv`) |
-| Deconvolução | 51 amostras EPIC não-convergentes divulgadas por amostra |
-| Validação técnica | 42/42 checks `TRUE`; `0 failures` |
+**Equivalência formal (voom quality-weights).** A reimplementação do passo `arrayWeights`
+(genebygene) reproduziu a referência oficial do limma 3.68.0: diferenças máximas de ~1e-13
+em logFC, estatística t, p-valor, FDR e pesos de qualidade, com ranking idêntico
+(`pipeline/DE_acceleration_equivalence.tsv`, `passed=TRUE`).
+
+**Expressão diferencial (5 variantes × 5 métodos).** Genes testados e DEGs do método
+`voom_qw` por variante (limiar |log2FC|≥1, FDR<0,05):
+
+| Variante | Genes testados | DEGs (voom_qw) | Up | Down |
+|---|---:|---:|---:|---:|
+| tcga_matched | 22.787 | 4.015 | 1.961 | 2.054 |
+| raw | 22.103 | 3.677 | 1.688 | 1.989 |
+| batch_corrected | 21.446 | 3.500 | 2.348 | 1.152 |
+| composition_adjusted | 22.103 | 2.592 | 1.132 | 1.460 |
+| tcga_paired | 20.984 | 3.080 | 1.572 | 1.508 |
+
+**GSEA e robustez.** 14 vias consistentes após 100 bootstraps (fração de direção e de
+significância ≥0,80/0,70): `hsa03050` proteassoma, `hsa04110` ciclo celular, `hsa04115`
+p53, `hsa03030` replicação de DNA, `hsa04510` adesão focal, `hsa04512` interação
+ECM-receptor, `hsa04668` TNF, `hsa05216` câncer de tireoide, `hsa04210` apoptose,
+`hsa04218` senescência celular, `hsa04010` MAPK, `hsa04151` PI3K-Akt,
+`R-HSA-1474244` organização da matriz extracelular e `R-HSA-913531` sinalização de
+interferon.
+
+**Candidatos (tcga_matched, voom_qw).** ITGA2 log2FC 2,76 (FDR 9,3e-40); FN1 5,35
+(FDR 1,3e-108); CCND1 1,83 (FDR 3,0e-109); CDH2 2,70 (FDR 8,1e-16), todos superexpressos.
+
+**Meta-análise e gate ITGA2.** Meta-análise REML: log2FC 2,42 (IC 95% 1,94–2,91),
+FDR 5,6e-22, I² 66,7. O gate pré-especificado de acessibilidade de superfície resultou
+em 5/6 critérios (`surface_and_protein` falhou por ausência de anotação de membrana
+plasmática no HPA) → classificação **“DEG robusto de interesse”**.
+
+**PPI (3 universos, STRING experimental + coexpressão |rho|≥0,30).**
+`genome_wide_top500` (34 nós), `panel30` (1.333 nós), `robust_leading_edge` (1.109 nós);
+centralidade dominada por componentes da fosforilação oxidativa e da tradução ribossomal,
+além de hubs de proliferação e adesão.
+
+**Deconvolução e composição.** xCell + EPIC + consenso multiassinatura; 51 amostras EPIC
+não-convergentes divulgadas por amostra; R² parcial dos 100 top DEGs em
+`deconvolution/top_deg_celltype_variance.tsv`.
+
+**Validação técnica.** `31_validate_upgrade.R` → 42/42 checks `TRUE` (`0 failures`);
+manifesto de checksums em `validation/OUTPUT_FILE_CHECKSUMS.tsv` (125 artefatos).
 
 ### Antes vs depois
 
