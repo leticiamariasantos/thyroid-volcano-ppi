@@ -1,0 +1,23 @@
+Warning messages:
+1: In gsea(geneList = geneList, gene_sets = geneSets, weight = weight,  :
+  For some pathways, in reality P-values are less than 1e-10. You can set the eps argument to zero for better estimation.
+2: In gsea(geneList = geneList, gene_sets = geneSets, weight = weight,  :
+  For some pathways, in reality P-values are less than 1e-10. You can set the eps argument to zero for better estimation.
+3: In gsea(geneList = geneList, gene_sets = geneSets, weight = weight,  :
+  There were 39 pathways for which P-values were not calculated properly due to unbalanced gene-level statistic values. For such pathways pvalue, NES and log2err are set to NA. You can try to increase nPermSimple.
+4: In gsea(geneList = geneList, gene_sets = geneSets, weight = weight,  :
+  For some pathways, in reality P-values are less than 1e-10. You can set the eps argument to zero for better estimation.
+5: In calculate_qvalue(gsea_res$pvalue) :
+  Invalid p-values detected (NA, non-finite, <0, or >1). qvalue will be computed on valid p-values only.
+6: In gsea(geneList = geneList, gene_sets = geneSets, weight = weight,  :
+  There were 4 pathways for which P-values were not calculated properly due to unbalanced gene-level statistic values. For such pathways pvalue, NES and log2err are set to NA. You can try to increase nPermSimple.
+7: In gsea(geneList = geneList, gene_sets = geneSets, weight = weight,  :
+  For some pathways, in reality P-values are less than 1e-10. You can set the eps argument to zero for better estimation.
+8: In calculate_qvalue(gsea_res$pvalue) :
+  Invalid p-values detected (NA, non-finite, <0, or >1). qvalue will be computed on valid p-values only.
+Error in eval(jsub, SDenv, parent.frame()) : 
+  object 'hugoGeneSymbol' not found
+Calls: rbindlist ... mapply -> <Anonymous> -> [ -> [.data.table -> eval -> eval
+Execution halted
+Error: Step failed or outputs invalid: scripts/phase2/27_validation_meta_survival_surface.R
+Execution halted

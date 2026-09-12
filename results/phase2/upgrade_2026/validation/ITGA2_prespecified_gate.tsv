@@ -1,0 +1,7 @@
+criterion	passed	classification
+direction_consistency	TRUE	DEG robusto de interesse
+meta_effect	TRUE	DEG robusto de interesse
+heterogeneity	TRUE	DEG robusto de interesse
+surface_and_protein	FALSE	DEG robusto de interesse
+composition_independence	TRUE	DEG robusto de interesse
+survival_not_contradictory	TRUE	DEG robusto de interesse

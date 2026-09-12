@@ -1,0 +1,2 @@
+variant	method	cache_key	cache_present_at_start	elapsed_seconds	completed	sha256
+tcga_paired	DESeq2	2bc3dd120f6118d419cd4fd91fa7e1cfcbca670a740fce43bcebdb3468e78e25	FALSE	2581.11516308785	2026-09-11T23:00:28-0300	2520b4f284c14b643a196fce52cc29d989d1770e8f50906b1b0bdf7f821b1237

@@ -116,6 +116,7 @@ validate_accelerated_reference <- function(counts, meta, design, legacy_file, le
   validation_key <- digest::digest(list(
     legacy_sha256 = file_sha256(legacy_file),
     helper_sha256 = file_sha256(here("R", "quality_weights_equivalent.R")),
+    gate_sha256 = file_sha256(here("scripts", "phase2", "24_multiverse_de.R")),
     limma = as.character(packageVersion("limma")),
     seed = SEED, min_cpm = MIN_EXPR_CPM, expression_fraction = EXPR_FRAC
   ), algo = "sha256")
@@ -135,10 +136,16 @@ validate_accelerated_reference <- function(counts, meta, design, legacy_file, le
       "voom_quality_weights", "tcga_matched")
     ref <- readRDS(legacy_file)
     ref_table <- ref$voom_qw[match(tt$gene_symbol, ref$voom_qw$gene_symbol), ]
+    # limma::voomWithQualityWeights stores sample weights as a data.frame column
+    # ($targets$sample.weights), which drops vector names. Restore them from the
+    # sample order used to build the DGEList, mirroring run_variant().
+    recomputed_weights <- setNames(vqw$targets$sample.weights, colnames(dge))
+    recomputed_weights <- recomputed_weights[names(ref$sample_weights)]
     checks <- list(
-      samples = identical(names(vqw$targets$sample.weights), names(ref$sample_weights)),
+      samples = setequal(colnames(dge), names(ref$sample_weights)) &&
+        identical(names(recomputed_weights), names(ref$sample_weights)),
       genes = identical(tt$gene_symbol, ref_table$gene_symbol),
-      weight = max(abs(log(vqw$targets$sample.weights / ref$sample_weights))) < 1e-7,
+      weight = max(abs(log(recomputed_weights / ref$sample_weights))) < 1e-7,
       logFC = max(abs(tt$logFC - ref_table$logFC)) < 1e-6,
       statistic = max(abs(tt$statistic - ref_table$statistic)) < 1e-6,
       p_value = max(abs(tt$P.Value - ref_table$P.Value)) < 1e-7,
@@ -149,7 +156,7 @@ validate_accelerated_reference <- function(counts, meta, design, legacy_file, le
     metrics <- data.table(
       legacy_key = legacy_key, validation_key = validation_key,
       genes = nrow(tt), samples = ncol(dge),
-      max_abs_log_weight_ratio = max(abs(log(vqw$targets$sample.weights / ref$sample_weights))),
+      max_abs_log_weight_ratio = max(abs(log(recomputed_weights / ref$sample_weights))),
       max_abs_logFC_difference = max(abs(tt$logFC - ref_table$logFC)),
       max_abs_statistic_difference = max(abs(tt$statistic - ref_table$statistic)),
       max_abs_p_difference = max(abs(tt$P.Value - ref_table$P.Value)),

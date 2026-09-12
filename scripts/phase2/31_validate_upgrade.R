@@ -73,7 +73,8 @@ raw <- fread(file.path(DIR_DE_MULTI,"raw","voom_qw_full_results.tsv"))
 bc <- fread(file.path(DIR_DE_MULTI,"batch_corrected","voom_qw_full_results.tsv"))
 cmp <- merge(raw[,.(gene_symbol,raw=logFC)],bc[,.(gene_symbol,corrected=logFC)],by="gene_symbol")
 rho <- cor(cmp$raw,cmp$corrected,method="spearman",use="complete.obs")
-top <- cmp[gene_symbol %in% head(raw[order(-abs(statistic)),gene_symbol],500)]
+top_genes <- head(raw[order(-abs(statistic)), gene_symbol], 500)
+top <- cmp[gene_symbol %in% top_genes]
 direction <- mean(sign(top$raw)==sign(top$corrected))
 median_delta <- median(abs(cmp$raw-cmp$corrected),na.rm=TRUE)
 drastic <- rho < 0.50 || direction < 0.70 || median_delta > 2.5

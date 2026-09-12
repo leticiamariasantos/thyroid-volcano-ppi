@@ -1,0 +1,2 @@
+variant	cache_key	cache_sha256	legacy_key	engine
+tcga_paired	2bc3dd120f6118d419cd4fd91fa7e1cfcbca670a740fce43bcebdb3468e78e25	c95c3808f3bc5ec2f78fc662266fe52d411aaa612d0030dcbadcb07a9969e4af	NA	equivalent_linear_algebra

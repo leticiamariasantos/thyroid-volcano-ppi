@@ -82,14 +82,27 @@ inteiras).
 centralidade é reportada como **propriedade topológica**, não como relevância funcional ou alvo
 terapêutico.
 
-**Conclusão histórica da versão 4.1.0:** o painel de 30 vias não convergiu para ITGA2/FN1/CCND1 como componentes
+**Conclusão da versão 5.0.0:** o painel de 30 vias não convergiu para ITGA2/FN1/CCND1 como componentes
 dos programas mais enriquecidos (proteassoma/antígeno/OXPHOS/replicação). Eles emergem como
-**DEGs individuais robustos e replicados** (CCND1 com core enrichment restrito às vias Cell
-cycle e p53 do painel). Na versão 5.0.0, **ITGA2 só recebe a classificação “candidato
-prioritário para investigação de surface targeting” se passar em todos os critérios
-quantitativos pré-especificados**; caso contrário é “DEG robusto de interesse”. Nunca é
-alvo validado. Relatórios completos em
+**DEGs individuais robustos e replicados**. Na execução 5.0.0, **ITGA2 passou em 5 dos 6
+critérios pré-especificados** (falhou apenas em `surface_and_protein`, porque a localização
+subcelular de membrana no HPA não estava anotada para ITGA2) e foi classificado como
+**“DEG robusto de interesse”** — nunca “alvo validado”. Relatórios completos em
 `results/phase2/reports/`.
+
+### Resultados 5.0.0 (upgrade metodológico 2026)
+
+| Resultado | Valor (execução congelada) |
+|---|---|
+| Equivalência acelerada (voom quality-weights) | `passed=TRUE`; diferenças máximas ~1e-13 vs referência oficial |
+| DE (5 variantes × 5 métodos) | `tcga_matched/voom_qw`: 4.015 DEGs (1.961 Up / 2.054 Down); `composition_adjusted/voom_qw`: 2.592 DEGs |
+| GSEA robustez | 14 vias robustas (Proteassoma, Ciclo celular, p53, Replicação de DNA, Adesão focal, ECM-receptor, TNF, Câncer de tireoide, entre outras) |
+| Meta-análise ITGA2 (REML) | meta_logFC = 2,42 (IC 95% 1,94–2,91); FDR = 5,6e-22; I² = 66,7 |
+| Gate ITGA2 pré-especificado | 5/6 critérios → **“DEG robusto de interesse”** |
+| PPI (3 universos) | genome_wide_top500 (34 nós), panel30 (1.333 nós), robust_leading_edge (1.109 nós) |
+| Composição | xCell + EPIC + consenso; R² parcial dos top 100 DEGs (`top_deg_celltype_variance.tsv`) |
+| Deconvolução | 51 amostras EPIC não-convergentes divulgadas por amostra |
+| Validação técnica | 42/42 checks `TRUE`; `0 failures` |
 
 ### Antes vs depois
 
@@ -98,7 +111,7 @@ alvo validado. Relatórios completos em
 | Contraste primário | TCGA tumor × GTEx normal (confundido) | TCGA tumor × normal adjacente; sensibilidade pareada |
 | Métodos de DE | 3 | 5 |
 | Versões analíticas | 1 principal + sensibilidades musculares | raw, batch-corrected, composition-adjusted, TCGA-matched e TCGA-paired |
-| DEGs / vias robustas / ranking ITGA2 | 12.200 / 6 / resultado 4.1.0 | gerados em `upgrade_2026/differential_expression`, `gsea` e `validation` |
+| DEGs / vias robustas / ranking ITGA2 | 12.200 / 6 / resultado 4.1.0 | 5 variantes × 5 métodos; 14 vias robustas; ITGA2 = “DEG robusto de interesse” (5/6 critérios) |
 | Composição | score/remoção muscular | xCell, EPIC e consenso multiassinatura + R² parcial |
 | PPI | uma rede | três redes; evidência experimental + coexpressão; Walktrap/Louvain/Leiden |
 
@@ -419,6 +432,6 @@ MIT License. Veja [LICENSE](LICENSE).
             Thais Faria Coutinho da Silva Pereira},
   year   = {2026},
   url    = {https://github.com/leticiamariasantos/thyroid-volcano-ppi},
-  note   = {v4.1.0}
+  note   = {v5.0.0}
 }
 ```

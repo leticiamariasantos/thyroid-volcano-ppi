@@ -1,0 +1,6 @@
+Error in safe_api_cache(cache, function() { : 
+  API unavailable and no valid cache at C:/Users/oorie/OneDrive/Documentos/TRABALHOS/THYROID/thyroid-volcano-ppi/data/cache/STRING/v12.0/panel30_31c3a3998c36e85aaa97455f000a15367aaa92364bd18ad63e6de9af1457eb1b.rds: Bad Request (HTTP 400).
+Calls: query_string -> safe_api_cache
+Execution halted
+Error: Step failed or outputs invalid: scripts/phase2/28_ppi_multinetwork.R
+Execution halted

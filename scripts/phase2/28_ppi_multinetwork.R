@@ -24,12 +24,18 @@ query_string <- function(genes, network_name) {
   key <- digest::digest(sort(unique(genes)), algo = "sha256")
   cache <- file.path(DIR_CACHE, "STRING", "v12.0", paste0(network_name, "_", key, ".rds"))
   safe_api_cache(cache, function() {
-    r <- POST("https://string-db.org/api/tsv/network", body = list(
-      identifiers = paste(unique(genes), collapse = "\n"), species = 9606,
-      required_score = STRING_SCORE, network_type = "physical",
-      caller_identity = "thyroid-volcano-ppi-v5"), encode = "form", timeout(180))
-    stop_for_status(r)
-    fread(content(r, as = "text", encoding = "UTF-8"))
+    ids <- unique(genes)
+    # STRING network endpoint caps requests at 2000 proteins; chunk and merge to
+    # preserve the a-priori universe definitions (panel30/leading edge can exceed 2000).
+    chunks <- split(ids, ceiling(seq_along(ids) / 1900))
+    rbindlist(lapply(chunks, function(chunk) {
+      r <- POST("https://string-db.org/api/tsv/network", body = list(
+        identifiers = paste(chunk, collapse = "\n"), species = 9606,
+        required_score = STRING_SCORE, network_type = "physical",
+        caller_identity = "thyroid-volcano-ppi-v5"), encode = "form", timeout(180))
+      stop_for_status(r)
+      fread(content(r, as = "text", encoding = "UTF-8"))
+    }), fill = TRUE)
   }, validate = function(x) is.data.frame(x) && all(c("preferredName_A", "preferredName_B", "score") %in% names(x)))
 }
 
@@ -77,7 +83,7 @@ for (nm in names(universes)) {
       status = "no_coexpressed_edges")
     next
   }
-  g <- simplify(graph_from_data_frame(edges[, .(gene_A, gene_B, score, rho)], directed = FALSE),
+  g <- igraph::simplify(graph_from_data_frame(edges[, .(gene_A, gene_B, score, rho)], directed = FALSE),
     remove.multiple = TRUE, remove.loops = TRUE,
     edge.attr.comb = list(score = "max", rho = "mean", .default = "ignore"))
   cent <- data.table(network = nm, gene = V(g)$name, degree = degree(g),

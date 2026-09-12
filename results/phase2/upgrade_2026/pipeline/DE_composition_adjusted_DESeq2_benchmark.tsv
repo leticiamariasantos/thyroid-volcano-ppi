@@ -1,0 +1,2 @@
+variant	method	cache_key	cache_present_at_start	elapsed_seconds	completed	sha256
+composition_adjusted	DESeq2	156fa365b5171c66fd2fd430f874df73ce7340177435e36d2a6c1296564d7f20	FALSE	12902.0581929684	2026-09-11T21:57:22-0300	b10ccd87cf7778cf10fd949f1c0a0e3077a09461012cebcffc36f7ba0a5ba7ea

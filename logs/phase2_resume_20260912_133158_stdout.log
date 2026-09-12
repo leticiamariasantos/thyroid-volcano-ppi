@@ -1,0 +1,6 @@
+[run] scripts/phase2/31_validate_upgrade.R 
+13:32:07 | Configuração carregada. Raiz do repositório: C:/Users/oorie/OneDrive/Documentos/TRABALHOS/THYROID/thyroid-volcano-ppi 
+Upgrade validation: 1 failure(s)
+                                  check passed detail
+                                 <char> <lgcl> <char>
+1: surface evidence sources represented  FALSE     20

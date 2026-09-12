@@ -1,0 +1,5 @@
+[run] scripts/phase2/27_validation_meta_survival_surface.R 
+10:12:15 | Configuração carregada. Raiz do repositório: C:/Users/oorie/OneDrive/Documentos/TRABALHOS/THYROID/thyroid-volcano-ppi 
+10:12:43 | Validation complete; ITGA2 classification: DEG robusto de interesse 
+[run] scripts/phase2/28_ppi_multinetwork.R 
+10:12:58 | Configuração carregada. Raiz do repositório: C:/Users/oorie/OneDrive/Documentos/TRABALHOS/THYROID/thyroid-volcano-ppi 

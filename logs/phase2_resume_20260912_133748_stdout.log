@@ -1,0 +1,10 @@
+[run] scripts/phase2/27_validation_meta_survival_surface.R 
+13:38:09 | Configuração carregada. Raiz do repositório: C:/Users/oorie/OneDrive/Documentos/TRABALHOS/THYROID/thyroid-volcano-ppi 
+13:39:26 | Validation complete; ITGA2 classification: DEG robusto de interesse 
+[cache] scripts/phase2/28_ppi_multinetwork.R 
+[cache] scripts/phase2/29_gsea_robustness.R 
+[cache] scripts/phase2/30_render_upgrade_report.R 
+[run] scripts/phase2/31_validate_upgrade.R 
+13:39:36 | Configuração carregada. Raiz do repositório: C:/Users/oorie/OneDrive/Documentos/TRABALHOS/THYROID/thyroid-volcano-ppi 
+Upgrade validation: 0 failure(s)
+Phase 2 + upgrade 2026 complete (0 failures).

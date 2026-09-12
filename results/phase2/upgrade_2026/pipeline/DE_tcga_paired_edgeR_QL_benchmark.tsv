@@ -1,0 +1,2 @@
+variant	method	cache_key	cache_present_at_start	elapsed_seconds	completed	sha256
+tcga_paired	edgeR_QL	2bc3dd120f6118d419cd4fd91fa7e1cfcbca670a740fce43bcebdb3468e78e25	FALSE	1055.60204005241	2026-09-11T22:17:27-0300	40b1f3710e0237e2bbd15bff8473948580f2785f4ab28ffb7c25df19e79a6729

@@ -1,0 +1,201 @@
+[run] scripts/phase2/24_multiverse_de.R 
+14:46:38 | Configuração carregada. Raiz do repositório: C:/Users/oorie/OneDrive/Documentos/TRABALHOS/THYROID/thyroid-volcano-ppi 
+14:46:44 | DE variant ready: tcga_matched b850f48306d42aca249ce0bfd2b7b8888e33c484feb16643e0e3aecdad763e32 
+           used  (Mb) gc trigger  (Mb) max used  (Mb)
+Ncells  7284528 389.1   11802641 630.4 10312980 550.8
+Vcells 14318803 109.3   44826886 342.1 48294565 368.5
+14:46:48 | DE cache miss: raw ff945e04ff3833444511dfab517e438e0776ee90931f962219d2fce687e51dd6 
+14:47:37 | DE raw voom 
+14:47:57 | DE method ready: raw voom 0.1 seconds 
+14:47:57 | DE raw voom quality weights 
+14:47:57 | DE method ready: raw voom_qw 0.1 seconds 
+14:47:57 | DE raw edgeR quasi-likelihood 
+14:58:47 | DE method ready: raw edgeR_QL 649.9 seconds 
+14:58:47 | DE raw DESeq2 
+15:13:49 | DE method ready: raw DESeq2 901.5 seconds 
+15:13:49 | DE raw limma continuous 
+15:13:52 | DE method ready: raw limma 2.7 seconds 
+15:13:53 | DE variant ready: raw ff945e04ff3833444511dfab517e438e0776ee90931f962219d2fce687e51dd6 
+           used  (Mb) gc trigger   (Mb)  max used   (Mb)
+Ncells  7457573 398.3   11802641  630.4  11802641  630.4
+Vcells 16062165 122.6  395191562 3015.1 493989320 3768.9
+15:13:59 | DE cache miss: batch_corrected e187967150753d08bb29fe40824abc9ea3306e8486e4c1959d50d3a85bd70acf 
+15:14:24 | DE batch_corrected voom 
+15:14:39 | DE method ready: batch_corrected voom 7.7 seconds 
+15:14:39 | DE batch_corrected voom quality weights 
+15:15:04 | DE batch_corrected quality weights genes 1000 / 21446 
+15:15:20 | DE batch_corrected quality weights genes 2000 / 21446 
+15:15:41 | DE batch_corrected quality weights genes 3000 / 21446 
+15:15:54 | DE batch_corrected quality weights genes 4000 / 21446 
+15:16:36 | DE batch_corrected quality weights genes 5000 / 21446 
+15:17:21 | DE batch_corrected quality weights genes 6000 / 21446 
+15:17:40 | DE batch_corrected quality weights genes 7000 / 21446 
+15:18:14 | DE batch_corrected quality weights genes 8000 / 21446 
+15:18:35 | DE batch_corrected quality weights genes 9000 / 21446 
+15:18:59 | DE batch_corrected quality weights genes 10000 / 21446 
+15:19:18 | DE batch_corrected quality weights genes 11000 / 21446 
+15:19:31 | DE batch_corrected quality weights genes 12000 / 21446 
+15:19:47 | DE batch_corrected quality weights genes 13000 / 21446 
+15:20:00 | DE batch_corrected quality weights genes 14000 / 21446 
+15:20:15 | DE batch_corrected quality weights genes 15000 / 21446 
+15:20:31 | DE batch_corrected quality weights genes 16000 / 21446 
+15:20:52 | DE batch_corrected quality weights genes 17000 / 21446 
+15:21:22 | DE batch_corrected quality weights genes 18000 / 21446 
+15:21:42 | DE batch_corrected quality weights genes 19000 / 21446 
+15:22:05 | DE batch_corrected quality weights genes 20000 / 21446 
+15:22:27 | DE batch_corrected quality weights genes 21000 / 21446 
+15:22:33 | DE batch_corrected quality weights genes 21446 / 21446 
+15:23:01 | DE batch_corrected quality weights genes 1000 / 21446 
+15:23:19 | DE batch_corrected quality weights genes 2000 / 21446 
+15:23:40 | DE batch_corrected quality weights genes 3000 / 21446 
+15:23:56 | DE batch_corrected quality weights genes 4000 / 21446 
+15:24:13 | DE batch_corrected quality weights genes 5000 / 21446 
+15:24:30 | DE batch_corrected quality weights genes 6000 / 21446 
+15:24:46 | DE batch_corrected quality weights genes 7000 / 21446 
+15:25:03 | DE batch_corrected quality weights genes 8000 / 21446 
+15:25:18 | DE batch_corrected quality weights genes 9000 / 21446 
+15:25:36 | DE batch_corrected quality weights genes 10000 / 21446 
+15:25:56 | DE batch_corrected quality weights genes 11000 / 21446 
+15:26:11 | DE batch_corrected quality weights genes 12000 / 21446 
+15:26:25 | DE batch_corrected quality weights genes 13000 / 21446 
+15:26:46 | DE batch_corrected quality weights genes 14000 / 21446 
+15:27:04 | DE batch_corrected quality weights genes 15000 / 21446 
+15:27:22 | DE batch_corrected quality weights genes 16000 / 21446 
+15:27:38 | DE batch_corrected quality weights genes 17000 / 21446 
+15:27:50 | DE batch_corrected quality weights genes 18000 / 21446 
+15:28:01 | DE batch_corrected quality weights genes 19000 / 21446 
+15:28:13 | DE batch_corrected quality weights genes 20000 / 21446 
+15:28:26 | DE batch_corrected quality weights genes 21000 / 21446 
+15:28:31 | DE batch_corrected quality weights genes 21446 / 21446 
+15:28:38 | DE method ready: batch_corrected voom_qw 839.2 seconds 
+15:28:38 | DE batch_corrected edgeR quasi-likelihood 
+15:32:08 | DE method ready: batch_corrected edgeR_QL 210.1 seconds 
+15:32:08 | DE batch_corrected DESeq2 
+15:36:24 | DE method ready: batch_corrected DESeq2 255.2 seconds 
+15:36:24 | DE batch_corrected limma continuous 
+15:36:26 | DE method ready: batch_corrected limma 2.2 seconds 
+15:36:27 | DE variant ready: batch_corrected e187967150753d08bb29fe40824abc9ea3306e8486e4c1959d50d3a85bd70acf 
+           used  (Mb) gc trigger   (Mb)  max used   (Mb)
+Ncells  7462060 398.6   11802641  630.4  11802641  630.4
+Vcells 17344346 132.4  406966655 3105.0 508708236 3881.2
+15:36:33 | DE cache miss: composition_adjusted 156fa365b5171c66fd2fd430f874df73ce7340177435e36d2a6c1296564d7f20 
+15:36:53 | DE composition_adjusted voom 
+15:37:14 | DE method ready: composition_adjusted voom 14.0 seconds 
+15:37:14 | DE composition_adjusted voom quality weights 
+15:37:39 | DE composition_adjusted quality weights genes 1000 / 22103 
+15:37:56 | DE composition_adjusted quality weights genes 2000 / 22103 
+15:38:09 | DE composition_adjusted quality weights genes 3000 / 22103 
+15:38:24 | DE composition_adjusted quality weights genes 4000 / 22103 
+15:38:39 | DE composition_adjusted quality weights genes 5000 / 22103 
+15:38:53 | DE composition_adjusted quality weights genes 6000 / 22103 
+15:39:12 | DE composition_adjusted quality weights genes 7000 / 22103 
+15:39:27 | DE composition_adjusted quality weights genes 8000 / 22103 
+15:39:46 | DE composition_adjusted quality weights genes 9000 / 22103 
+15:40:02 | DE composition_adjusted quality weights genes 10000 / 22103 
+15:40:18 | DE composition_adjusted quality weights genes 11000 / 22103 
+15:40:38 | DE composition_adjusted quality weights genes 12000 / 22103 
+15:40:52 | DE composition_adjusted quality weights genes 13000 / 22103 
+15:41:06 | DE composition_adjusted quality weights genes 14000 / 22103 
+15:41:20 | DE composition_adjusted quality weights genes 15000 / 22103 
+15:41:35 | DE composition_adjusted quality weights genes 16000 / 22103 
+15:41:48 | DE composition_adjusted quality weights genes 17000 / 22103 
+15:42:03 | DE composition_adjusted quality weights genes 18000 / 22103 
+15:42:21 | DE composition_adjusted quality weights genes 19000 / 22103 
+15:42:35 | DE composition_adjusted quality weights genes 20000 / 22103 
+15:42:50 | DE composition_adjusted quality weights genes 21000 / 22103 
+15:43:10 | DE composition_adjusted quality weights genes 22000 / 22103 
+15:43:12 | DE composition_adjusted quality weights genes 22103 / 22103 
+15:43:39 | DE composition_adjusted quality weights genes 1000 / 22103 
+15:43:56 | DE composition_adjusted quality weights genes 2000 / 22103 
+15:44:45 | DE composition_adjusted quality weights genes 3000 / 22103 
+15:45:26 | DE composition_adjusted quality weights genes 4000 / 22103 
+15:46:19 | DE composition_adjusted quality weights genes 5000 / 22103 
+15:46:42 | DE composition_adjusted quality weights genes 6000 / 22103 
+15:47:03 | DE composition_adjusted quality weights genes 7000 / 22103 
+15:47:20 | DE composition_adjusted quality weights genes 8000 / 22103 
+15:47:37 | DE composition_adjusted quality weights genes 9000 / 22103 
+15:47:54 | DE composition_adjusted quality weights genes 10000 / 22103 
+15:48:09 | DE composition_adjusted quality weights genes 11000 / 22103 
+15:48:28 | DE composition_adjusted quality weights genes 12000 / 22103 
+15:48:44 | DE composition_adjusted quality weights genes 13000 / 22103 
+15:48:59 | DE composition_adjusted quality weights genes 14000 / 22103 
+15:49:14 | DE composition_adjusted quality weights genes 15000 / 22103 
+15:49:30 | DE composition_adjusted quality weights genes 16000 / 22103 
+15:49:44 | DE composition_adjusted quality weights genes 17000 / 22103 
+15:49:59 | DE composition_adjusted quality weights genes 18000 / 22103 
+15:50:14 | DE composition_adjusted quality weights genes 19000 / 22103 
+15:50:28 | DE composition_adjusted quality weights genes 20000 / 22103 
+15:50:43 | DE composition_adjusted quality weights genes 21000 / 22103 
+15:50:59 | DE composition_adjusted quality weights genes 22000 / 22103 
+15:51:00 | DE composition_adjusted quality weights genes 22103 / 22103 
+15:51:16 | DE method ready: composition_adjusted voom_qw 842.3 seconds 
+15:51:16 | DE composition_adjusted edgeR quasi-likelihood 
+18:22:19 | DE method ready: composition_adjusted edgeR_QL 9063.3 seconds 
+18:22:20 | DE composition_adjusted DESeq2 
+21:57:22 | DE method ready: composition_adjusted DESeq2 12902.1 seconds 
+21:57:22 | DE composition_adjusted limma continuous 
+21:57:28 | DE method ready: composition_adjusted limma 6.4 seconds 
+21:57:29 | DE variant ready: composition_adjusted 156fa365b5171c66fd2fd430f874df73ce7340177435e36d2a6c1296564d7f20 
+           used  (Mb) gc trigger   (Mb)  max used   (Mb)
+Ncells  7463397 398.6   11802641  630.4  11802641  630.4
+Vcells 18702240 142.7  366023082 2792.6 508708236 3881.2
+           used  (Mb) gc trigger   (Mb)  max used   (Mb)
+Ncells  7502912 400.7   11802641  630.4  11802641  630.4
+Vcells 25554109 195.0  292818466 2234.1 508708236 3881.2
+21:57:33 | DE cache miss: tcga_paired 2bc3dd120f6118d419cd4fd91fa7e1cfcbca670a740fce43bcebdb3468e78e25 
+21:57:37 | DE tcga_paired voom 
+21:57:59 | DE method ready: tcga_paired voom 19.6 seconds 
+21:57:59 | DE tcga_paired voom quality weights 
+21:58:05 | DE tcga_paired quality weights genes 1000 / 20984 
+21:58:07 | DE tcga_paired quality weights genes 2000 / 20984 
+21:58:09 | DE tcga_paired quality weights genes 3000 / 20984 
+21:58:11 | DE tcga_paired quality weights genes 4000 / 20984 
+21:58:14 | DE tcga_paired quality weights genes 5000 / 20984 
+21:58:15 | DE tcga_paired quality weights genes 6000 / 20984 
+21:58:18 | DE tcga_paired quality weights genes 7000 / 20984 
+21:58:20 | DE tcga_paired quality weights genes 8000 / 20984 
+21:58:22 | DE tcga_paired quality weights genes 9000 / 20984 
+21:58:24 | DE tcga_paired quality weights genes 10000 / 20984 
+21:58:26 | DE tcga_paired quality weights genes 11000 / 20984 
+21:58:28 | DE tcga_paired quality weights genes 12000 / 20984 
+21:58:30 | DE tcga_paired quality weights genes 13000 / 20984 
+21:58:32 | DE tcga_paired quality weights genes 14000 / 20984 
+21:58:34 | DE tcga_paired quality weights genes 15000 / 20984 
+21:58:37 | DE tcga_paired quality weights genes 16000 / 20984 
+21:58:39 | DE tcga_paired quality weights genes 17000 / 20984 
+21:58:41 | DE tcga_paired quality weights genes 18000 / 20984 
+21:58:44 | DE tcga_paired quality weights genes 19000 / 20984 
+21:58:46 | DE tcga_paired quality weights genes 20000 / 20984 
+21:58:48 | DE tcga_paired quality weights genes 20984 / 20984 
+21:58:54 | DE tcga_paired quality weights genes 1000 / 20984 
+21:58:56 | DE tcga_paired quality weights genes 2000 / 20984 
+21:58:58 | DE tcga_paired quality weights genes 3000 / 20984 
+21:59:00 | DE tcga_paired quality weights genes 4000 / 20984 
+21:59:02 | DE tcga_paired quality weights genes 5000 / 20984 
+21:59:04 | DE tcga_paired quality weights genes 6000 / 20984 
+21:59:06 | DE tcga_paired quality weights genes 7000 / 20984 
+21:59:08 | DE tcga_paired quality weights genes 8000 / 20984 
+21:59:10 | DE tcga_paired quality weights genes 9000 / 20984 
+21:59:12 | DE tcga_paired quality weights genes 10000 / 20984 
+21:59:14 | DE tcga_paired quality weights genes 11000 / 20984 
+21:59:16 | DE tcga_paired quality weights genes 12000 / 20984 
+21:59:18 | DE tcga_paired quality weights genes 13000 / 20984 
+21:59:20 | DE tcga_paired quality weights genes 14000 / 20984 
+21:59:22 | DE tcga_paired quality weights genes 15000 / 20984 
+21:59:24 | DE tcga_paired quality weights genes 16000 / 20984 
+21:59:26 | DE tcga_paired quality weights genes 17000 / 20984 
+21:59:29 | DE tcga_paired quality weights genes 18000 / 20984 
+21:59:30 | DE tcga_paired quality weights genes 19000 / 20984 
+21:59:32 | DE tcga_paired quality weights genes 20000 / 20984 
+21:59:34 | DE tcga_paired quality weights genes 20984 / 20984 
+21:59:51 | DE method ready: tcga_paired voom_qw 112.1 seconds 
+21:59:51 | DE tcga_paired edgeR quasi-likelihood 
+22:17:26 | DE method ready: tcga_paired edgeR_QL 1055.6 seconds 
+22:17:27 | DE tcga_paired DESeq2 
+23:00:28 | DE method ready: tcga_paired DESeq2 2581.1 seconds 
+23:00:28 | DE tcga_paired limma continuous 
+23:00:33 | DE method ready: tcga_paired limma 5.1 seconds 
+23:00:34 | DE variant ready: tcga_paired 2bc3dd120f6118d419cd4fd91fa7e1cfcbca670a740fce43bcebdb3468e78e25 
+23:00:35 | Multiverse DE complete: 25 variant-method combinations 
+[run] scripts/phase2/25_multiverse_gsea.R 
+23:01:17 | Configuração carregada. Raiz do repositório: C:/Users/oorie/OneDrive/Documentos/TRABALHOS/THYROID/thyroid-volcano-ppi 

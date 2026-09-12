@@ -1,0 +1,11 @@
+[run] scripts/phase2/28_ppi_multinetwork.R 
+10:19:43 | Configuração carregada. Raiz do repositório: C:/Users/oorie/OneDrive/Documentos/TRABALHOS/THYROID/thyroid-volcano-ppi 
+10:39:49 | Three PPI universes processed with experimental and tumor-only coexpression filters 
+[run] scripts/phase2/29_gsea_robustness.R 
+10:39:58 | Configuração carregada. Raiz do repositório: C:/Users/oorie/OneDrive/Documentos/TRABALHOS/THYROID/thyroid-volcano-ppi 
+13:24:06 | GSEA robustness complete: 100 bootstraps; 14 robust pathways 
+[run] scripts/phase2/30_render_upgrade_report.R 
+13:24:14 | Configuração carregada. Raiz do repositório: C:/Users/oorie/OneDrive/Documentos/TRABALHOS/THYROID/thyroid-volcano-ppi 
+13:24:19 | Upgrade report rendered: C:/Users/oorie/OneDrive/Documentos/TRABALHOS/THYROID/thyroid-volcano-ppi/results/phase2/reports/METHODOLOGICAL_UPGRADE_2026.html 
+[run] scripts/phase2/31_validate_upgrade.R 
+13:24:24 | Configuração carregada. Raiz do repositório: C:/Users/oorie/OneDrive/Documentos/TRABALHOS/THYROID/thyroid-volcano-ppi 

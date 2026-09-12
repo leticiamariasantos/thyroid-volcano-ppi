@@ -1,0 +1,47 @@
+check	passed	detail
+nonempty tcga_thca_primary_normal_counts.rds	TRUE	C:/Users/oorie/OneDrive/Documentos/TRABALHOS/THYROID/thyroid-volcano-ppi/results/phase2/upgrade_2026/matrices/tcga_thca_primary_normal_counts.rds
+nonempty raw_counts.rds	TRUE	C:/Users/oorie/OneDrive/Documentos/TRABALHOS/THYROID/thyroid-volcano-ppi/results/phase2/upgrade_2026/matrices/raw_counts.rds
+nonempty batch_corrected_counts.rds	TRUE	C:/Users/oorie/OneDrive/Documentos/TRABALHOS/THYROID/thyroid-volcano-ppi/results/phase2/upgrade_2026/matrices/batch_corrected_counts.rds
+nonempty composition_adjusted_logcpm.rds	TRUE	C:/Users/oorie/OneDrive/Documentos/TRABALHOS/THYROID/thyroid-volcano-ppi/results/phase2/upgrade_2026/matrices/composition_adjusted_logcpm.rds
+nonempty epic_convergence_status.tsv	TRUE	C:/Users/oorie/OneDrive/Documentos/TRABALHOS/THYROID/thyroid-volcano-ppi/results/phase2/upgrade_2026/deconvolution/epic_convergence_status.tsv
+nonempty DEG_summary_all_variants.tsv	TRUE	C:/Users/oorie/OneDrive/Documentos/TRABALHOS/THYROID/thyroid-volcano-ppi/results/phase2/upgrade_2026/differential_expression/DEG_summary_all_variants.tsv
+nonempty GSEA_fgsea_all_variants.tsv	TRUE	C:/Users/oorie/OneDrive/Documentos/TRABALHOS/THYROID/thyroid-volcano-ppi/results/phase2/upgrade_2026/gsea/GSEA_fgsea_all_variants.tsv
+nonempty top_deg_celltype_variance.tsv	TRUE	C:/Users/oorie/OneDrive/Documentos/TRABALHOS/THYROID/thyroid-volcano-ppi/results/phase2/upgrade_2026/deconvolution/top_deg_celltype_variance.tsv
+nonempty meta_analysis_REML.tsv	TRUE	C:/Users/oorie/OneDrive/Documentos/TRABALHOS/THYROID/thyroid-volcano-ppi/results/phase2/upgrade_2026/validation/meta_analysis_REML.tsv
+nonempty TCGA_survival_stratified.tsv	TRUE	C:/Users/oorie/OneDrive/Documentos/TRABALHOS/THYROID/thyroid-volcano-ppi/results/phase2/upgrade_2026/validation/TCGA_survival_stratified.tsv
+nonempty surface_accessibility_evidence.tsv	TRUE	C:/Users/oorie/OneDrive/Documentos/TRABALHOS/THYROID/thyroid-volcano-ppi/results/phase2/upgrade_2026/validation/surface_accessibility_evidence.tsv
+nonempty ITGA2_prespecified_gate.tsv	TRUE	C:/Users/oorie/OneDrive/Documentos/TRABALHOS/THYROID/thyroid-volcano-ppi/results/phase2/upgrade_2026/validation/ITGA2_prespecified_gate.tsv
+nonempty PPI_upgrade_summary.tsv	TRUE	C:/Users/oorie/OneDrive/Documentos/TRABALHOS/THYROID/thyroid-volcano-ppi/results/phase2/upgrade_2026/ppi/PPI_upgrade_summary.tsv
+nonempty METHODOLOGICAL_UPGRADE_2026.html	TRUE	C:/Users/oorie/OneDrive/Documentos/TRABALHOS/THYROID/thyroid-volcano-ppi/results/phase2/reports/METHODOLOGICAL_UPGRADE_2026.html
+all upgrade RDS readable	TRUE	
+all upgrade TSV files readable	TRUE	
+batch design full rank	TRUE	3/3
+adjacent normals >=20	TRUE	59
+paired participants >=20	TRUE	59
+TCGA counts metadata aligned	TRUE	56937x564
+augmented counts metadata aligned	TRUE	22103x842
+batch counts dimensions preserved	TRUE	22103x842
+sample identifiers unique and nonmissing	TRUE	842
+pre-specified CPM filter satisfied	TRUE	CPM>=1; fraction=0.25; smaller_group=337
+TCGA matrix checksum	TRUE	c001dfd1dc547ae546b134dd3b67412ccffa856f159d43e4fb0e0147a2b84b39
+raw filtered matrix checksum	TRUE	8614d59b0a71801f530b116aaf957f3273d882e9437873e80a985dcfb158bf5c
+five DE methods	TRUE	voom,voom_quality_weights,edgeR_QL,DESeq2,limma_continuous
+five variants	TRUE	tcga_matched,raw,batch_corrected,composition_adjusted,tcga_paired
+formal xCell and EPIC completed	TRUE	xCell TRUE,EPIC TRUE,multi_signature_ssgsea TRUE
+EPIC convergence status aligned	TRUE	samples=842; nonconverged=51
+EPIC nonconvergence disclosed	TRUE	51
+GSEA five collections	TRUE	Hallmark,KEGG,GO_BP,Reactome,Panel30
+GSEA five variants	TRUE	tcga_matched,tcga_paired,raw,batch_corrected,composition_adjusted
+clusterProfiler replication nonempty	TRUE	6906
+batch correction not catastrophic	TRUE	rho=0.899; top500_direction=0.998; median_abs_delta=0.097
+source signal reduced after correction	TRUE	raw_mean_R2=0.096; corrected_mean_R2=0.064
+survival endpoints analyzed	TRUE	OS,PFS,DSS
+survival mutation stratification	TRUE	100
+survival histology stratification	TRUE	60
+survival clinical adjustment	TRUE	expression_only_low_events,clinically_adjusted
+surface evidence sources represented	TRUE	20
+three PPI universes audited	TRUE	genome_wide_top500 completed,panel30 completed,robust_leading_edge completed
+PPI centrality language constrained	TRUE	3
+ITGA2 gate complete	TRUE	DEG robusto de interesse
+ITGA2 vocabulary	TRUE	
+no prohibited therapeutic-readiness claims	TRUE	

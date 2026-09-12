@@ -1,0 +1,8 @@
+[run] scripts/phase2/25_multiverse_gsea.R 
+08:25:44 | Configuração carregada. Raiz do repositório: C:/Users/oorie/OneDrive/Documentos/TRABALHOS/THYROID/thyroid-volcano-ppi 
+10:05:31 | Multiverse GSEA complete: 68784 fgsea results 
+[run] scripts/phase2/26_composition_variance.R 
+10:05:38 | Configuração carregada. Raiz do repositório: C:/Users/oorie/OneDrive/Documentos/TRABALHOS/THYROID/thyroid-volcano-ppi 
+10:05:42 | Composition variance complete for 100 genes 
+[run] scripts/phase2/27_validation_meta_survival_surface.R 
+10:05:49 | Configuração carregada. Raiz do repositório: C:/Users/oorie/OneDrive/Documentos/TRABALHOS/THYROID/thyroid-volcano-ppi 

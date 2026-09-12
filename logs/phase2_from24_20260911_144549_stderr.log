@@ -1,0 +1,12 @@
+converting counts to integer mode
+converting counts to integer mode
+converting counts to integer mode
+converting counts to integer mode
+  Note: levels of factors in the design contain characters other than
+  letters, numbers, '_' and '.'. It is recommended (but not required) to use
+  only letters, numbers, and delimiters '_' or '.', as these are safe characters
+  for column names in R. [This is a message, not a warning or an error]
+  Note: levels of factors in the design contain characters other than
+  letters, numbers, '_' and '.'. It is recommended (but not required) to use
+  only letters, numbers, and delimiters '_' or '.', as these are safe characters
+  for column names in R. [This is a message, not a warning or an error]

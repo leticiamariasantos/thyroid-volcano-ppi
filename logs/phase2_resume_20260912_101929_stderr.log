@@ -1,0 +1,12 @@
+There were 21 warnings (use warnings() to see them)
+There were 50 or more warnings (use warnings() to see the first 50)
+Warning message:
+In fgseaMultilevel(sets, rank, minSize = 10, maxSize = 1000, eps = 1e-10,  :
+  For some pathways, in reality P-values are less than 1e-10. You can set the `eps` argument to zero for better estimation.
+[WARNING] Could not fetch resource ../figures/Fig23_Composition_Variance.png
+[WARNING] Could not fetch resource ../figures/Fig24_MetaAnalysis_Forest.png
+Error in eval(stub[[3L]], x, enclos) : object 'statistic' not found
+Calls: [ ... .prepareFastSubset -> eval -> eval -> head -> order
+Execution halted
+Error: Step failed or outputs invalid: scripts/phase2/31_validate_upgrade.R
+Execution halted

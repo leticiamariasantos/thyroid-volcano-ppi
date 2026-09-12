@@ -73,7 +73,9 @@ if (!is.null(clinical_long)) {
     z <- tryCatch(safe_api_cache(mutation_cache, function() fetch_json(u),
       validate = function(x) is.data.frame(x)), error = function(e) NULL)
     if (is.null(z) || !nrow(z)) return(data.table())
-    as.data.table(z)[, .(participant = substr(sampleId, 1L, 12L), gene = hugoGeneSymbol)]
+    # cBioPortal mutation responses for this study carry entrezGeneId but not
+    # hugoGeneSymbol; the gene is already known from the query (gene_name).
+    as.data.table(z)[, .(participant = substr(sampleId, 1L, 12L), gene = gene_name)]
   }, names(mutation_ids), mutation_ids), fill = TRUE)
   if (nrow(mut)) mutation_class <- mut[, .(mutation_class = if ("BRAF" %in% gene) "BRAF" else "RAS"), by = participant]
 
@@ -181,10 +183,12 @@ surfy_cache <- file.path(DIR_CACHE, "Surfaceome_SURFY", "2018", "table_S3_surfac
 surfy <- tryCatch(safe_api_cache(surfy_cache, function() {
   z <- tempfile(fileext = ".xlsx")
   download.file("https://wollscheidlab.org/SURFY/table_S3_surfaceome.xlsx", z, mode = "wb", quiet = TRUE)
-  as.data.table(readxl::read_excel(z, sheet = 1))
+  # SURFY Table S3 has a two-line header (title row + column names); skip the
+  # title so "UniProt gene" (the gene-symbol column) becomes a real column name.
+  as.data.table(readxl::read_excel(z, sheet = 1, skip = 1))
 }, validate = function(x) is.data.frame(x) && nrow(x) > 2000L), error = function(e) NULL)
 if (!is.null(surfy)) {
-  gene_col <- grep("gene.*name|hgnc|symbol", names(surfy), ignore.case = TRUE, value = TRUE)
+  gene_col <- grep("gene.*name|hgnc|symbol|uniprot.*gene", names(surfy), ignore.case = TRUE, value = TRUE)
   if (length(gene_col)) gene_col <- gene_col[1]
   if (length(gene_col)) {
     surfy_genes <- unique(unlist(strsplit(as.character(surfy[[gene_col]]), "[;, ]+")))

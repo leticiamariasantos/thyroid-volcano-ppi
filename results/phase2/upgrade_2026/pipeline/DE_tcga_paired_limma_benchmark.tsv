@@ -1,0 +1,2 @@
+variant	method	cache_key	cache_present_at_start	elapsed_seconds	completed	sha256
+tcga_paired	limma	2bc3dd120f6118d419cd4fd91fa7e1cfcbca670a740fce43bcebdb3468e78e25	FALSE	5.06358599662781	2026-09-11T23:00:33-0300	6794ad41bae5c96ac5d348e13ea20056b3884d619663b9d96c4abd37aafef98b

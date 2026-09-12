@@ -1,7 +1,7 @@
 cff-version: 1.2.0
 message: "If you use this software, please cite it as below."
-title: "Análise transcriptômica do carcinoma papilífero da tireoide com painel de 30 vias, convergência molecular e priorização de ITGA2 como candidato translacional"
-abstract: "Reconstrução independente do pipeline transcriptômico de 504 carcinomas papilíferos da tireoide (TCGA-THCA) e 279 tireoides normais (GTEx), com painel pré-especificado de 30 vias, análise global de enriquecimento (KEGG, Reactome e Hallmark), análise de composição celular, rede PPI, validação externa (GSE33630, GSE60542 e GSE224356) e priorização de ITGA2 como candidato translacional para investigação de direcionamento molecular."
+title: "Análise transcriptômica do carcinoma papilífero da tireoide com painel de 30 vias, convergência molecular e gate pré-especificado de superfície para ITGA2"
+abstract: "Reconstrução independente do pipeline transcriptômico de 504 carcinomas papilíferos da tireoide (TCGA-THCA) e 279 tireoides normais (GTEx), com painel pré-especificado de 30 vias, análise global de enriquecimento (KEGG, Reactome e Hallmark), controle de batch (ComBat-seq/SVA), deconvolução (xCell/EPIC), cinco métodos de expressão diferencial em cinco variantes analíticas, meta-análise REML, análise de sobrevivência e gate quantitativo pré-especificado de acessibilidade de superfície para ITGA2."
 type: software
 authors:
   - given-names: "Letícia Maria Dias"
@@ -37,5 +37,5 @@ keywords:
   - "nanomedicine"
   - "reproducible research"
 license: MIT
-version: "4.1.0"
-date-released: "2026-09-06"
+version: "5.0.0"
+date-released: "2026-09-12"

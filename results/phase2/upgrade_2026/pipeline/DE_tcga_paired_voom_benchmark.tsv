@@ -1,0 +1,2 @@
+variant	method	cache_key	cache_present_at_start	elapsed_seconds	completed	sha256
+tcga_paired	voom	2bc3dd120f6118d419cd4fd91fa7e1cfcbca670a740fce43bcebdb3468e78e25	FALSE	19.618714094162	2026-09-11T21:57:59-0300	0acf0007870205fc19cce5475b4a091219085bcdc7244bca7ba9768fb9e68603

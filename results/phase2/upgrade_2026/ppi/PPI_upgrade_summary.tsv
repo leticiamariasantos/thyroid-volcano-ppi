@@ -1,0 +1,4 @@
+network	input_genes	experimental_edges	coexpressed_edges	nodes	status
+genome_wide_top500	500	26	20	34	completed
+panel30	2134	10157	5342	1333	completed
+robust_leading_edge	3530	5059	3318	1109	completed
